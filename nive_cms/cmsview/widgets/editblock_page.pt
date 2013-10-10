@@ -1,0 +1,39 @@
+<div tal:define="page obj.GetPage(); 
+                 pageUrl view.FolderUrl(page);
+                 elementContainer obj.GetElementContainer();
+                 objUrl view.FolderUrl(obj);
+                 static view.StaticUrl('nive_cms.cmsview:static/')"
+     id="pageedit${obj.GetID()}" 
+     class="pageeditorEditblock pageeditorEditblockPage" 
+     onClick="$.fn.editblocks().stopEvent(event)"
+     i18n:domain="nive">
+
+  <!-- add edit -->
+  <div class="options_block">
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}elementAddWidget', '#add${obj.GetID()}',event); return false;"
+       class="nivecms"><img src="${static+'images/element_add.png'}" 
+             title="Add a new page element" align="top" i18n:attributes="title" /></a>
+  </div>
+  <div tal:attributes="id string:add${obj.GetID()}" class="addElements"></div>
+  <div class="options_block">
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}elementListWidget', '#elements${obj.GetID()}',event); return false;"
+       class="nivecms"><img src="${static+'images/element.png'}" 
+             title="List existing page elements" align="top" i18n:attributes="title" /></a>
+  </div>
+  <div tal:attributes="id string:elements${obj.GetID()}" class="listElements"></div>
+  <!-- sort -->
+  <div class="options_block">
+    <a href="${pageUrl}sortelements" class="nivecms" rel="niveOverlay"
+   	   ><img tal:attributes="src static+'images/sort.png'" 
+   	         title="Sort elements" align="top" i18n:attributes="title" /> </a>
+  </div>
+  <!-- cut copy paste -->
+  <div class="options_block">
+    <a tal:condition="elementContainer.CanPaste() and not view.ClipboardEmpty()"
+       href="${pageUrl}paste?pepos=${obj.GetID()}" class="nivecms"
+       ><img src="${static+'images/paste.png'}" 
+             title="Paste here" align="top" i18n:attributes="title" /> </a>
+  </div>
+  <div class="options_label" i18n:translate="">Main content</div>
+  <br style="clear:both"/>
+</div>

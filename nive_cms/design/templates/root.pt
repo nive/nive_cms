@@ -1,0 +1,17 @@
+<tal:block metal:use-macro="view.index_tmpl().macros['main']">
+  <tal:block metal:fill-slot="content">
+    <div tal:define="elements context.GetPageElements(user=view.User(), checkPermissions=True)" 
+         class="row">
+    <tal:block tal:condition="elements"
+               tal:repeat="el elements">
+      <span tal:condition="el.GetTypeID()=='box'" tal:replace="structure view.RenderView(el, secure=True, raiseUnauthorized=False)"/>
+      <div  tal:condition="el.GetTypeID()!='box'" tal:content="structure view.RenderView(el, secure=True, raiseUnauthorized=False)"
+            class="span12"></div>
+    </tal:block>
+    <tal:block tal:condition="not elements">
+      <div  tal:condition="not context.app.GetCountEntries()" tal:content="structure view.doc()"
+            class="span8 offset2"></div>
+    </tal:block>
+    </div>
+  </tal:block>
+</tal:block>

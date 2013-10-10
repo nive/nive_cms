@@ -1,0 +1,33 @@
+<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive">
+
+<tal:block metal:fill-slot="head">
+<script>
+	$(function() {
+		$("#sortable").sortable({ items: 'li' });
+		$("#sortable").disableSelection();
+	});
+	function store() {
+	  var l = $('#sortable').sortable('toArray');
+	  document.location.href=unescape("?sort=1&amp;ids="+l.toString());
+	  return;
+	}
+</script>
+</tal:block>
+   
+<tal:block metal:fill-slot="editmain">
+  <h3 i18n:translate="">Sort</h3>
+  <tal:block tal:condition="sortelements">
+  <ul id="sortable">
+    <li tal:repeat="obj sortelements"
+        id="${obj.GetID()}"
+        ><img src="${view.StaticUrl('nive_cms.cmsview:static/images/types/'+obj.GetTypeID()+'.png')}" align="top"/> 
+              (${repeat.obj.number}) ${obj.GetTitle()}</li>
+  </ul>
+  <a onClick="return store();" class="button" i18n:translate="">Save</a>
+  </tal:block>
+
+  <p tal:condition="not sortelements" class="alert">Nothing to sort!</p>
+
+</tal:block>
+
+</tal:block>

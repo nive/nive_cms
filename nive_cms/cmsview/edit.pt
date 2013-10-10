@@ -1,0 +1,7 @@
+<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive">
+
+<tal:block metal:fill-slot="editmain">
+  <span tal:replace="structure content"/>
+</tal:block>
+   
+</tal:block>

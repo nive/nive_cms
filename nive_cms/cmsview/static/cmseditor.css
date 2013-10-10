@@ -1,0 +1,266 @@
+
+/* pageeditor --------------------------------------------- */
+.pageelement_ov:hover,
+.peBox_ov:hover {
+  outline-width: thin;
+  outline-style: dotted;
+  outline-color: #333333;
+  outline-offset: -2px;
+  /*change this to use a different background color insted of a border */
+  /*background-color: #ffff8e; */
+}
+.pageeditorEditblock {
+  width: auto;
+  padding: 2px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  display:none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  font-size:10pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.pageeditorEditblock:hover {
+  border: 1px solid #6e6e6e;
+}
+.pageeditorEditblockElement {
+  position:absolute;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  z-index:8550;
+}
+.pageeditorEditblockPage, .pageeditorEditblockColumn {
+  position:relative;
+  display:block;
+  margin-top:4px;
+  margin-bottom:20px;
+}
+.pageeditorEditblock a {
+  background: none;
+  float: none;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  font-size:9pt;
+  line-height:1.3em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.peMenuBlock {
+  min-width:490px;
+  padding: 3px;
+  margin: 2px;
+  border: 1px solid #9e9e9e;
+  background-color: #ffff8e;
+  position:relative;
+  text-align:center;
+  font-size:9pt;
+  line-height:1.2em;
+}
+.peMenu .menuHeader a {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size:9pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.peMenu img {
+  vertical-align: top;
+}
+.pageblock {
+  position:relative;
+  top:5px;
+  display: block;
+}
+.pageeditorEditblock .title {
+  cursor:pointer;
+  font-size:10pt;
+  line-height:1.3em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.pageeditorEditblock .options_block {
+  float:left;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-right: 1px solid #cdcdcd;
+}
+.pageeditorEditblock .options_label {
+  float:left;
+  padding-left: 6px;
+  overflow: hidden;
+  font-size: 9pt;
+  color: #9e9e9e;
+}
+.pageeditorEditblock .options_block_del {
+  float:right;
+  padding-left: 5px;
+  color: #9e9e9e;
+}
+
+/* new elements ---------------------- */
+.addElements {
+  display: none;
+  position: absolute;
+  top: 20px;
+  width: 300px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  text-align:left;
+  z-index:8600;
+}
+.addElements h4 {
+  display: block;
+  padding:4px;
+  margin:0px;
+  border-bottom: 1px solid #cdcdcd;
+  font-size:9pt;
+  line-height:1.2em;
+  font-weight:bold;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.addElements a {
+  margin: 0px;
+  display: block;
+  padding: 5px;
+  float:left;
+  width:45%;
+  font-size:9pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.addElements a img {
+  padding-right: 10px;
+}
+.addElements a:hover {
+  background-color: #eaeaff;
+  text-decoration:none;
+}
+.addElements .pagedelete {
+  clear:both;
+  width:auto;
+  margin-top: 1em;
+}
+#accordion h4 {
+  display:none;
+}
+/* element list --------------------------------- */
+.listElements {
+  display: none;
+  position: absolute;
+  top: 20px;
+  width: 400px;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  text-align:left;
+  z-index:8650;
+  margin-bottom: 20px;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements h4 {
+  display: block;
+  padding:4px;
+  margin:0px;
+  font-size:9pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements a {
+  margin: 0px;
+  display: block;
+  padding: 0px;
+  font-size:9pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements a:hover {
+  background-color: #eaeaff;
+  text-decoration:none;
+}
+.listElements .element {
+  border-top: 1px solid #cdcdcd;
+  padding: 4px;
+}
+.listElements .el_title {
+  float: left;
+  padding-left: 6px;
+  width: 190px;
+  font-size:9pt;
+  line-height:1.2em;
+}
+.listElements .el_title h1,
+.listElements .el_title h2,
+.listElements .el_title h3,
+.listElements .el_title h4,
+.listElements .el_title h5,
+.listElements .el_title h6,
+ {
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+  display: inline;
+  font-size: 1em;
+  line-height:1.3em;
+  font-weight: normal;
+}
+.listElements .el_options {
+  float:right;
+  width: 190px;
+  padding-right: 6px;
+}
+.listElements .el_options a {
+  margin: 0px;
+  width: auto;
+  display: inline;
+  font-size:9pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements .el_options a img {
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  display: inline;
+}
+.listElements .el_options .block {
+  float:left;
+  width: auto;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin: 0px;
+  border-right: 1px solid #cdcdcd;
+}
+.listElements .el_options .block_del {
+  width: auto;
+  float:right;
+  padding-left: 6px;
+  padding-right: 0px;
+}
+
+/* interface elements --------------------------------- */
+.boxASK {
+ border: 1px solid #999999; background-color: #eeeeca; width: auto; padding: 10px; margin-top: 10px;
+  font-size:9pt;
+  line-height:1.2em;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.boxElements {
+  margin: 30px;
+}
+.boxElements div {
+  margin: 5px; font-weight: bold;
+}
+
+

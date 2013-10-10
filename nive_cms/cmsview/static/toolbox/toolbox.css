@@ -1,0 +1,158 @@
+#nive-toolbox {
+  overflow: hidden;
+  width: 300px;
+  height: auto;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #363636;
+  background-color:#AAAAAA;
+  border: 3px solid #AAAAAA;
+  position: fixed;
+  z-index:8888;
+  box-shadow:3px 3px 2px #666666;
+  line-height: 1.2em;
+  margin:0px;
+  padding:0px;
+  font-family: Verdana, Arial, sans;
+}
+
+#nive-toolbox .toolbox_widget {
+  margin:0px;
+  padding:0px;
+  max-height: 400px;
+}
+#nive-toolbox #toolbox_header {
+  cursor:pointer;
+  padding: 0px 10px 0px 0px;
+  margin: 0px;
+  height:24px;
+  background: url('../images/nive-cms-white-20.png') no-repeat 6px;
+}
+#nive-toolbox #toolbox_header .toggle {
+  float:right;
+  cursor:pointer;
+  width:16px;
+  padding:0px;
+  margin: 3px 0px 0px 6px;
+}
+#nive-toolbox #toolbox_header h1 {
+  font-family: courier, monospace;
+  font-size:13pt;
+  font-weight:bold;
+  line-height: 1.2em;
+  color: white;
+  padding: 0px;
+  margin: 2px;
+  width: auto;
+  text-align: right;
+}
+#nive-toolbox .toolbox_widget .widget_head {
+  font-size:9pt;
+  font-weight:bold;
+  line-height: 1.2em;
+  padding:4px;
+  margin:0px;
+  background: url('bg.gif') repeat-x;
+}
+#nive-toolbox .toolbox_widget .widget_content {
+  font-size:9pt;
+  line-height:1.2em;
+  padding:0px;
+  margin:0px;
+  background-color: #E4E4E4;
+}
+#nive-toolbox a {
+  color: #363636;
+}
+#nive-toolbox .toolbox_widget .widget_content a {
+  line-height: 1.2em;
+  color: #363636;
+  display: block;
+  border-bottom: 1px solid #cdcdcd;
+  padding: 4px 0px 3px 6px;
+}
+#nive-toolbox .toolbox_widget .widget_content a.right {
+  float:right;
+  display:inline;
+}
+#nive-toolbox .toolbox_widget p {
+  font-size:8pt;
+  line-height: 1.2em;
+  padding:4px 0px 3px 6px;
+  margin:0px;
+  color: #565656;
+}
+
+/* element list --------------------------------- */
+#nive-toolbox .toolbox_widget .subpages {
+  padding:0px;
+}
+#nive-toolbox .toolbox_widget .subpages a {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  border: none;
+}
+#nive-toolbox .toolbox_widget .subpages a:hover {
+  text-decoration:none;
+}
+#nive-toolbox .toolbox_widget .subpages .element {
+  border-bottom: 1px solid #cdcdcd;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+#nive-toolbox .toolbox_widget .subpages .el_title {
+  float: left;
+  width: 55%;
+  padding-left: 6px;
+}
+#nive-toolbox .toolbox_widget .subpages .el_options {
+  float:right;
+  width: 40%;
+  padding-right: 6px;
+}
+#nive-toolbox .toolbox_widget .subpages .el_options a {
+  margin: 0px;
+  width: auto;
+  display: inline;
+}
+#nive-toolbox .toolbox_widget .subpages .el_options a img {
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  display: inline;
+}
+#nive-toolbox .toolbox_widget .subpages .el_options .block {
+  float:left;
+  width: auto;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin: 0px;
+  border-right: 1px solid #cdcdcd;
+}
+#nive-toolbox .toolbox_widget .subpages .el_options .block_del {
+  width: auto;
+  float:right;
+  padding-left: 6px;
+  padding-right: 0px;
+}
+#nive-toolbox .alert {
+  margin-top:2px;
+  margin-bottom:2px;
+  padding:8px;
+}
+#nive-toolbox .alert ul {
+  list-style: none;
+  margin:0px;
+  padding:0px;
+  font-size:9pt;
+}
+#nive-toolbox .alert .close
+{
+  position: relative;
+  top: -2px;
+  right: -6px;
+  line-height: 20px;
+}
+

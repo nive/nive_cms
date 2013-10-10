@@ -1,0 +1,13 @@
+<div tal:define="page context.GetPage(); static view.StaticUrl('nive_cms.cmsview:static/');"
+     class="toolbox_widget"
+     i18n:domain="nive">
+ <!-- sub pages -->
+ <div class="widget_head" i18n:translate="">Sub pages</div>
+ <div class="widget_content">
+    <a tal:condition="not page.IsRoot()" 
+       tal:attributes="href view.PageUrl(page.parent)" 
+       class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
+             title alt /> <span i18n:translate="">Open parent page</span></a>
+    <span tal:replace="structure view.pageListWidget(page=page)"/>
+ </div>
+</div>

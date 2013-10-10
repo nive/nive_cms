@@ -1,0 +1,15 @@
+<span tal:condition="context.data.span=='hero-unit'" tal:replace="structure string:<div class='span12'>" />
+<div tal:attributes="class string:pageelement peBox ${context.data.span} ${context.data.spanoffset} ${context.GetResponsiveClass(view.IsEditmode())}; 
+                     id string:nive-element${context.GetID()}"
+     tal:define="elements context.GetPageElements()" i18n:domain="nive">
+  <span tal:condition="context.data.highlight" tal:replace="structure string:<div class='well'>"/>
+  <h1 tal:condition="context.meta.title"
+      tal:content="structure context.meta.title"/>
+  <span tal:condition="context.data.gallery" tal:replace="structure string:<ul class='thumbnails'>"/>
+  <span tal:repeat="el elements"
+        tal:replace="structure view.RenderView(el)"/>
+  <span tal:condition="context.data.gallery" tal:replace="structure string:</ul>"/>
+  <p tal:condition="not len(elements) and not context.meta.title">&lt;<em i18n:translate="">empty box</em>&gt;</p>
+  <span tal:condition="context.data.highlight" tal:replace="structure string:</div>"/>
+</div>
+<span tal:condition="context.data.span=='hero-unit'" tal:replace="structure string:</div>" />

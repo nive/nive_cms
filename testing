@@ -1,0 +1,4 @@
+
+Tests use a fixed directory and database.
+To customize local settings see   'nive:tests/__local.py'
+

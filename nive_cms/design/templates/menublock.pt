@@ -1,0 +1,27 @@
+<div class="pageelement peMenublock" id="nive-element${context.GetID()}" 
+     tal:define="menu context.data.get('menutype')" i18n:domain="nive">
+<tal:block tal:condition="menu == u'tree'">
+  <div id="navigationBox">
+    <h2 tal:condition="context.meta.title"
+        tal:content="structure context.meta.title" class="boxHeader"/>
+    <span tal:replace="structure view.navigationTree(page=request.context, ulclass='nav nav-pills nav-stacked')"/>
+  </div>
+</tal:block>
+<tal:block tal:condition="menu == u'subtree'">
+  <div id="navigationBox">
+    <h2 tal:condition="context.meta.title"
+        tal:content="structure context.meta.title" class="boxHeader"/>
+    <span tal:replace="structure view.navigationSub(page=request.context, ulclass='nav nav-pills nav-stacked')"/>
+  </div>
+</tal:block>
+<tal:block tal:condition="menu not in (u'tree',u'subtree')">
+  <h2 tal:condition="context.meta.title"
+      tal:content="structure context.meta.title" class="boxHeader"/>
+  <ul class="nav nav-pills nav-stacked">
+  <li tal:repeat="page context.GetMenuPages()"><a
+     tal:content="structure page.GetTitle()"
+     href="${view.PageUrl(page)}"></a></li>
+  </ul>
+</tal:block>
+</div>
+

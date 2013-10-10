@@ -1,0 +1,78 @@
+
+
+0.9.12b
+------
+- refactored previous package nive -> nive, nive_cms, nive_userdb
+  see packages.txt for changed imports
+
+This package ('nive_cms') contains only the content management system
+and is based on the 'nive' module. In previous versions this was part of
+the package 'nive' (nive_cms).
+
+----------------------------------------------------------------------------------------
+Preparation for 1.0 release
+----------------------------------------------------------------------------------------
+Change history 'nive':
+
+0.9.11b
+------
+- new sessionuser with limited functionality for caching
+- added serialize and deserialize callback option
+- user identity field added
+- enabled non-class functions as event callbacks
+- nive.utils.dataPool2.connections refactored
+- added support to view.Assets() for url links e.g. http://example.com/assets/jquery.js
+- bugfixes and improvements
+
+0.9.10b
+------
+- maintenance and bugfixes
+- added IFileStorage interface for file classes used to read and store file data
+- renamed cms.pages.skipColumn parameter to addColumnContents
+- extended definitions.ViewModuleConf with renderer attribute as default for views
+- HTMLForm action button postfix changed to class var actionPostfix
+- nive.container: added afterAdd event, renamed beforeCreate -> beforeAdd
+
+0.9.9b
+------
+- bugfixes: sort and ajax response
+- improved column integration
+- css and js assets configureable design.configuration.assets
+- cms editor widgets css updates
+- added sort and cut, copy, paste tests
+
+0.9.8b
+------
+- editor ui improvements
+- welcome message
+- scaffolds improved
+- mysql tests improved
+- bugfixes
+
+0.9.7b
+------
+- scaffold base64 password bugfix
+- converted cmsview javascript to jquery plugin
+- added cmseditor.js, removed pe.js and overlay.js
+- added cmseditor.css, removed pe.css
+- added Undo() on sql execute exceptions
+
+0.9.6b
+------
+- bugfixes and smaller updates
+- serialization and deserialization of lists to json
+- added forms.JsonSequenceForm
+- added controlset option for list form fields
+
+
+0.9.5b
+------
+The first beta release. Finally, all major features are included in this release. 
+
+- Boostrap css framework used for the default design
+- Responsive selectors added to box forms and html rendering
+- Fulltext search
+- Ctrl-key disables links in edit mode
+- Updated scaffold for sqlite and mysql
+- many fixed issues and cleanup
+- code moved to github repository

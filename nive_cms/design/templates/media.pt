@@ -1,0 +1,16 @@
+<div class="pageelement peMedia" id="nive-element${context.GetID()}" i18n:domain="nive">
+<div tal:content="structure context.GetTitle()"></div>
+<video tal:condition="context.IsVideo()" controls>
+  <source tal:attributes="src view.FileUrl('media')" />
+  <source tal:condition="view.FileUrl('mediaalt')"
+          tal:attributes="src view.FileUrl('mediaalt')" />
+       <span i18n:translate="">Sorry, your browser does not support the video element.</span>
+</video>
+<audio tal:condition="context.IsAudio()" controls>
+  <source tal:attributes="src view.FileUrl('media')" />
+  <source tal:condition="view.FileUrl('mediaalt')"
+          tal:attributes="src view.FileUrl('mediaalt')" />
+       <span i18n:translate="">Sorry, your browser does not support the audio element.</span>
+</audio>
+<p tal:condition="context.data.textblock" tal:content="structure context.data.textblock"></p>
+</div>

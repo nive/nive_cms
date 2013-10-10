@@ -1,0 +1,34 @@
+<div tal:define="static view.StaticUrl('nive_cms.cmsview:static/images/');"
+     id="nive-toolbox"
+     i18n:domain="nive">
+  <div id="toolbox_header">
+    <img class="toggle" id="toolbox_toggle" title="toggle toolbox" 
+         src="${static}toggle.png" i18n:attributes="title" />
+    <h1 i18n:translate="">toolbox</h1>
+  </div>
+  <div id="toolbox_contents">
+    <span tal:replace="structure view.insertMessages()"/>
+    <!--IObject-->
+    <!--IPage-->
+    <span tal:replace="structure view.insertPageWidgets()"/>
+    <!--IApplication-->
+    <span tal:replace="structure view.insertAppWidgets()"/>
+  </div>
+</div>
+<script>
+$(function() {
+   if($.cookie("toolboxY")!=null) $('#nive-toolbox').css({ top: $.cookie("toolboxY")*1, left: $.cookie("toolboxX")*1 });
+   if($.cookie("toolboxD")=='none') $('#toolbox_contents').css('display','none');
+   $('#toolbox_toggle').click(function () { c=$('#toolbox_contents'); c.toggle(); $.cookie("toolboxD", c.css('display'), { path: '/' }); } );
+   $('#nive-toolbox').draggable({handle:'h1', containment: 'document',
+     stop: function (event, ui) {
+         $.cookie("toolboxY", ui.position.top, { path: '/' });
+         $.cookie("toolboxX", ui.position.left, { path: '/' });
+     } 
+  });
+});
+  
+$(document).ready(function(){
+  $.niveOverlay();
+});
+</script>

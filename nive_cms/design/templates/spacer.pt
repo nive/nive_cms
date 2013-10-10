@@ -1,0 +1,2 @@
+<div class="pageelement peSeparator ${context.data.cssClass}" 
+     id="nive-element${context.GetID()}" i18n:domain="nive"></div>

@@ -1,0 +1,3 @@
+<div class="pageelement peText" id="nive-element${context.GetID()}" i18n:domain="nive">
+<span tal:replace="structure context.data.textblock"/>
+</div>

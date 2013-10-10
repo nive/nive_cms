@@ -1,0 +1,36 @@
+<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive">
+   
+<tal:block metal:fill-slot="editmain">
+
+<h2 i18n:translate="">Confirm delete</h2>
+<div class="block">
+  <tal:block tal:condition="not result and len(msgs)">
+    <div class="boxError">
+      <div tal:repeat="msg msgs"
+           tal:content="structure msg"></div>
+    </div>
+  </tal:block>
+
+  <tal:block tal:condition="objToDelete">
+    <div class="boxASK">
+      <b tal:content="objToDelete.GetTitle()"/> (<span tal:content="objToDelete.GetTypeName()" i18n:translate="" />)
+      <p>
+      <i tal:condition="not objToDelete.IsPage()" i18n:translate="">Warning: This will delete the element and all it's contents!</i>
+      <i tal:condition="objToDelete.IsPage()" i18n:translate="">Warning: This will delete the page and all sub pages!</i>
+      </p>
+    </div>
+    <div tal:condition="view.IsPage(objToDelete)" class="boxElements">
+      <div tal:repeat="element objToDelete.GetPages() + objToDelete.GetPageElements()">
+           ${element.GetTitle()} (<span i18n:translate="">${element.GetTypeName()}</span>)</div>
+    </div>
+    <div tal:condition="not view.IsPage(objToDelete)" class="boxElements">
+      <div tal:repeat="element objToDelete.GetPageElements()">
+           ${element.GetTitle()} (<span i18n:translate="">${element.GetTypeName()}</span>)</div>
+    </div>
+    <a href="delete?id=${objToDelete.GetID()}&amp;delete=1" class="button" i18n:translate="">Delete all</a>
+  </tal:block>
+
+</div>
+</tal:block>
+</tal:block>
+

@@ -1,0 +1,10 @@
+<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive">
+
+<tal:block metal:fill-slot="editmain">
+<table tal:define="app context.app" class="table table-striped">
+<tr tal:repeat="field ('title','id','pool_type','pool_create','pool_createdby','pool_change','pool_changedby','pool_filename','pool_category')"
+    ><th>${app.GetFldName(field, context.GetTypeID())}</th><td>${view.RenderField(field)}</td></tr>
+</table>
+</tal:block>
+   
+</tal:block>

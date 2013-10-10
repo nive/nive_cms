@@ -1,0 +1,48 @@
+<h3 i18n:translate="">Welcome to Nive cms!</h3>
+
+<div tal:condition="not context.app.db.GetCountEntries()" 
+     class="alert">
+<span i18n:translate="">The website is empty.</span>
+<a tal:condition="not view.User()" href="${view.FolderUrl()}editor" i18n:translate="">You have to sign in to start 
+editing content.</a><br>
+<span i18n:translate="">Please note: This page will disappear automatically after adding content.</span>
+</div>
+
+<p i18n:translate="nive_introduction">
+Nive is a new -out of the box- open source content management system based on Python and Pyramid.<br>
+The cms comes with everything needed to set up a simple website: a default design with templates, 
+a set of basic content elements and an included webserver. No python knowledge is required to get 
+started.
+</p>
+
+<br>
+<h4 i18n:translate="">It's easy to use</h4>
+<p i18n:translate="nive_toolbox">
+The <strong>toolbox</strong> (by default on the right) contains all page and system options. Page options always refer to the 
+current page. 
+The toolbox is draggable by clicking on the header. It remembers its position throughout 
+page reloads. 
+</p>
+<p i18n:translate="nive_editbars">
+Small <strong>edit bars at the bottom of each page</strong> and column provide options to handle page
+elements at these locations. The first icon lets you add elements, the second lists existing
+elements.<br>
+<br>
+Content <strong>elements on the page are interactive</strong> (Except this message). Backgrounds will be colored 
+yellow when the pointer enters the elements area and the element's edit bar appears on click. This bar includes 
+the options for the specific element.<br>
+<br>
+Some elements like links or linked images are already interactive themselves. A click on a link for 
+example will load the new page and not the edit bar. <strong>Hold the `Ctrl-key` pressed to disable the
+default behavior of links</strong> and load the edit bar only. 
+</p>
+
+<br>
+<h4 i18n:translate="">Please refer to the online documentation for further information</h4>
+<ul>
+<li><a href="http://cms.nive.co/doc/html/usage.html" target="_blank" i18n:translate="">Editing websites</a></li>
+<li><a href="http://cms.nive.co/doc/html/cms.html" target="_blank" i18n:translate="">CMS elements and modules</a></li>
+<li><a href="http://cms.nive.co/doc/html/styling.html" target="_blank" i18n:translate="">Styling the website</a></li>
+<li><a href="http://cms.nive.co/doc/html/api.html" target="_blank" i18n:translate="">API</a></li>
+<li><a href="http://cms.nive.co/website/root/community.html" target="_blank" i18n:translate="">Community and Support</a></li>
+</ul>

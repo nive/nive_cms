@@ -1,0 +1,33 @@
+import unittest
+
+from pyramid import testing
+import {{project}}
+
+class ViewTests(unittest.TestCase):
+	def setUp(self):
+		self.config = testing.setUp()
+
+	def tearDown(self):
+		testing.tearDown()
+
+	def test_website_configuration(self):
+		r={{project}}.website.test()
+		if not r:
+			return
+		print FormatConfTestFailure(r)
+		self.assert_(False, "Configuration Error")
+		
+	def test_design_configuration(self):
+		r={{project}}.design.test()
+		if not r:
+			return
+		print FormatConfTestFailure(r)
+		self.assert_(False, "Configuration Error")
+
+	def test_static_configuration(self):
+		r={{project}}.static.test()
+		if not r:
+			return
+		print FormatConfTestFailure(r)
+		self.assert_(False, "Configuration Error")
+		

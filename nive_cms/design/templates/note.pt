@@ -1,0 +1,4 @@
+<div tal:condition="view.IsEditmode()" class="pageelement peNote" id="nive-element${context.GetID()}" i18n:domain="nive">
+<p tal:condition="context.data.textblock" 
+   tal:content="structure context.data.textblock"></p>
+</div>

@@ -1,0 +1,18 @@
+<div tal:condition="wf"
+     tal:define="page context.GetPage(); 
+                 pageUrl view.FolderUrl(page);"
+     class="toolbox_widget" i18n:domain="nive">
+ <!-- page workflow state -->
+ <div class="widget_head" i18n:translate="">Workflow</div>
+ <div class="widget_content">
+   <p tal:condition="context.meta.pool_state==0"><img src="${view.StaticUrl('nive_cms.workflow:static/exclamation.png')}" 
+            title="transition.name"/> <span i18n:translate="">The page is in draft mode and not public.</span></p>
+   <a tal:repeat="transition wf['transitions']" class="mainOption"
+      href="${pageUrl}action?t=${transition.id}&redirect_url=${request.url}"><img 
+            src="${view.StaticUrl('nive_cms.workflow:static/'+transition.id+'.png')}" 
+            title="${transition.name}" align="top" i18n:attributes="title"/> <span i18n:translate="">${transition.name}</span></a>
+
+   <a href="${pageUrl}workflow" 
+      class="nivecms" rel="niveOverlay"><img tal:attributes="src view.StaticUrl('nive_cms.cmsview:static/images/jumpto.png')"  
+             title alt /> <span i18n:translate="">Open workflow page</span></a> </div>
+</div>
