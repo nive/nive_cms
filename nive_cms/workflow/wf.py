@@ -19,7 +19,7 @@ __doc__ = """
 
 from nive.definitions import IPage
 from nive.workflow import WfProcessConf, WfStateConf, WfTransitionConf
-from nive.i18n import _
+from nive_cms.i18n import _
 
 
 # change pool_state to publish or revoke

@@ -28,7 +28,7 @@ Optionally pages can
 - have a manually entered readable url name
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 
 from nive.definitions import StagPage, StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageBase

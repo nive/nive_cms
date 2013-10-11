@@ -21,7 +21,7 @@ Note
 Simple text note for authors. The note is only visible to cms authors and not published.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementBase
 from nive.utils.utils import ConvertHTMLToText, CutText

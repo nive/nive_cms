@@ -21,7 +21,7 @@ Code
 Text element to add code snippets to web pages. Supports Javascript, raw HTML and CSS. 
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementBase
 

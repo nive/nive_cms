@@ -35,7 +35,7 @@ except:
 from pyramid.renderers import get_renderer, render_to_response, render
 from pyramid.httpexceptions import HTTPNotFound
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import ViewModuleConf, ViewConf, ConfigurationError
 from nive.definitions import IWebsite, IWebsiteRoot, IRoot, ICMSRoot, IPage, IPageElement, IObject, IFile
 from nive.definitions import IViewModuleConf

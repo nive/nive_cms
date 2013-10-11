@@ -21,7 +21,7 @@ Administration interface extensions
 
 from pyramid.renderers import render
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import ViewConf, ViewModuleConf, FieldConf, WidgetConf, Conf
 from nive.definitions import IApplication, IAdminWidgetConf   
 from nive.adminview.view import AdminBasics, ConfigurationForm

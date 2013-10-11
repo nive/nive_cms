@@ -24,7 +24,7 @@ in the database. The root itself does not store anything in the database.
 Also this object provides search functions and sql query wrappers.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive_cms.baseobjects import PageRootBase
 from nive.definitions import IWebsiteRoot, implements
 from nive.definitions import RootConf

@@ -20,7 +20,7 @@ from types import StringType, UnicodeType, IntType, LongType
 
 from nive.utils.utils import ConvertToNumberList
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPage, StagPageElement
 from nive.definitions import implements, Interface, IObject, ISort
 

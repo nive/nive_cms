@@ -40,7 +40,7 @@ from pyramid.response import Response
 from pyramid.renderers import get_renderer, render, render_to_response
 
     
-from nive.i18n import _, translator
+from nive_cms.i18n import _, translator
 from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf
 from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot
 from nive.definitions import IToolboxWidgetConf, IEditorWidgetConf, IViewModuleConf, ICMSRoot, IColumn

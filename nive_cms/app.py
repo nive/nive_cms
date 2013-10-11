@@ -61,7 +61,7 @@ have to add the required css, images and javascript used by the templates to the
 """
 import copy
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import implements, IWebsite
 from nive.definitions import AppConf, FieldConf, GroupConf
 from nive.definitions import AllMetaFlds

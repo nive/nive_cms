@@ -21,7 +21,7 @@ File
 The *file* element provides a simple file download with title and optional description.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.utils.utils import FormatBytesForDisplay
 
 from nive.definitions import StagPageElement, ObjectConf, FieldConf

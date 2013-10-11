@@ -22,7 +22,7 @@ In edit mode the cms will use this root to render the webpage. nive_cms.root is 
 in normal mode. 
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import RootConf, implements, IWebsiteRoot, ICMSRoot
 from nive_cms.baseobjects import PageRootBase
 

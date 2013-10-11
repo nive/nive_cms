@@ -17,7 +17,7 @@
 __doc__ = """
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import IPage
 from nive.definitions import IToolboxWidgetConf, IEditorWidgetConf
 from nive.definitions import ViewModuleConf, ViewConf, WidgetConf

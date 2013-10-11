@@ -22,7 +22,7 @@ Text element for the web page. Can be used to add headers, preformatted text
 and paragraphs to the web page. 
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.utils.utils import ConvertHTMLToText, CutText
 
 from nive.definitions import StagPageElement, ObjectConf, FieldConf

@@ -21,7 +21,7 @@ Spacer
 Styling element to add line breaks and vertical space between elements. 
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementBase
 

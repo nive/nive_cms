@@ -17,7 +17,7 @@
 
 import string
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.utils.utils import ConvertListToStr, ConvertToNumberList
 
 from nive.definitions import StagPage, StagPageElement

@@ -22,7 +22,7 @@ Element to insert audio or video files into the web page. Uses HTML 5 media and 
 and the browser's default player.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementFileBase
 

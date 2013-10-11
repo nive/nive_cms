@@ -21,7 +21,7 @@ News item
 Simple news item with title, text, image, publish date and link.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementBase
 

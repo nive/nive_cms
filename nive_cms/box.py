@@ -21,7 +21,7 @@ A box is a container to group elements on a page. It can be used as an
 advanced styling element for web pages. The box itself only stores a title and a css class.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPage, StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementContainerBase
 

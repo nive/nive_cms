@@ -41,7 +41,7 @@ activated by adding `nive_cms.extensions.images.ImageProcessor` to configuration
 The default image settings for conversions. 
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf, Conf
 from nive_cms.baseobjects import PageElementFileBase
 

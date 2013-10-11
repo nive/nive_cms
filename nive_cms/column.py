@@ -23,7 +23,7 @@ normal page elements but have to be defined manually in the main template. A col
 be inherited through a hierarchy of pages.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPage, StagPageElement, ObjectConf, FieldConf, IColumn, implements
 from nive_cms.baseobjects import PageElementContainerBase
 

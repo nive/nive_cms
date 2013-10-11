@@ -48,7 +48,7 @@ from nive.definitions import Conf
 from nive.utils.path import DvPath
 from nive.utils.dataPool2.files import File
 from nive.helper import ResolveName
-from nive.i18n import _
+from nive_cms.i18n import _
 
 import sys
 from time import time

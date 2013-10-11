@@ -23,7 +23,7 @@ With the link element you can add internal or external links into the web page.
 Internal links can be referenced as page id (the number) and are resolved automatically.
 """
 
-from nive.i18n import _
+from nive_cms.i18n import _
 from nive.definitions import StagPageElement, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageElementBase
 
