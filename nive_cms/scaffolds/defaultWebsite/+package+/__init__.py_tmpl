@@ -17,14 +17,15 @@ Please refer to :py:class:``nive.definitions.AppConf`` and :py:class:``nive.defi
 for all configuration options. 
 """
 website = AppConf("nive.cms.app",
-        title=u"My website", 
-        id="website",
-        dbConfiguration = DatabaseConf(
-            fileRoot="{{root}}/files",
-            # {{comment}} 
-            {{param_website}}
-        )
+    title=u"My website", 
+    id="website"
 )
+dbConfiguration = DatabaseConf(
+    fileRoot="{{root}}/files",
+    # {{comment}} 
+    {{param_website}}
+)
+userdb.modules.append(dbConfiguration)
 
 """
 Website design
@@ -61,16 +62,17 @@ Please refer to :py:class:``nive.definitions.AppConf`` and :py:class:``nive.defi
 for all configuration options. 
 """
 userdb = AppConf("nive.userdb.app",
-        title = u"Userdatabase", 
-        id = "userdb",
-        userAdmin = (u"{{adminemail}}", u"Admin"),
-        admin = {"name": "{{adminuser}}", "password": base64.decodestring("{{adminpass}}"), "email": ""},
-        dbConfiguration = DatabaseConf(
-            fileRoot="{{root}}/filesuserdb",
-            # {{comment}} 
-            {{param_user}}
-        )
+    title = u"Userdatabase", 
+    id = "userdb",
+    userAdmin = (u"{{adminemail}}", u"Admin"),
+    admin = {"name": "{{adminuser}}", "password": base64.decodestring("{{adminpass}}"), "email": ""},
 )
+dbConfiguration = DatabaseConf(
+    fileRoot="{{root}}/filesuserdb",
+    # {{comment}} 
+    {{param_user}}
+)
+userdb.modules.append(dbConfiguration)
 
 sendMail = ToolConf("nive.components.tools.sendMail",
     values = {
