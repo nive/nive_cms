@@ -11,12 +11,12 @@ Website configuration
 This will start a default nive cms instance and use sqlite  
 ``data/website.db`` as database and ``data/files`` as root directory for binary files.
  
-Default values are loaded from :py:module:``nive.cms.app``.
+Default values are loaded from :py:module:``nive_cms.app``.
 
 Please refer to :py:class:``nive.definitions.AppConf`` and :py:class:``nive.definitions.DatabaseConf``
 for all configuration options. 
 """
-website = AppConf("nive.cms.app",
+website = AppConf("nive_cms.app",
     title=u"My website", 
     id="website"
 )
@@ -30,14 +30,14 @@ userdb.modules.append(dbConfiguration)
 """
 Website design
 ---------------------------
-Default values are loaded from :py:module:``nive.cms.design.view``.
+Default values are loaded from :py:module:``nive_cms.design.view``.
 
 Please refer to :py:module:``nive.definitions.ViewModuleConf`` for all configuration options.
 """
 # extend the template directory with our own for replacements. The cms will look first in the project
 # directory for a template and if not found in the original directory. Adding a new template will
 # require a restart
-design = ViewModuleConf("nive.cms.design.view",
+design = ViewModuleConf("nive_cms.design.view",
 	templates="{{package}}:templates"
 )
 website.modules.append(design)
@@ -56,12 +56,12 @@ User database
 This will include the user database instance and use sqlite  
 ``data/website.db`` as database and ``data/files`` as root directory for binary files.
  
-Default values are loaded from :py:module:``nive.cms.app``.
+Default values are loaded from :py:module:``nive_cms.app``.
 
 Please refer to :py:class:``nive.definitions.AppConf`` and :py:class:``nive.definitions.DatabaseConf``
 for all configuration options. 
 """
-userdb = AppConf("nive.userdb.app",
+userdb = AppConf("nive_userdb.app",
     title = u"Userdatabase", 
     id = "userdb",
     userAdmin = (u"{{adminemail}}", u"Admin"),
