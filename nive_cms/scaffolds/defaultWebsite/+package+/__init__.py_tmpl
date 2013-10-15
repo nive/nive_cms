@@ -38,14 +38,14 @@ Please refer to :py:module:``nive.definitions.ViewModuleConf`` for all configura
 # directory for a template and if not found in the original directory. Adding a new template will
 # require a restart
 design = ViewModuleConf("nive_cms.design.view",
-	templates="{{package}}:templates"
+    templates="{{package}}:templates"
 )
 website.modules.append(design)
 
 # add a new static directory for customized and new asset files
 static = ViewModuleConf(
     id = "extended",
-	static="{{package}}:static"
+    static="{{package}}:static"
 )
 website.modules.append(static)
 
@@ -56,7 +56,7 @@ User database
 This will include the user database instance and use sqlite  
 ``data/website.db`` as database and ``data/files`` as root directory for binary files.
  
-Default values are loaded from :py:module:``nive_cms.app``.
+Default values are loaded from :py:module:``nive_userdb.app``.
 
 Please refer to :py:class:``nive.definitions.AppConf`` and :py:class:``nive.definitions.DatabaseConf``
 for all configuration options. 
@@ -76,7 +76,7 @@ userdb.modules.append(dbConfiguration)
 
 sendMail = ToolConf("nive.components.tools.sendMail",
     values = {
-    	"host":"",
+        "host":"",
         "port":"",
         "sender":"",
         "user":"",
