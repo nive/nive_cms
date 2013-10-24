@@ -87,8 +87,7 @@ configuration.modules = [
     "nive_cms.extensions.fulltextpage", 
     #"nive.components.extensions.localgroups",
     # tools
-    "nive.components.tools.dbStructureUpdater", "nive.components.tools.dbSqldataDump", "nive.components.tools.cmsstatistics",
-    "nive.components.tools.gcdump",
+    "nive.tools.dbStructureUpdater", "nive.tools.dbSqlDump", "nive.tools.dbJsonDump", "nive.tools.cmsstatistics",
     # administration and persistence
     "nive.adminview",
     "nive.components.extensions.persistence.dbPersistenceConfiguration"

@@ -7,13 +7,13 @@ import string
 from pyramid.i18n import get_localizer
 from pyramid.threadlocal import get_current_request
 
-from nive.definitions import _
-from nive.tools import Tool
+from nive.i18n import _
+from nive.tool import Tool, ToolView
 from nive.helper import FakeLocalizer
 
 from nive.utils.utils import ConvertToNumberList
 from nive.utils.utils import ConvertHTMLToText
-from nive.definitions import implements, Interface, ModuleConf, ToolConf, Conf 
+from nive.definitions import implements, Interface, ModuleConf, ToolConf, Conf, ViewConf
 from nive.definitions import IApplication, IPage, IRoot
 
 class IFulltext(Interface):
@@ -135,7 +135,7 @@ class RewriteFulltext(Tool):
             localizer = FakeLocalizer()
 
         app = self.app
-        root = app.dataroot
+        root = app.root()
         datapool = app.db
         conn = datapool.connection
         c = conn.cursor()
@@ -198,8 +198,11 @@ toolconf = ToolConf(
     name = _(u"Rewrite fulltext index"),
     description = _("Delete and rewrite the fulltext index."),
     apply = (IApplication,),
+    mimetype = "text/html",
     data = [],
-    mimetype = "text/html"
+    views = [
+        ViewConf(name="", view=ToolView, attr="form", permission="system", context="nive_cms.extensions.fulltextpage.RewriteFulltext")
+    ]
 )
 
 configuration = ModuleConf(

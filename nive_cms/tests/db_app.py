@@ -40,7 +40,7 @@ def app(confs=[]):
         a.Query("select id from texts where id=1")
         a.Query("select id from pool_files where id=1")
     except:
-        a.GetTool("nive.components.tools.dbStructureUpdater")()
+        a.GetTool("nive.tools.dbStructureUpdater")()
     return a
 
 def app_nodb():
@@ -65,7 +65,7 @@ def emptypool(app):
 
 def createpool(path,app):
     path.CreateDirectories()
-    app.GetTool("nive.components.tools.dbStructureUpdater")()
+    app.GetTool("nive.tools.dbStructureUpdater")()
 
 
 def root(a):
