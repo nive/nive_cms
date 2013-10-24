@@ -36,7 +36,7 @@ configuration = RootConf(
     template = "root.pt",
     default = True,
     subtypes = "*",
-    extensions = ("nive.components.extensions.persistentRoot.Persistent",),
+    extensions = ("nive.extensions.persistentRoot.Persistent",),
     name = _(u"Home"),
     description = _(u"The root is the home page of the website. All contained pages and elements are stored in the database.")
 )

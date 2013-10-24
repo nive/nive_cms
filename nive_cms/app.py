@@ -85,12 +85,12 @@ configuration.modules = [
     "nive_cms.workflow.wf.wfProcess", 
     #extensions
     "nive_cms.extensions.fulltextpage", 
-    #"nive.components.extensions.localgroups",
+    #"nive.extensions.localgroups",
     # tools
     "nive.tools.dbStructureUpdater", "nive.tools.dbSqlDump", "nive.tools.dbJsonDump", "nive.tools.cmsstatistics",
     # administration and persistence
     "nive.adminview",
-    "nive.components.extensions.persistence.dbPersistenceConfiguration"
+    "nive.extensions.persistence.dbPersistenceConfiguration"
 ]
 
 configuration.acl = [

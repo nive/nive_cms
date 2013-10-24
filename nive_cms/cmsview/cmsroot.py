@@ -32,6 +32,6 @@ configuration = RootConf(
     default = False,
     subtypes = "*",
     name = _(u"Home"),
-    extensions = ("nive.components.extensions.persistentRoot.Persistent",),
+    extensions = ("nive.extensions.persistentRoot.Persistent",),
     description = __doc__
 )
