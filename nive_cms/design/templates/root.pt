@@ -9,7 +9,7 @@
             class="span12"></div>
     </tal:block>
     <tal:block tal:condition="not elements">
-      <div  tal:condition="not context.app.GetCountEntries()" tal:content="structure view.doc()"
+      <div  tal:condition="not context.app.db.GetCountEntries()" tal:content="structure view.doc()"
             class="span8 offset2"></div>
     </tal:block>
     </div>
