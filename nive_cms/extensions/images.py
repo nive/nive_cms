@@ -40,8 +40,7 @@ from nive_cms.i18n import _
 import sys
 from time import time
 
-try:     from cStringIO import StringIO
-except:  from StringIO import StringIO
+from StringIO import StringIO
 
 try:     from win32pipe import popen
 except:  from os import popen

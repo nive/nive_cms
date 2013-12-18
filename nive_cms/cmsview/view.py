@@ -18,10 +18,7 @@ entries: ::
     cmsview.Assets(ignore=["jquery.js"])  
 
 """
-try:
-    from cStringIO import StringIO
-except:
-    from StringIO import StringIO
+from StringIO import StringIO
 
 from pyramid.response import Response
 from pyramid.renderers import get_renderer, render, render_to_response

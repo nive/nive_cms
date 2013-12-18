@@ -15,10 +15,7 @@ This module includes everything required to render the public website:
 
 import os
 from time import time
-try:
-    from cStringIO import StringIO
-except:
-    from StringIO import StringIO
+from StringIO import StringIO
 from pyramid.renderers import get_renderer, render_to_response, render
 from pyramid.httpexceptions import HTTPNotFound
 
