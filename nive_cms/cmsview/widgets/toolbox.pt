@@ -1,6 +1,6 @@
 <div tal:define="static view.StaticUrl('nive_cms.cmsview:static/images/');"
      id="nive-toolbox"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
   <div id="toolbox_header">
     <img class="toggle" id="toolbox_toggle" title="toggle toolbox" 
          src="${static}toggle.png" i18n:attributes="title" />

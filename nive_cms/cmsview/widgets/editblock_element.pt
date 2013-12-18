@@ -6,7 +6,7 @@
      class="pageeditorEditblock pageeditorEditblockElement"
      onClick="$.fn.editblocks().stopEvent(event)" 
      style="display:none"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
 
   <!-- add edit -->
   <div class="options_block title" onClick="$.fn.editblocks().hideAll()">

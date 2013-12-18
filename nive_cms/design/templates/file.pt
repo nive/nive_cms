@@ -1,4 +1,4 @@
-<div class="pageelement peFile" id="nive-element${context.GetID()}" i18n:domain="nive">
+<div class="pageelement peFile" id="nive-element${context.GetID()}" i18n:domain="nive_cms">
 <a tal:condition="context.files.get('file')"
    tal:attributes="href view.FileUrl('file', context)" 
    tal:content="structure context.GetDownloadTitle()"></a>

@@ -1,7 +1,7 @@
 <span tal:condition="context.data.span=='hero-unit'" tal:replace="structure string:<div class='span12'>" />
 <div tal:attributes="class string:pageelement peBox ${context.data.span} ${context.data.spanoffset} ${context.GetResponsiveClass(view.IsEditmode())}; 
                      id string:nive-element${context.GetID()}"
-     tal:define="elements context.GetPageElements()" i18n:domain="nive">
+     tal:define="elements context.GetPageElements()" i18n:domain="nive_cms">
   <span tal:condition="context.data.highlight" tal:replace="structure string:<div class='well'>"/>
   <h1 tal:condition="context.meta.title"
       tal:content="structure context.meta.title"/>

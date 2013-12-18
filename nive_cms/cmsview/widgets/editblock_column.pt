@@ -3,7 +3,7 @@
      id="pageedit_column_${name}" 
      class="pageeditorEditblock pageeditorEditblockColumn" 
      onClick="$.fn.editblocks().stopEvent(event)"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
 
 <!-- add edit -->
 <tal:block tal:condition="not column or not column.IsLocal(page)">

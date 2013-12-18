@@ -1,4 +1,4 @@
-<div class="pageelement" id="nive-element${context.GetID()}" i18n:domain="nive">
+<div class="pageelement" id="nive-element${context.GetID()}" i18n:domain="nive_cms">
 <script tal:condition="context.data.codetype=='js'"
         tal:content="structure context.data.codeblock"></script>
 <style tal:condition="context.data.codetype=='css'" 

@@ -1,4 +1,4 @@
-<div class="pageelement peMedia" id="nive-element${context.GetID()}" i18n:domain="nive">
+<div class="pageelement peMedia" id="nive-element${context.GetID()}" i18n:domain="nive_cms">
 <div tal:content="structure context.GetTitle()"></div>
 <video tal:condition="context.IsVideo()" controls>
   <source tal:attributes="src view.FileUrl('media')" />

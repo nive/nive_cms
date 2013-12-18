@@ -1,5 +1,5 @@
 <div class="pageelement peMenublock" id="nive-element${context.GetID()}" 
-     tal:define="menu context.data.get('menutype')" i18n:domain="nive">
+     tal:define="menu context.data.get('menutype')" i18n:domain="nive_cms">
 <tal:block tal:condition="menu == u'tree'">
   <div id="navigationBox">
     <h2 tal:condition="context.meta.title"

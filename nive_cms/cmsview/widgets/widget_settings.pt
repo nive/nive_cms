@@ -2,7 +2,7 @@
                  static view.StaticUrl('nive_cms.cmsview:static/');
                  portalurl view.FolderUrl(app.portal);"
      class="toolbox_widget"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
  <!-- system and settings -->
  <div class="widget_head" i18n:translate="">Settings</div>
  <div class="widget_content">

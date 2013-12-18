@@ -1,6 +1,6 @@
 <div tal:define="page context.GetPage(); static view.StaticUrl('nive_cms.cmsview:static/');"
      class="toolbox_widget"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
  <!-- sub pages -->
  <div class="widget_head" i18n:translate="">Sub pages</div>
  <div class="widget_content">

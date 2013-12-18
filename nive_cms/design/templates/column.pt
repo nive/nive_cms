@@ -1,5 +1,5 @@
 <div tal:attributes="class string:pageelement peColumn; id string:nive-element${context.GetID()}"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
   <span tal:repeat="el context.GetPageElements()"
         tal:replace="structure view.RenderView(el)"/>
 </div>

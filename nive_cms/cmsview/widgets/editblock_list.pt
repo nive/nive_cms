@@ -3,7 +3,7 @@
                   containerUrl view.FolderUrl(elementContainer);
                   objUrl view.FolderUrl(obj)"
       onclick="$.fn.editblocks().stopEvent(event)"
-      i18n:domain="nive">
+      i18n:domain="nive_cms">
   <!-- add edit -->
   <div tal:condition="obj.GetTypeID()==u'page'" class="block">
     <a href="${objUrl}edit" class="nivecms" rel="niveOverlay" 

@@ -1,7 +1,7 @@
 <div tal:define="elementContainer obj.GetElementContainer();
                  containerUrl view.FolderUrl(elementContainer);
                  static view.StaticUrl('nive_cms.cmsview:static/images/types/')"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
   <h4 onClick="$.editblocks().toggleBlock('add${obj.GetID()}',event)" i18n:translate="">Add a new page element?</h4>
   <a tal:repeat="element elementContainer.AllowedPageElements('')" class="nivecms" rel="niveOverlay"
      tal:attributes="href containerUrl+'add?'+view.FmtURLParam(pool_type=element['id'], pepos=obj.GetID())"

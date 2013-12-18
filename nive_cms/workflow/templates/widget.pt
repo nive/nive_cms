@@ -1,7 +1,7 @@
 <div tal:condition="wf"
      tal:define="page context.GetPage(); 
                  pageUrl view.FolderUrl(page);"
-     class="toolbox_widget" i18n:domain="nive">
+     class="toolbox_widget" i18n:domain="nive_cms">
  <!-- page workflow state -->
  <div class="widget_head" i18n:translate="">Workflow</div>
  <div class="widget_content">

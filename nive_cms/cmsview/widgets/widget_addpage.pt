@@ -2,7 +2,7 @@
                  pageUrl view.FolderUrl(page);
                  static view.StaticUrl('nive_cms.cmsview:static/')"
      class="toolbox_widget"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
  <!-- add page and page templates -->
  <div class="widget_head" i18n:translate="">Add a new page</div>
  <div class="widget_content">

@@ -4,7 +4,7 @@
                  static view.StaticUrl('nive_cms.cmsview:static/');
                  containerUrl view.FolderUrl(elementContainer)"
      class="toolbox_widget"
-     i18n:domain="nive">
+     i18n:domain="nive_cms">
  <!-- current page edit, delete and options -->
   <div class="widget_head" i18n:translate="">Edit page</div>
   <div class="widget_content">

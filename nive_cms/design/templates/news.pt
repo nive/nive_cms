@@ -1,5 +1,5 @@
 <div class="pageelement peNews" id="nive-element${context.GetID()}"
-     tal:define="css context.data.cssClass; link view.ResolveLink(context.data.link)" i18n:domain="nive">
+     tal:define="css context.data.cssClass; link view.ResolveLink(context.data.link)" i18n:domain="nive_cms">
 
 <tal:block tal:condition="css not in (u'teaser', u'teasers', u'line')">
 <span class="dateright">${view.FmtDateNumbers(context.data.publish)}</span> 

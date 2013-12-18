@@ -1,4 +1,4 @@
-<div class="pageelement peLink" id="nive-element${context.GetID()}" i18n:domain="nive">
+<div class="pageelement peLink" id="nive-element${context.GetID()}" i18n:domain="nive_cms">
 <a href="${view.ResolveLink(context.data.linkurl)}" 
    tal:attributes="target context.data.target" 
    tal:content="structure context.meta.title" 
