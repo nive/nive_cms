@@ -25,7 +25,7 @@ dbConfiguration = DatabaseConf(
     # {{comment}} 
     {{param_website}}
 )
-userdb.modules.append(dbConfiguration)
+website.modules.append(dbConfiguration)
 
 """
 Website design
@@ -74,7 +74,7 @@ dbConfiguration = DatabaseConf(
 )
 userdb.modules.append(dbConfiguration)
 
-sendMail = ToolConf("nive.components.tools.sendMail",
+sendMail = ToolConf("nive.tools.sendMail",
     values = {
         "host":"",
         "port":"",
