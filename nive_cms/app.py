@@ -63,6 +63,7 @@ configuration = AppConf(
     context = "nive_cms.app.WebsitePublisher",
     workflowEnabled = True,
     columns=[u"footer"],
+    translations="nive_cms:locale/"
 )
 
 configuration.meta.append(FieldConf(id="pool_groups", datatype="mcheckboxes", size=250, default="", 
