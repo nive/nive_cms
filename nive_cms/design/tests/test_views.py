@@ -18,6 +18,7 @@ class tDesign(unittest.TestCase):
     def setUp(self):
         request = testing.DummyRequest()
         request._LOCALE_ = "en"
+        request.content_type = ""
         self.config = testing.setUp(request=request)
         self.request = request
         self.app = app()

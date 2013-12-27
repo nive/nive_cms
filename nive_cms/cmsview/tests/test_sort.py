@@ -91,6 +91,7 @@ class tViewSort(unittest.TestCase):
     def setUp(self):
         request = testing.DummyRequest()
         request._LOCALE_ = "en"
+        request.content_type = ""
         self.request = request
         self.config = testing.setUp(request=request)
         self.app = db_app.app()
