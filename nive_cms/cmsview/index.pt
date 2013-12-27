@@ -1,15 +1,9 @@
 <tal:block metal:define-macro="main"><!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de" i18n:domain="nive_cms">
+<html xmlns="http://www.w3.org/1999/xhtml" i18n:domain="nive_cms">
 <head>
 <title tal:content="view.HtmlTitle()"></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="generator" content="Nive cms" />
-<!--
-<link tal:attributes="href view.StaticUrl('nive_cms.cmsview:static/mods/bootstrap/css/bootstrap.min.css')" rel="stylesheet" type="text/css" media="all" />
-<link tal:attributes="href view.StaticUrl('nive_cms.cmsview:static/nive.css')" rel="stylesheet" type="text/css" media="all" />
-<script tal:attributes="src view.StaticUrl('nive_cms.cmsview:static/mods/jquery.min.js')" type="text/javascript"></script>
-<script tal:attributes="src view.StaticUrl('nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js')" type="text/javascript"></script>
- -->
 <tal:block tal:replace="structure view.Assets()"></tal:block>
 <tal:block metal:define-slot="head"></tal:block>
 <tal:block tal:condition="head|None" tal:replace="structure head" tal:on-error="nothing"></tal:block>
