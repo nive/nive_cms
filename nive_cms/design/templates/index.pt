@@ -11,7 +11,7 @@
 <link tal:attributes="href view.StaticUrl('styles.css')" rel="stylesheet" type="text/css" media="all" />
 <script tal:attributes="src view.StaticUrl('jquery.min.js')" type="text/javascript"></script>
 <script tal:attributes="src view.StaticUrl('bootstrap/js/bootstrap.min.js')" type="text/javascript"></script>
-<tal:block tal:condition="cmsview"><span tal:replace="structure cmsview.Assets(ignore=['jquery.js'])"/></tal:block>
+<tal:block tal:condition="cmsview"><span tal:replace="structure cmsview.EditorAssets(ignore=['jquery.js'])"/></tal:block>
 <tal:block metal:define-slot="head"></tal:block>
 <tal:block tal:condition="head|None" tal:replace="structure head" tal:on-error="nothing"></tal:block>
 </head>

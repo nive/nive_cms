@@ -59,16 +59,11 @@ class Design(BaseView):
     """
     
     def __init__(self, context, request):
-        self.context = context
-        self.request = request
+        super(Design, self).__init__(context, request)
         # the viewModule is used for template/template directory lookup 
-        self.viewModule = context.app.QueryConfByName(IViewModuleConf, "design")
+        self.viewModuleID = "design"
         if not self.viewModule:
             raise ConfigurationError, "'design' view module configuration not found"
-        #self.viewModule = configuration
-        self.appRequestKeys = []
-        self._t = time()
-        self.fileExpires = 3600
         
     @property
     def editorview(self):
@@ -91,7 +86,7 @@ class Design(BaseView):
         editor = cls(self.context, self.request)
         self._c_editor = editor
         return editor
-        
+            
     # routed views -------------------------------------------------------------------------------------
     
     def view(self):
@@ -106,13 +101,6 @@ class Design(BaseView):
         name = u"search.pt"
         return self.DefaultTemplateRenderer(values, templatename=name)
 
-   # main template ------------------------------------------------------------
-        
-    def index_tmpl(self):
-        tmpl = self._LookupTemplate(self.viewModule.mainTemplate)
-        i = get_renderer(tmpl).implementation()
-        return i
-       
     # redirects ----------------------------------------------------
 
     def app(self):

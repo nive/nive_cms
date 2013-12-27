@@ -47,19 +47,27 @@ configuration = ViewModuleConf(
     name = u"CMS Editor",
     static = "nive_cms.cmsview:static",
     templates = "nive_cms.cmsview:",
+    mainTemplate = "index.pt",
     permission = "read",
     context = IObject,
     containment = ICMSRoot,  
     view = "nive_cms.cmsview.view.Editor",
     assets = [
-        # jquery and jquery-ui
+        ('bootstrap.min.css', 'nive.adminview:static/mods/bootstrap/css/bootstrap.min.css'),
+        ('cmsview.css', 'nive_cms.cmsview:static/cmsview.css'),              # nive css
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/ui/jquery-ui-1.8.24.custom.min.js'),
-        # nive specific
-        ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),
+        ('bootstrap.min.js', 'nive.adminview:static/mods/bootstrap/js/bootstrap.min.js'),
+        ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
+    ],
+    # the editorAssets list the requirements to include the editor in the websites design
+    editorAssets = [
         ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
         ('overlay.css', 'nive_cms.cmsview:static/overlay/overlay.css'),
         ('cmseditor.css', 'nive_cms.cmsview:static/cmseditor.css'),
+        ('jquery.js', 'nive_cms.cmsview:static/mods/jquery.min.js'),
+        ('jquery-ui.js', 'nive_cms.cmsview:static/mods/ui/jquery-ui-1.8.24.custom.min.js'),
+        ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
     description=__doc__
 )
@@ -121,9 +129,11 @@ configuration.widgets = [
 class Editor(BaseView, cutcopy.CopyView, sort.SortView):
 
     def __init__(self, context, request):
-        BaseView.__init__(self, context, request)
+        super(Editor, self).__init__(context, request)
+        # the viewModule is used for template/template directory lookup 
+        self.viewModuleID = "editor"
         request.editmode = "editmode"
-
+        
     def IsEditmode(self):
         return True
         
@@ -138,45 +148,22 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             confs.append(w)
         return SortConfigurationList(confs, u"sort")
         
-    def Assets(self, assets=None, ignore=None):
+    def EditorAssets(self, ignore=None):
         """
-        Renders a list of static ressources as html <script> and <link>.
-        If assets is None the list of assets is looked up in the 'cmsview'-configuration.
-        Asset definitions use a identifier and an asset path like: ::
+        Includes the required css and js files to load the nive toolbox and editor widgets 
+        into the page code. The function renders complete link and script tags. 
         
-            ('jquery.js', 'nive_cms.cmsview:static/mods/jquery.min.js'),
-            ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
-            ('jquery-ui.js', 'http://example.com/static/mods/jquery.min.js'),
-        
-        If for example jquery is already included in the main page Assets() can be told to ignore certain
-        entries: ::
-        
-            cmsview.Assets(ignore=["jquery.js"])  
-        
+            <span tal:replace="structure view.EditorAssets(ignore=['jquery.js'])"/>          
+            
+        See ``nive.views.BaseView.Assets()``.
         """
-        if assets==None:
-            app = self.context.app
-            conf = app.QueryConfByName(IViewModuleConf, "editor")
-            if not conf:
-                return u""
-            assets = conf.assets
+        return self.Assets(assets=self.viewModule.editorAssets, ignore=ignore)
 
-        if not assets:
-            return u""
-        
-        if ignore==None:
-            ignore = []
-
-        js_links = [r[1] if r[1].startswith(u"http://") else self.StaticUrl(r[1]) for r in filter(lambda v: v[0] not in ignore and v[1].endswith(u".js"), assets)]
-        css_links = [r[1] if r[1].startswith(u"http://") else self.StaticUrl(r[1]) for r in filter(lambda v: v[0] not in ignore and v[1].endswith(u".css"), assets)]
-        js_tags = [u'<script src="%s" type="text/javascript"></script>' % link for link in js_links]
-        css_tags = [u'<link href="%s" rel="stylesheet" type="text/css" media="all"/>' % link for link in css_links]
-        return (u"\r\n").join(js_tags + css_tags)
-        
     # macros ------------------------------------------------------------------------ 
 
     def cmsIndex_tmpl(self):
-        i = get_renderer('nive_cms.cmsview:index.pt').implementation()
+        tmpl = self._LookupTemplate(self.viewModule.mainTemplate)
+        i = get_renderer(tmpl).implementation()
         return i
     
     # redirects ------------------------------------------------------------------------ 

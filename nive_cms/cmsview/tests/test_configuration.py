@@ -33,3 +33,10 @@ class TestConf(unittest.TestCase):
         print FormatConfTestFailure(r)
         self.assert_(False, "Configuration Error")
 
+    def test_conf3(self):
+        r=view.editorAssetsConfiguration.test()
+        if not r:
+            return
+        print FormatConfTestFailure(r)
+        self.assert_(False, "Configuration Error")
+
