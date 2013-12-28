@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nive_cms 0.9.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-18 15:40+0100\n"
+"POT-Creation-Date: 2013-12-28 15:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: nive_cms/app.py:69
+#: nive_cms/app.py:70
 msgid "Permission"
 msgstr ""
 
-#: nive_cms/app.py:70
+#: nive_cms/app.py:71
 msgid "Only displayed to users in the selected group"
 msgstr ""
 
@@ -157,8 +157,8 @@ msgstr ""
 
 #: nive_cms/box.py:114
 msgid ""
-"Please note: The blocksize and offset values added together can not be larger than 1. Adjust both"
-" fields accordingly."
+"Please note: The blocksize and offset values added together can not be larger than 12. Adjust "
+"both fields accordingly."
 msgstr ""
 
 #: nive_cms/box.py:116
@@ -652,7 +652,7 @@ msgstr ""
 msgid "Column names used in the main template. For multiple columns enter one per line."
 msgstr ""
 
-#: nive_cms/cmsview/cutcopy.py:69 nive_cms/cmsview/cutcopy.py:109 nive_cms/cmsview/view.py:596
+#: nive_cms/cmsview/cutcopy.py:69 nive_cms/cmsview/cutcopy.py:109 nive_cms/cmsview/view.py:583
 msgid "Object not found"
 msgstr ""
 
@@ -700,11 +700,15 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: nive_cms/cmsview/sort.pt:29
+msgid "Nothing to sort!"
+msgstr ""
+
 #: nive_cms/cmsview/sort.py:61
 msgid "List is empty"
 msgstr ""
 
-#: nive_cms/cmsview/sort.py:88 nive_cms/cmsview/view.py:626 nive_cms/workflow/view.py:54
+#: nive_cms/cmsview/sort.py:88 nive_cms/cmsview/view.py:613 nive_cms/workflow/view.py:54
 msgid "OK"
 msgstr ""
 
@@ -717,66 +721,66 @@ msgstr ""
 msgid "Not found"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:104
+#: nive_cms/cmsview/view.py:112
 msgid "Add new page"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:105 nive_cms/cmsview/widgets/widget_editpage.pt:9
+#: nive_cms/cmsview/view.py:113 nive_cms/cmsview/widgets/widget_editpage.pt:9
 msgid "Edit page"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:106
+#: nive_cms/cmsview/view.py:114
 msgid "Sub pages and parent"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:107 nive_cms/cmsview/widgets/widget_settings.pt:7
+#: nive_cms/cmsview/view.py:115 nive_cms/cmsview/widgets/widget_settings.pt:7
 msgid "Settings"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:109 nive_cms/cmsview/widgets/editblock_element.pt:24
+#: nive_cms/cmsview/view.py:117 nive_cms/cmsview/widgets/editblock_element.pt:24
 #: nive_cms/cmsview/widgets/editblock_list.pt:10 nive_cms/cmsview/widgets/editblock_list.pt:14
 #: nive_cms/workflow/wf.py:30
 msgid "Edit"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:110
+#: nive_cms/cmsview/view.py:118
 msgid "Add"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:111 nive_cms/cmsview/widgets/widget_editpage.pt:18
+#: nive_cms/cmsview/view.py:119 nive_cms/cmsview/widgets/widget_editpage.pt:18
 #: nive_cms/cmsview/widgets/widget_editpage.pt:20
 msgid "Sort sub pages"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:112
+#: nive_cms/cmsview/view.py:120
 msgid "Meta"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:419
+#: nive_cms/cmsview/view.py:406
 msgid "<p><i>empty</i></p>"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:420
+#: nive_cms/cmsview/view.py:407
 msgid "Page elements"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:456
+#: nive_cms/cmsview/view.py:443
 msgid "This page is not public."
 msgstr ""
 
-#: nive_cms/cmsview/view.py:462
+#: nive_cms/cmsview/view.py:449
 msgid "<p><i>no sub pages</i></p>"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:591
+#: nive_cms/cmsview/view.py:578
 msgid "Nothing to delete"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:603 nive_cms/cmsview/view.py:605
+#: nive_cms/cmsview/view.py:590 nive_cms/cmsview/view.py:592
 msgid "OK. Deleted."
 msgstr ""
 
-#: nive_cms/cmsview/view.py:624
+#: nive_cms/cmsview/view.py:611
 msgid "Delete failed"
 msgstr ""
 

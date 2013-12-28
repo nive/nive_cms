@@ -26,7 +26,7 @@
   <a onClick="return store();" class="button" i18n:translate="">Save</a>
   </tal:block>
 
-  <p tal:condition="not sortelements" class="alert">Nothing to sort!</p>
+  <p tal:condition="not sortelements" class="alert" i18n:translate="">Nothing to sort!</p>
 
 </tal:block>
 
