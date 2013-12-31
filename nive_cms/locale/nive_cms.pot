@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nive_cms 0.9.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-28 15:33+0100\n"
+"POT-Creation-Date: 2013-12-31 18:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -891,6 +891,30 @@ msgstr ""
 
 #: nive_cms/cmsview/widgets/widget_settings.pt:15 nive_cms/cmsview/widgets/widget_settings.pt:17
 msgid "Disable interactive elements"
+msgstr ""
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:22 nive_cms/cmsview/widgets/widget_settings.pt:23
+msgid "User management"
+msgstr ""
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:27 nive_cms/cmsview/widgets/widget_settings.pt:28
+msgid "Administration"
+msgstr ""
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:30 nive_cms/cmsview/widgets/widget_settings.pt:31
+msgid "My account"
+msgstr ""
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:33 nive_cms/cmsview/widgets/widget_settings.pt:34
+msgid "Exit editor"
+msgstr ""
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:36 nive_cms/cmsview/widgets/widget_settings.pt:37
+msgid "Log out"
+msgstr ""
+
+#: nive_cms/cmsview/widgets/widget_subpages.pt:9 nive_cms/cmsview/widgets/widget_subpages.pt:10
+msgid "Open parent page"
 msgstr ""
 
 #: nive_cms/design/view.py:34
