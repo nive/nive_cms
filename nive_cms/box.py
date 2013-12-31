@@ -111,7 +111,7 @@ configuration.data = [
     FieldConf(id="span", datatype="list", size=20, default=u"", listItems=css, 
               name=_(u"Block size"), description=u""),
     FieldConf(id="spanoffset", datatype="list", size=20, default=u"", listItems=off, 
-              name=_(u"Block empty offset left"), description=_(u"Please note: The blocksize and offset values added together can not be larger than 1. Adjust both fields accordingly.")),
+              name=_(u"Block empty offset left"), description=_(u"Please note: The blocksize and offset values added together can not be larger than 12. Adjust both fields accordingly.")),
     FieldConf(id="highlight", datatype="bool", size=2, default=False,  
               name=_(u"Highlight box contents"), description=_(u"This option will add a colored background to highlight the box and its contents.")),
     FieldConf(id="gallery", datatype="bool", size=2, default=False,  
