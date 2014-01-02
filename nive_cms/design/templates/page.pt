@@ -4,7 +4,6 @@
           http-equiv="refresh" content="0; url=${view.ResolveUrl(context.IsLinked())}">
   </tal:block>   
   
-  <meta http-equiv="refresh" content="0; url=news-nojs.php">
   <tal:block metal:fill-slot="content">
     <div tal:condition="context.data.get('header')" 
          class="page-header"><h3 tal:content="structure context.data.get('header')"></h3></div>
