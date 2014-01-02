@@ -4,14 +4,14 @@
   <div id="navigationBox">
     <h2 tal:condition="context.meta.title"
         tal:content="structure context.meta.title" class="boxHeader"/>
-    <span tal:replace="structure view.navigationTree(page=request.context, ulclass='nav nav-pills nav-stacked')"/>
+    <span tal:replace="structure view.navigationTree(page=request.context.page, ulclass='nav nav-pills nav-stacked')"/>
   </div>
 </tal:block>
 <tal:block tal:condition="menu == u'subtree'">
   <div id="navigationBox">
     <h2 tal:condition="context.meta.title"
         tal:content="structure context.meta.title" class="boxHeader"/>
-    <span tal:replace="structure view.navigationSub(page=request.context, ulclass='nav nav-pills nav-stacked')"/>
+    <span tal:replace="structure view.navigationSub(page=request.context.page, ulclass='nav nav-pills nav-stacked')"/>
   </div>
 </tal:block>
 <tal:block tal:condition="menu not in (u'tree',u'subtree')">

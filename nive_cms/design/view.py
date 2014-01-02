@@ -204,19 +204,18 @@ class Design(BaseView):
             page = self.context.GetPage()
         base = page.parent
         if page.GetID()<=0:
-            return u""
+            base = page
         elif base.GetID()<=0:
             base = page
         else:
             while base.parent.GetID() > 0:
                 base = base.parent
         
-        root = base
         path = page.GetParentIDs()
         level = 1
         html = StringIO()
         html.write(u"""<ul id="level1" class="%s">""" % (ulclass))
-        html = self._navigationLevel(root, level, page, path, html, ulclass)
+        html = self._navigationLevel(base, level, page, path, html, ulclass)
         html.write(u"""</ul>""")
         return html.getvalue()
 
