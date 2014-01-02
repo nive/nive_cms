@@ -53,11 +53,11 @@ configuration = ViewModuleConf(
     containment = ICMSRoot,  
     view = "nive_cms.cmsview.view.Editor",
     assets = [
-        ('bootstrap.min.css', 'nive_cms.cmsview:static/mods/bootstrap/css/bootstrap.min.css'),
+        ('bootstrap.css', 'nive_cms.cmsview:static/mods/bootstrap/css/bootstrap.min.css'),
         ('cmsview.css', 'nive_cms.cmsview:static/cmsview.css'),              # nive css
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/ui/jquery-ui-1.8.24.custom.min.js'),
-        ('bootstrap.min.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
+        ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
         ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
     # the editorAssets list the requirements to include the editor in the websites design
