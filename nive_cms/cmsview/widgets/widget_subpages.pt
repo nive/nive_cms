@@ -7,7 +7,7 @@
     <a tal:condition="not page.IsRoot()" 
        tal:attributes="href view.PageUrl(page.parent)" 
        class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
-             title alt /> <span i18n:translate="">Open parent page</span></a>
+             title="Open parent page" i18n:attributes="title"/> <span i18n:translate="">Open parent page</span></a>
     <span tal:replace="structure view.pageListWidget(page=page)"/>
  </div>
 </div>
