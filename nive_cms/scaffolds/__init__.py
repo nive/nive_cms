@@ -47,7 +47,7 @@ class DefaultSqliteTemplate(PyramidTemplate):
         vars['param_user'] = """context="Sqlite3", dbName="%(root)s/userdb.db" """ % vars
         vars['dbPackage'] = ''
         
-        vars['language'] = raw_input("Locale name. Please choose english-> en, german-> de or french->fr_FR: ")
+        vars['language'] = raw_input("Locale name. Please choose english-> en (default), german-> de or french-> fr: ")
         
         vars['authsecret'] = str(uuid.uuid4())
         vars['cookiesecret'] = str(uuid.uuid4())
@@ -115,7 +115,7 @@ class DefaultMysqlTemplate(PyramidTemplate):
 
         vars['dbpass'] = base64.standard_b64encode(p1)
         
-        vars['language'] = raw_input("Locale name. Please choose english-> en, german-> de or french->fr_FR: ")
+        vars['language'] = raw_input("Locale name. Please choose english-> en (default), german-> de or french-> fr: ")
 
         vars['comment'] = "# MySql "
         vars['param_website'] = """context="MySql",
