@@ -41,6 +41,9 @@ design = ViewModuleConf("nive_cms.design.view",
     templates="{{package}}:templates"
 )
 website.modules.append(design)
+# Alternatively to use the default design and templates without customization use the following
+# line instead of the lines above
+# website.modules.append("nive_cms.design.view")
 
 # add a new static directory for customized and new asset files
 static = ViewModuleConf(
