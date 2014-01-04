@@ -13,8 +13,8 @@
     </div>
     <div class="row">
     <tal:block tal:repeat="el context.GetPageElements(user=view.User(), checkPermissions=True)">
-      <span tal:condition="el.GetTypeID()=='box'" tal:replace="structure view.RenderView(el, secure=True, raiseUnauthorized=False)"/>
-      <div  tal:condition="el.GetTypeID()!='box'" tal:content="structure view.RenderView(el, secure=True, raiseUnauthorized=False)"
+      <span tal:condition="el.IsContainer()" tal:replace="structure view.RenderView(el, secure=True, raiseUnauthorized=False)"/>
+      <div  tal:condition="not el.IsContainer()" tal:content="structure view.RenderView(el, secure=True, raiseUnauthorized=False)"
             class="span12"></div>
     </tal:block>
     </div>

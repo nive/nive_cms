@@ -236,7 +236,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             elements = obj.GetPageElements()
         
         for el in elements:
-            if el.GetTypeID()=='box':
+            if el.IsContainer():
                 newjs.write(attr % {u"id": unicode(el.GetID()), u"path": self.FolderUrl(el)})
                 for elb in el.GetPageElements():
                     newjs.write(attr % {u"id": unicode(elb.GetID()), u"path": self.FolderUrl(elb)})
@@ -265,7 +265,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             elements = obj.GetPageElements()
         
         for el in elements:
-            if el.GetTypeID()=='box':
+            if el.IsContainer():
                 html.write(self.editBlockElement(obj=el, addResponse=False))
                 newjs.write(insert % {u"id": unicode(el.GetID())})
                 newjs.write(attr % {u"id": unicode(el.GetID())})
@@ -389,8 +389,8 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             if not t:
                 t = u"<em>%s</em>" % (localizer(el.GetTypeName(), self.request))
 
-            if el.GetTypeID()=="box":
-                title = u"<img src='%s%s.png' align='top'/> %s: %s" % (static, el.GetTypeID(), localizer(u"Box"), t)
+            if el.IsContainer():
+                title = u"<img src='%s%s.png' align='top'/> %s: %s" % (static, el.GetTypeID(), localizer(el.GetTypeName()), t)
                 blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
                 for elb in el.GetPageElements():
                     t = elb.GetTitle()
