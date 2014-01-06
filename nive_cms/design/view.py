@@ -270,12 +270,10 @@ class Design(BaseView):
         except:
             return False
         
+
     def HtmlTitle(self):
-        t = self.request.environ.get(u"htmltitle")
-        if not t:
-            t = self.context.GetTitle()
-        t2 = self.context.app.configuration.title
-        return t2 + u" - " + t
+        t = self.request.environ.get(u"htmltitle") or self.context.GetTitle()
+        return u"%s - %s" % (self.context.app.configuration.title, t)
 
 
     # bw 0.9.9
