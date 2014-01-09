@@ -6,19 +6,25 @@ from pyramid import testing
 from pyramid.httpexceptions import HTTPFound
 from pyramid.renderers import render
 
-from nive_cms.tests import db_app
-
 from nive_cms.cmsview.view import Editor
 from nive.security import User
-
+from nive.definitions import DatabaseConf
 from nive_cms.cmsview.sort import *
 
+from nive_cms.tests import db_app
+from nive_cms.tests.__local import DB_CONF
 
         
 class tdbCutCopy(unittest.TestCase):
     
+    def _loadApp(self, mods=None):
+        if not mods:
+            mods = []
+        mods.append(DatabaseConf(DB_CONF))
+        self.app = db_app.app(mods)
+        
     def setUp(self):
-        self.app = db_app.app()
+        self._loadApp()
         root = self.app.root("editor")
         user = User(u"test")
         user.groups.append("group:editor")
@@ -70,13 +76,19 @@ class tdbCutCopy(unittest.TestCase):
 
 class tViewCutCopy(unittest.TestCase):
 
+    def _loadApp(self, mods=None):
+        if not mods:
+            mods = []
+        mods.append(DatabaseConf(DB_CONF))
+        self.app = db_app.app(mods)
+        
     def setUp(self):
         request = testing.DummyRequest()
         request._LOCALE_ = "en"
         request.content_type = ""
         self.request = request
         self.config = testing.setUp(request=request)
-        self.app = db_app.app()
+        self._loadApp()
         self.app.Startup(self.config)
         self.root = self.app.root("editor")
         user = User(u"test")

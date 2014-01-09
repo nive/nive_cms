@@ -12,15 +12,24 @@ from pyramid import testing
 from pyramid.httpexceptions import HTTPFound
 from pyramid.renderers import render
 
+from nive_cms.tests.__local import DB_CONF
+
+
 class tCMS(unittest.TestCase):
 
+    def _loadApp(self, mods=None):
+        if not mods:
+            mods = []
+        mods.append(DatabaseConf(DB_CONF))
+        self.app = app(mods)
+        
     def setUp(self):
         request = testing.DummyRequest()
         request._LOCALE_ = "en"
         request.content_type = ""
         self.request = request
         self.config = testing.setUp(request=request)
-        self.app = app()
+        self._loadApp()
         self.app.Startup(self.config)
         self.root = self.app.root("editor")
         user = User(u"test")

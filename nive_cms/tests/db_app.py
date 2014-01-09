@@ -3,30 +3,22 @@
 import time
 import unittest
 
-from nive.definitions import OperationalError
-from nive.helper import *
 from nive.utils.path import DvPath
-from nive.definitions import *
-from nive.security import *
+from nive.definitions import AppConf, DatabaseConf
+from nive.security import User
 from nive.portal import Portal
 from nive_cms.app import WebsitePublisher
+from nive import File
 
-from nive.tests import __local
 
-dbconf = DatabaseConf(
-    dbName = __local.ROOT+"cms.db",
-    fileRoot = __local.ROOT,
-    context = "Sqlite3"
-)
-appconf = AppConf("nive_cms.app")
-appconf.modules.append("nive_cms.design.view")
-
-def app(confs=[]):
+def app(confs=None):
+    appconf = AppConf("nive_cms.app")
+    appconf.modules.append("nive_cms.design.view")
     a = WebsitePublisher()
     a.Register(appconf)
-    a.Register(dbconf)
-    for c in confs:
-        a.Register(c)
+    if confs:
+        for c in confs:
+            a.Register(c)
     p = Portal()
     p.Register(a)
     a.Startup(None)
@@ -44,6 +36,8 @@ def app(confs=[]):
     return a
 
 def app_nodb():
+    appconf = AppConf("nive_cms.app")
+    appconf.modules.append("nive_cms.design.view")
     a = WebsitePublisher()
     a.Register(appconf)
     a.Register(DatabaseConf())
