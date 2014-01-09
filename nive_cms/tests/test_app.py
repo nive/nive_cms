@@ -21,7 +21,7 @@ else:
     uTestCase = unittest.TestCase
     
 
-class ObjectTest(object):
+class ObjectTest_db(object):
     """
     Actual test classes are subclassed for db system (sqlite, mysql)
     """
@@ -245,17 +245,9 @@ class ObjectTest(object):
         
 
 
-class ObjectTest_Sqlite(ObjectTest, unittest.TestCase):
-    def _loadApp(self, mods=None):
-        if not mods:
-            mods = []
-        mods.append(DatabaseConf(DB_CONF))
-        self.app = app(mods)
+class ObjectTest_db_Sqlite(ObjectTest_db, __local.SqliteTestCase):
+    pass
         
-class ObjectTest_MySql(ObjectTest, uTestCase):
-    def _loadApp(self, mods=None):
-        if not mods:
-            mods = []
-        mods.append(DatabaseConf(MYSQL_CONF))
-        self.app = app(mods)
+class ObjectTest_db_MySql(ObjectTest_db, __local.MySqlTestCase):
+    pass
 

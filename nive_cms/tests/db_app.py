@@ -11,7 +11,7 @@ from nive_cms.app import WebsitePublisher
 from nive import File
 
 
-def app(confs=None):
+def app_db(confs=None):
     appconf = AppConf("nive_cms.app")
     appconf.modules.append("nive_cms.design.view")
     a = WebsitePublisher()

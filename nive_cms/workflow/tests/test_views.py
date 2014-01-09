@@ -13,16 +13,10 @@ from nive_cms.cmsview.view import *
 from nive_cms.workflow.view import WorkflowEdit
 from nive_cms.workflow import wf
 
-from nive_cms.tests.__local import DB_CONF
+from nive_cms.tests import __local 
 
 
-class tWf(unittest.TestCase):
-
-    def _loadApp(self, mods=None):
-        if not mods:
-            mods = []
-        mods.append(DatabaseConf(DB_CONF))
-        self.app = app(mods)
+class tWf(__local.DefaultTestCase):
 
     def setUp(self):
         request = testing.DummyRequest()

@@ -12,17 +12,11 @@ from nive.definitions import DatabaseConf
 from nive_cms.cmsview.sort import *
 
 from nive_cms.tests import db_app
-from nive_cms.tests.__local import DB_CONF
+from nive_cms.tests import __local
 
         
-class tdbCutCopy(unittest.TestCase):
+class tdbCutCopy(__local.DefaultTestCase):
     
-    def _loadApp(self, mods=None):
-        if not mods:
-            mods = []
-        mods.append(DatabaseConf(DB_CONF))
-        self.app = db_app.app(mods)
-        
     def setUp(self):
         self._loadApp()
         root = self.app.root("editor")
@@ -74,14 +68,8 @@ class tdbCutCopy(unittest.TestCase):
         
 
 
-class tViewCutCopy(unittest.TestCase):
+class tViewCutCopy(__local.DefaultTestCase):
 
-    def _loadApp(self, mods=None):
-        if not mods:
-            mods = []
-        mods.append(DatabaseConf(DB_CONF))
-        self.app = db_app.app(mods)
-        
     def setUp(self):
         request = testing.DummyRequest()
         request._LOCALE_ = "en"

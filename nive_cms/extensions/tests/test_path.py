@@ -10,7 +10,7 @@ from nive_cms.tests import db_app
 
 from nive.utils import language_data
 
-from nive_cms.tests.__local import DB_CONF
+from nive_cms.tests import __local
 
 
 
@@ -72,14 +72,8 @@ class Path(unittest.TestCase):
             
         
         
-class tWf(unittest.TestCase):
+class tWf(__local.DefaultTestCase):
 
-    def _loadApp(self, mods=None):
-        if not mods:
-            mods = []
-        mods.append(DatabaseConf(DB_CONF))
-        self.app = db_app.app(mods)
-        
     def setUp(self):
         self._loadApp()
         user = self.user = User(u"test")
