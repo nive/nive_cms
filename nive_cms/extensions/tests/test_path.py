@@ -10,12 +10,14 @@ from nive_cms.tests import db_app
 
 from nive.utils import language_data
 
+from nive_cms.tests import __local
+
+
 
 class Path(unittest.TestCase):
     
     def setUp(self):
         self.app = db_app.app_nodb()
-        pass
     
     def tearDown(self):
         pass
@@ -70,11 +72,10 @@ class Path(unittest.TestCase):
             
         
         
+class tWf(__local.DefaultTestCase):
 
-class tdbPath(unittest.TestCase):
-    
     def setUp(self):
-        self.app = db_app.app()
+        self._loadApp()
         user = self.user = User(u"test")
         user.groups.append("group:editor")
         root = self.app.root("editor")

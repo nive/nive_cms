@@ -11,6 +11,7 @@ from datetime import datetime
 
 from nive.utils.utils import ConvertToList
 from nive.definitions import StagPage, StagPageElement
+from nive.definitions import IColumn
 from nive.security import Allow, Deny, Authenticated, Everyone
 
 
@@ -151,10 +152,11 @@ class PageElementContainer:
             return elements
         elements2 = []
         for e in elements:
-            t = e.GetTypeID()
-            if addBoxContents and t == "box":
+            if not el.IsContainer():
+                continue
+            if addBoxContents and not el.IsColumn():
                 elements2 += e.GetPageElements(addBoxContents, addColumnContents, **kw)
-            elif addColumnContents and t == "column":
+            elif addColumnContents and el.IsColumn():
                 elements2 += e.GetPageElements(addBoxContents, addColumnContents, **kw)
         return elements + elements2
 
@@ -178,6 +180,10 @@ class PageElementContainer:
     def GetPage(self):
         """ return the current page """
         return self
+    
+    def IsColumn(self):
+        """ returns if the element is a column """
+        return IColumn.providedBy(self)
 
 
 

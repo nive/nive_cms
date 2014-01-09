@@ -3,19 +3,20 @@
 import time
 import unittest
 
+from pyramid import testing 
+from pyramid.httpexceptions import HTTPFound
+from pyramid.renderers import render
+
 from nive_cms.tests.db_app import *
 
 from nive_cms.cmsview.view import *
 from nive_cms.workflow.view import WorkflowEdit
 from nive_cms.workflow import wf
 
-from pyramid import testing 
-from pyramid.httpexceptions import HTTPFound
-from pyramid.renderers import render
+from nive_cms.tests import __local 
 
 
-
-class tWf(unittest.TestCase):
+class tWf(__local.DefaultTestCase):
 
     def setUp(self):
         request = testing.DummyRequest()
@@ -23,7 +24,7 @@ class tWf(unittest.TestCase):
         request.content_type = ""
         self.config = testing.setUp(request=request)
         self.request = request
-        self.app = app(["nive_cms.workflow.wf.wfProcess", "nive_cms.workflow.view"])
+        self._loadApp(["nive_cms.workflow.wf.wfProcess", "nive_cms.workflow.view"])
         self.app.Startup(self.config)
         self.root = self.app.root()
         user = User(u"test")

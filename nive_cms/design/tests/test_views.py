@@ -11,9 +11,9 @@ from pyramid.httpexceptions import HTTPNotFound, HTTPFound, HTTPOk, HTTPForbidde
 from pyramid import testing 
 from pyramid.renderers import render
 
+from nive_cms.tests import __local
 
-
-class tDesign(unittest.TestCase):
+class tDesign(__local.DefaultTestCase):
 
     def setUp(self):
         request = testing.DummyRequest()
@@ -21,7 +21,7 @@ class tDesign(unittest.TestCase):
         request.content_type = ""
         self.config = testing.setUp(request=request)
         self.request = request
-        self.app = app()
+        self._loadApp()
         self.app.Startup(self.config)        
         self.root = self.app.root()
         user = User(u"test")

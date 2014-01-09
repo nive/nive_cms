@@ -5,13 +5,29 @@ import unittest
 
 from nive.workflow import WorkflowNotAllowed
 from nive.security import Allow, Deny, Authenticated, Everyone
+from nive.definitions import DatabaseConf
 
 from nive_cms.tests.db_app import *
+from nive_cms.tests import __local
+from nive_cms.tests.__local import DB_CONF, MYSQL_CONF
 
-class ObjectTest(unittest.TestCase):
+
+# switch test class to enable / disable tests
+if not __local.ENABLE_MYSQL_TESTS:
+    class utc:
+        pass
+    uTestCase = utc
+else:
+    uTestCase = unittest.TestCase
+    
+
+class ObjectTest_db(object):
+    """
+    Actual test classes are subclassed for db system (sqlite, mysql)
+    """
 
     def setUp(self):
-        self.app = app()
+        self._loadApp()
         self.remove = []
         
     def tearDown(self):
@@ -228,4 +244,10 @@ class ObjectTest(unittest.TestCase):
         self.assertEqual(ccc, a.db.GetCountEntries(), "Delete failed")
         
 
+
+class ObjectTest_db_Sqlite(ObjectTest_db, __local.SqliteTestCase):
+    pass
+        
+class ObjectTest_db_MySql(ObjectTest_db, __local.MySqlTestCase):
+    pass
 

@@ -12,7 +12,10 @@ from pyramid import testing
 from pyramid.httpexceptions import HTTPFound
 from pyramid.renderers import render
 
-class tCMS(unittest.TestCase):
+from nive_cms.tests import __local
+
+
+class tCMS(__local.DefaultTestCase):
 
     def setUp(self):
         request = testing.DummyRequest()
@@ -20,7 +23,7 @@ class tCMS(unittest.TestCase):
         request.content_type = ""
         self.request = request
         self.config = testing.setUp(request=request)
-        self.app = app()
+        self._loadApp()
         self.app.Startup(self.config)
         self.root = self.app.root("editor")
         user = User(u"test")
