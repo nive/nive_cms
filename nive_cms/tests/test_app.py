@@ -12,15 +12,6 @@ from nive_cms.tests import __local
 from nive_cms.tests.__local import DB_CONF, MYSQL_CONF
 
 
-# switch test class to enable / disable tests
-if not __local.ENABLE_MYSQL_TESTS:
-    class utc:
-        pass
-    uTestCase = utc
-else:
-    uTestCase = unittest.TestCase
-    
-
 class ObjectTest_db(object):
     """
     Actual test classes are subclassed for db system (sqlite, mysql)
