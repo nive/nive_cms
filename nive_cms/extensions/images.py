@@ -33,7 +33,7 @@ See PIL documentation for possible format and quality values.
 
 from nive.definitions import Conf
 from nive.utils.path import DvPath
-from nive.utils.dataPool2.files import File
+from nive import File
 from nive.helper import ResolveName
 from nive_cms.i18n import _
 
