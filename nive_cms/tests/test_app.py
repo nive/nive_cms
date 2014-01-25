@@ -27,9 +27,7 @@ class ObjectTest_db(object):
         root = self.app.root("editor")
         for r in self.remove:
             root.Delete(r, u)
-        self.app.Close()
-        pass
-
+    
     def test_root(self):
         a=self.app
         ccc = a.db.GetCountEntries()

@@ -13,7 +13,7 @@ from pyramid.renderers import render
 
 from nive_cms.tests import __local
 
-class tDesign(__local.DefaultTestCase):
+class tDesign(object):
 
     def setUp(self):
         request = testing.DummyRequest()
@@ -149,5 +149,8 @@ class tDesign(__local.DefaultTestCase):
         self.request.POST = {"phrase": "a"}
         r=view.search()
         self.assertEqual(r.status_int, 200)
-        self.assertGreater(r.content_length, 2000)
+        self.assertGreater(r.content_length, 1000)
 
+
+class tDesign_db(tDesign, __local.DefaultTestCase):
+    pass
