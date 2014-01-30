@@ -23,6 +23,7 @@ class tCMS(__local.DefaultTestCase):
         request.content_type = ""
         self.request = request
         self.config = testing.setUp(request=request)
+        self.config.include('pyramid_chameleon')
         self._loadApp()
         self.app.Startup(self.config)
         self.root = self.app.root("editor")
