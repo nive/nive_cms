@@ -23,6 +23,7 @@ class tWf(__local.DefaultTestCase):
         request._LOCALE_ = "en"
         request.content_type = ""
         self.config = testing.setUp(request=request)
+        self.config.include('pyramid_chameleon')
         self.request = request
         self._loadApp(["nive_cms.workflow.wf.wfProcess", "nive_cms.workflow.view"])
         self.app.Startup(self.config)

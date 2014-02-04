@@ -20,6 +20,7 @@ class tDesign(object):
         request._LOCALE_ = "en"
         request.content_type = ""
         self.config = testing.setUp(request=request)
+        self.config.include('pyramid_chameleon')
         self.request = request
         self._loadApp()
         self.app.Startup(self.config)        
