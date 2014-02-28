@@ -16,118 +16,121 @@ Uses cookies to store settings between page relods.
         editblockViewUrl: "editblock"
     }
 
-	$(document).ready(function(){
-	    // load current setting from cookie
-	    if(_settings.useCookies) {
-		    var v=$.cookie("peEnabled");
-		    if(v!=null) _settings.enabled=v=="true"?true:false;
-		}
-	    _settings.enabled=!_settings.enabled;
-	    $.fn.editblocks().enable();
-	    // patch pagelement links to handle overlaying clicks.
-	    // intercept and disable content if ctrl key is pressed links. 
-	    $('.pageelement a').click(function() {
-	        if(_settings.enabled) {
-	            event = arguments[0];
-	            if(event && !event.ctrlKey)  return;
-	            $(this).parent().click();
-	            return false;
-	        }
-	    });
-	});
-	
-	
-	$.fn.editblocks = function( ) {
+    $(document).ready(function(){
+        // load current setting from cookie
+        if(_settings.useCookies) {
+            var v=$.cookie("peEnabled");
+            if(v!=null) _settings.enabled=v=="true"?true:false;
+        }
+        $.fn.editblocks().enable(true);
+        // patch pagelement links to handle overlaying clicks.
+        // intercept and disable content if ctrl key is pressed links. 
+        $('.pageelement a').click(function() {
+            if(_settings.enabled) {
+                event = arguments[0];
+                if(event && !event.ctrlKey)  return;
+                $(this).parent().click();
+                return false;
+            }
+        });
+    });
+    
+    
+    $.fn.editblocks = function( ) {
 
-		this.enable = function() {
-		  _settings.enabled = _settings.enabled ? false:true;
-		  $.cookie("peEnabled", _settings.enabled, { path: '/' });
-		  if(_settings.enabled) {
-		    $('#peMenuEditOn').hide();
-		    $('#peMenuEditOff').show();
-		  } else {
-		    $('#peMenuEditOn').show();
-		    $('#peMenuEditOff').hide();
-		    //this.peHideAll();
-		  }
-		  $('.pageelement').each( function(index) {
-		    if(_settings.enabled)  $(this).hasClass("peBox") ?    $(this).addClass("peBox_ov") :    $(this).addClass("pageelement_ov");
-		    else                   $(this).hasClass("peBox_ov") ? $(this).removeClass("peBox_ov") : $(this).removeClass("pageelement_ov");
-		  });
-		  $('.pageeditorEditblock').each( function(index) {
-		    _settings.enabled ? $(this).show() : $(this).hide();
-		  });
-		}
-		
-		this.showBlock = function(blockid) {
-		  $(blockid).show('slow');
-		}
-		
-		this.hideBlock = function(blockid) {
-		  $(blockid).hide('slow');
-		}
-		
-		this.loadToggleBlock = function(url, blockid) {
-		  ref = $(blockid);
-		  if(ref.html()=="") { ref.load(url, function(){ ref.toggle('fast'); $.niveOverlay(blockid);}); return; }
-		  ref.toggle('fast');
-		}
-		
-		this.toggleBlock = function(blockid) {
-		  $('.pageeditorEditblockElement').each( function(index) {
-		    if("#"+$(this).attr("id")!=blockid) $(this).hide('fast');
-		  });
-		  $(blockid).toggle('fast');
-		}
-		
-		this.hideAll = function() {
-		  $('.pageeditorEditblockElement').each( function(index) {
-		    $(this).hide('fast');
-		  });
-		}
-		
-		this.toggleMenu = function(blockid, event, hideBlockid) {
-		  $(hideBlockid).hide('fast');
-		  $(blockid).toggle('fast');
-		}
-		
-		this.stopEvent = function(event) {
-		  if(!_settings.enabled) return false;
-		  if( event.stopPropagation ) { event.stopPropagation(); } 
-		  else { event.cancelBubble = true; } // IE
-		}
-		
-		/* page element functions */
-		
-		this.clickAndLoadElement = function(id, path, event) {
-		  if(!_settings.enabled) return false;
-		  this.stopEvent(event);
-		  var eid = _settings.editblockPrefix+id;
-		  var eblock = $(eid);
-		  if(eblock.html()==undefined) {
-		      $.get(path+_settings.editblockViewUrl, 
-		            function(data) { 
-		                 $(_settings.elementPrefix+id).prepend(data); 
-		                 $(this).toggleBlock(eid);
-		                 $.niveOverlay(eid); 
-		             }).error(function(jqXHR, textStatus, errorThrown) { /*alert("?"); errorThrown*/ });
-		  }
-		  else this.toggleBlock(eid);
-		}
-		
-		this.clickElement = function(id, event) {
-		  if(!_settings.enabled) return false;
-		  this.stopEvent(event);
-		  this.toggleBlock(_settings.editblockPrefix+id);
-		}
-		
-		this.dblClickElement = function(id, event) {
-		  if(!_settings.enabled) return false;
-		  this.stopEvent(event);
-		  this.toggleBlock(_settings.editblockPrefix+id);
-		}
-		return this;
-	};
+        this.enable = function(keepSettings) {
+          // set keepSettings = true to preseve the current state. if keepSeeting is not set
+          // the state will be toggled
+          if(keepSettings==undefined) {
+            _settings.enabled = !_settings.enabled;
+            $.cookie("peEnabled", _settings.enabled, { path: '/' });
+          }
+          if(_settings.enabled) {
+            $('#peMenuEditOn').hide();
+            $('#peMenuEditOff').show();
+          } else {
+            $('#peMenuEditOn').show();
+            $('#peMenuEditOff').hide();
+            //this.peHideAll();
+          }
+          $('.pageelement').each( function(index) {
+            if(_settings.enabled)  $(this).hasClass("peBox") ?    $(this).addClass("peBox_ov") :    $(this).addClass("pageelement_ov");
+            else                   $(this).hasClass("peBox_ov") ? $(this).removeClass("peBox_ov") : $(this).removeClass("pageelement_ov");
+          });
+          $('.pageeditorEditblock').each( function(index) {
+            _settings.enabled ? $(this).show() : $(this).hide();
+          });
+        }
+        
+        this.showBlock = function(blockid) {
+          $(blockid).show('slow');
+        }
+        
+        this.hideBlock = function(blockid) {
+          $(blockid).hide('slow');
+        }
+        
+        this.loadToggleBlock = function(url, blockid) {
+          ref = $(blockid);
+          if(ref.html()=="") { ref.load(url, function(){ ref.toggle('fast'); $.niveOverlay(blockid);}); return; }
+          ref.toggle('fast');
+        }
+        
+        this.toggleBlock = function(blockid) {
+          $('.pageeditorEditblockElement').each( function(index) {
+            if("#"+$(this).attr("id")!=blockid) $(this).hide('fast');
+          });
+          $(blockid).toggle('fast');
+        }
+        
+        this.hideAll = function() {
+          $('.pageeditorEditblockElement').each( function(index) {
+            $(this).hide('fast');
+          });
+        }
+        
+        this.toggleMenu = function(blockid, event, hideBlockid) {
+          $(hideBlockid).hide('fast');
+          $(blockid).toggle('fast');
+        }
+        
+        this.stopEvent = function(event) {
+          if(!_settings.enabled) return false;
+          if( event.stopPropagation ) { event.stopPropagation(); } 
+          else { event.cancelBubble = true; } // IE
+        }
+        
+        /* page element functions */
+        
+        this.clickAndLoadElement = function(id, path, event) {
+          if(!_settings.enabled) return false;
+          this.stopEvent(event);
+          var eid = _settings.editblockPrefix+id;
+          var eblock = $(eid);
+          if(eblock.html()==undefined) {
+              $.get(path+_settings.editblockViewUrl, 
+                    function(data) { 
+                         $(_settings.elementPrefix+id).prepend(data); 
+                         $(this).toggleBlock(eid);
+                         $.niveOverlay(eid); 
+                     }).error(function(jqXHR, textStatus, errorThrown) { /*alert("?"); errorThrown*/ });
+          }
+          else this.toggleBlock(eid);
+        }
+        
+        this.clickElement = function(id, event) {
+          if(!_settings.enabled) return false;
+          this.stopEvent(event);
+          this.toggleBlock(_settings.editblockPrefix+id);
+        }
+        
+        this.dblClickElement = function(id, event) {
+          if(!_settings.enabled) return false;
+          this.stopEvent(event);
+          this.toggleBlock(_settings.editblockPrefix+id);
+        }
+        return this;
+    };
 })(jQuery);
 
 
@@ -198,7 +201,7 @@ Example: ::
             jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(_settings.fadeOutSpeed, function () { 
                       jQuery(this).unbind().remove(); 
                       if(!url) {
-                      	if(options.reloadOnClose) location.reload(); 
+                        if(options.reloadOnClose) location.reload(); 
                       } else {
                         location.href=url; 
                       } 
