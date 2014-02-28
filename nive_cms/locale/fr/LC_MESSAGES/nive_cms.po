@@ -895,7 +895,7 @@ msgstr "Trier les éléments"
 #: nive_cms/cmsview/widgets/widget_editpage.pt:36
 #: nive_cms/cmsview/widgets/widget_editpage.pt:38
 msgid "Paste here"
-msgstr "Copier ici"
+msgstr "Coller ici"
 
 #: nive_cms/cmsview/widgets/editblock_column.pt:47
 #: nive_cms/cmsview/widgets/editblock_element.pt:64
