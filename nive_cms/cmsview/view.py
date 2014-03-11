@@ -186,7 +186,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
 
     def exitapp(self):
         # leave editor mode in application context
-        root = self.context.dataroot
+        root = self.context.app.root()
         url = self.FolderUrl(root)
         self.Redirect(url)
     
