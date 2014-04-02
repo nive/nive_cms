@@ -55,8 +55,8 @@ configuration = ViewModuleConf(
     assets = [
         ('bootstrap.css', 'nive_cms.cmsview:static/mods/bootstrap/css/bootstrap.min.css'),
         ('cmsview.css', 'nive_cms.cmsview:static/cmsview.css'),              # nive css
-        ('jquery.js', 'nive_cms.cmsview:static/mods/jquery.min.js'),
-        ('jquery-ui.js', 'nive_cms.cmsview:static/mods/ui/jquery-ui-1.8.24.custom.min.js'),
+        ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
+        ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
         ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
         ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
@@ -65,8 +65,8 @@ configuration = ViewModuleConf(
         ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
         ('overlay.css', 'nive_cms.cmsview:static/overlay/overlay.css'),
         ('cmseditor.css', 'nive_cms.cmsview:static/cmseditor.css'),
-        ('jquery.js', 'nive_cms.cmsview:static/mods/jquery.min.js'),
-        ('jquery-ui.js', 'nive_cms.cmsview:static/mods/ui/jquery-ui-1.8.24.custom.min.js'),
+        ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
+        ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
         ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
     description=__doc__
