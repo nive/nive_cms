@@ -28,7 +28,7 @@
   <h4 i18n:translate="">Add a new page element?</h4>
   <a tal:repeat="element elementContainer.AllowedPageElements('')" 
      tal:attributes="href containerUrl+'add?'+view.FmtURLParam(pool_type=element['id'], pepos=context.GetID())"
-     ><img tal:attributes="src view.StaticUrl('nive_cms.cmsview:static/images/types/'+element['id']+'_add.png'); title element['name']" 
+     ><img tal:attributes="src view.StaticUrl(element.get('icon')); title element['name']" 
            align="top" i18n:attributes="title" /> <span i18n:translate="">${element.name}</span></a>
  </div>
 </tal:block>

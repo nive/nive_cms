@@ -20,7 +20,7 @@
    tal:attributes="href tab.viewmapper; class 'tab active'+str(request.view_name==tab.viewmapper)"></a>
 </nav>
 <div id="breadcrumbs">
-  <span tal:content="context.GetTypeName()" i18n:translate=""/> -> <span tal:replace="structure view.breadcrumbs(addHome=1,link=False)"/>
+  <span tal:replace="structure view.breadcrumbs(addHome=1,link=False)"/>
 </div>
 <div id="main">
 <div id="nive_edit">

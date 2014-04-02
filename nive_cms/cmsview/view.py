@@ -389,18 +389,27 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             if not t:
                 t = u"<em>%s</em>" % (localizer(el.GetTypeName(), self.request))
 
+            if el.configuration.get('icon'):
+                src = self.StaticUrl(el.configuration.get('icon')) 
+            else: 
+                src = '%s%s.png' % (static, el.GetTypeID())
+            
             if el.IsContainer():
-                title = u"<img src='%s%s.png' align='top'/> %s: %s" % (static, el.GetTypeID(), localizer(el.GetTypeName()), t)
+                title = u"<img src='%s' align='top'/> %s: %s" % (src, localizer(el.GetTypeName()), t)
                 blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
                 for elb in el.GetPageElements():
+                    if elb.configuration.get('icon'):
+                        srcb = self.StaticUrl(elb.configuration.get('icon')) 
+                    else: 
+                        srcb = '%s%s.png' % (static, elb.GetTypeID())
                     t = elb.GetTitle()
                     if not t:
                         t = u"<em>%s</em>" % (localizer(elb.GetTypeName()))
-                    title = u"&gt; <img src='%s%s.png' align='top'/> %s" % (static, elb.GetTypeID(), t)
+                    title = u"&gt; <img src='%s' align='top'/> %s" % (srcb, t)
                     blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=elb, showCCP=True)})
         
             else:
-                title = u"<img src='%s%s.png' align='top'/> %s" % (static, el.GetTypeID(), t)
+                title = u"<img src='%s' align='top'/> %s" % (src, t)
                 blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
         if not len(elements):
             blocks.write(localizer(_(u"<p><i>empty</i></p>")))

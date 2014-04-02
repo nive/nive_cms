@@ -20,8 +20,8 @@
   <ul id="sortable">
     <li tal:repeat="obj sortelements"
         id="${obj.GetID()}"
-        ><img src="${view.StaticUrl('nive_cms.cmsview:static/images/types/'+obj.GetTypeID()+'.png')}" align="top"/> 
-              (${repeat.obj.number}) ${obj.GetTitle()}</li>
+        ><img src="${view.StaticUrl(obj.configuration.get('icon'))}" align="top"/> 
+              (${repeat.obj.number}) ${obj.GetTitle() or obj.GetTypeName()}</li>
   </ul>
   <a onClick="return store();" class="button" i18n:translate="">Save</a>
   </tal:block>
