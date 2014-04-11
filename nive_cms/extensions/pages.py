@@ -152,11 +152,11 @@ class PageElementContainer:
             return elements
         elements2 = []
         for e in elements:
-            if not el.IsContainer():
+            if not e.IsContainer():
                 continue
-            if addBoxContents and not el.IsColumn():
+            if addBoxContents and not e.IsColumn():
                 elements2 += e.GetPageElements(addBoxContents, addColumnContents, **kw)
-            elif addColumnContents and el.IsColumn():
+            elif addColumnContents and e.IsColumn():
                 elements2 += e.GetPageElements(addBoxContents, addColumnContents, **kw)
         return elements + elements2
 
