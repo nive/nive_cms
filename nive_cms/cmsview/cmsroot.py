@@ -12,6 +12,7 @@ in normal mode.
 from nive_cms.i18n import _
 from nive.definitions import RootConf, implements, IWebsiteRoot, ICMSRoot
 from nive_cms.baseobjects import PageRootBase
+from nive.security import Deny, Allow, Everyone
 
 
 class cmsroot(PageRootBase):
@@ -20,6 +21,14 @@ class cmsroot(PageRootBase):
     implements(ICMSRoot)
     extension = u"html"
     
+    def Init(self):
+        self.__acl__ = (
+            (Allow, 'group:editor', 'view'),
+            (Allow, 'group:author', 'view'),
+            (Allow, 'group:reviewer', 'view'),
+            (Allow, 'group:reader', 'view'),
+            (Deny, Everyone, 'view'),
+        )
     
 
 
