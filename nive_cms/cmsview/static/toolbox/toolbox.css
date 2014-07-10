@@ -20,7 +20,6 @@
 #nive-toolbox .toolbox_widget {
   margin:0px;
   padding:0px;
-  max-height: 400px;
 }
 #nive-toolbox #toolbox_header {
   cursor:pointer;
@@ -46,6 +45,9 @@
   margin: 2px;
   width: auto;
   text-align: right;
+}
+#nive-toolbox #toolbox_contents {
+  overflow:auto;
 }
 #nive-toolbox .toolbox_widget .widget_head {
   font-size:9pt;
@@ -87,6 +89,8 @@
 /* element list --------------------------------- */
 #nive-toolbox .toolbox_widget .subpages {
   padding:0px;
+  /*max-height:400px;
+  overflow:auto;*/
 }
 #nive-toolbox .toolbox_widget .subpages a {
   margin: 0px;
@@ -121,7 +125,7 @@
   padding: 0px;
   margin: 0px;
   width: auto;
-  display: inline;
+  xdisplay: inline;
 }
 #nive-toolbox .toolbox_widget .subpages .el_options .block {
   float:left;

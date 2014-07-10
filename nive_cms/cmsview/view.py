@@ -431,7 +431,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         html = u"""<div class="subpages"> %(blocks)s </div>"""
         
         pHtml = u"""<div class="element">
-  <div class="el_title">%(workflow)s<a href="%(url)s">%(title)s </a> </div>
+  <div class="el_title">%(workflow)s<a href="%(url)s" title="%(aTitle)s">%(title)s </a> </div>
   <div class="el_options">%(options)s</div>
   <br style="clear:both"/>
 </div>"""
@@ -452,8 +452,9 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
                                     u"name": localizer(_(u"This page is not public."))
                                 }
             title = p.meta.get(u"title")
+            linkTitle = u"ID: %d, %s" % (p.id, title)
             options = self.editBlockList(obj=p, page=page)
-            blocks.write(pHtml % {u"url": self.FolderUrl(p), u"title": title, u"options": options, u"workflow": wf})
+            blocks.write(pHtml % {u"url": self.FolderUrl(p), u"aTitle": linkTitle, u"title": title, u"options": options, u"workflow": wf})
         if not len(pages):
             blocks.write(localizer(_(u"<p><i>no sub pages</i></p>")))
         return html % {u"blocks": blocks.getvalue()}

@@ -17,8 +17,14 @@
 </div>
 <script>
 $(function() {
-   if($.cookie("toolboxY")!=null) $('#nive-toolbox').css({ top: $.cookie("toolboxY")*1, left: $.cookie("toolboxX")*1 });
+   if($.cookie("toolboxY")!=null) {
+     var top=$.cookie("toolboxY")*1;
+     // if beyond top of screen get it back
+     top = top<0?1:top;
+     $('#nive-toolbox').css({ top: top, left: $.cookie("toolboxX")*1 });
+   }
    if($.cookie("toolboxD")=='none') $('#toolbox_contents').css('display','none');
+   $('#toolbox_contents').css('max-height',$(window).height()-80+'px');
    $('#toolbox_toggle').click(function () { c=$('#toolbox_contents'); c.toggle(); $.cookie("toolboxD", c.css('display'), { path: '/' }); } );
    $('#nive-toolbox').draggable({handle:'h1', containment: 'document',
      stop: function (event, ui) {
