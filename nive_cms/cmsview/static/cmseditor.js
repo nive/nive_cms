@@ -17,6 +17,11 @@ Uses cookies to store settings between page relods.
     }
 
     $(document).ready(function(){
+        // automatically add named anchors to each page element
+        $('.pageelement').each(function (i,e) { 
+            var e=$(e); 
+            e.before('<a name="'+e.attr('id')+'"></a>'); 
+        });
         // load current setting from cookie
         if(_settings.useCookies) {
             var v=$.cookie("peEnabled");
@@ -203,6 +208,14 @@ Example: ::
                       if(!url) {
                         if(options.reloadOnClose) location.reload(); 
                       } else {
+                        // force reload by inserting a random number
+                        var rand;
+                        if(url.indexOf('?')==-1) { 
+                          rand = "?__r="+Math.random();
+                        } else { 
+                          rand = "&__r="+Math.random();
+                        }
+                        url = url.substring(0, url.indexOf('#') + rand + url.substring(url.indexOf('#')));
                         location.href=url; 
                       } 
                    });
