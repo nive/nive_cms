@@ -32,7 +32,7 @@ class page(PageBase):
         if groups:
             acl = [(Allow, "group:editor", "view"),(Allow, "group:author", "view"),(Allow, "group:admin", "view")]
             for g in groups:
-                if g in (u"authenticated", u"_d_authenticated"):
+                if g in (u"authenticated", u"sys:authenticated"):
                     acl.append((Allow, Authenticated, "view"))
                 else:
                     acl.append((Allow, g, "view"))
