@@ -9,7 +9,6 @@ from nive.definitions import DatabaseConf
 
 from nive_cms.tests.db_app import *
 from nive_cms.tests import __local
-from nive_cms.tests.__local import DB_CONF, MYSQL_CONF
 
 
 class ObjectTest_db(object):
@@ -235,8 +234,19 @@ class ObjectTest_db(object):
 
 
 class ObjectTest_db_Sqlite(ObjectTest_db, __local.SqliteTestCase):
-    pass
-        
+    """
+    see tests.__local
+    """
+            
 class ObjectTest_db_MySql(ObjectTest_db, __local.MySqlTestCase):
-    pass
+    """
+    see tests.__local
+    """
+
+class ObjectTest_db_pg(ObjectTest_db, __local.PostgreSqlTestCase):
+    """
+    see tests.__local
+    """
+
+
 
