@@ -14,6 +14,12 @@ The source code is hosted on github: https://github.com/nive/nive_cms
 ## Documentation and installation
 http://cms.nive.co
 
+### Translations
+Translations can be extracted using lingua>=3.1
+
+    > pip install lingua-3.1
+    > bin/pot-create -o nive_cms/locale/nive_cms.pot nive_cms
+    
 ### Third party modules 
 Some included modules have their own license:
 
