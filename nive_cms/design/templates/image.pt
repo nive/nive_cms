@@ -21,7 +21,7 @@
 
 <tal:block tal:condition="css in (u'teaser','teaserl',u'teasers')">
 <span tal:condition="context.parent.data.get('gallery')" 
-      tal:replace="structure view.FmtTag('li',closeTag='no', class='context.Span()')" />
+      tal:replace="structure view.FmtTag('li',closeTag='no', **{'class':context.Span()})" />
 <div class="thumbnail ${css} thumb">
   <a tal:condition="context.files.get('imagefull') and context.files.get('image')" 
      tal:attributes="href view.FileUrl('imagefull', context);"
