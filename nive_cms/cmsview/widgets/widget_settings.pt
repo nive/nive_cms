@@ -8,32 +8,32 @@
  <div class="widget_content">
     <a id="peMenuEditOn" onclick="$.fn.editblocks().enable()" style="display:none; cursor:pointer" class="nivecms"
        ><img tal:attributes="src static+'images/on.png'" 
-             title="Enable interactive elements" i18n:attributes="title" /> 
+             title="Enable interactive elements" i18n:attributes="title"/> 
              <span i18n:translate="">Enable interactive elements</span></a>
 
     <a id="peMenuEditOff" onclick="$.fn.editblocks().enable()" style="display:none; cursor:pointer" class="nivecms"
        ><img tal:attributes="src static+'images/off.png'"  
-             title="Disable interactive elements" i18n:attributes="title" /> 
+             title="Disable interactive elements" i18n:attributes="title"/> 
              <span i18n:translate="">Disable interactive elements</span></a>
 
     <a tal:condition="view.Allowed('manage users', context=app.portal.userdb)"
        tal:on-error="nothing"
        href="${portalurl}userdb/usermanagement" 
        class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
-             title="User management" i18n:attributes="title" /> <span i18n:translate="">User management</span></a>
+             title="User management" i18n:attributes="title"/> <span i18n:translate="">User management</span></a>
     <a tal:condition="view.Allowed('administration', context=app)"
        tal:on-error="nothing"
        href="${view.FolderUrl(app)}admin" 
        class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
-             title="Administration" i18n:attributes="title" /> <span i18n:translate="">Administration</span></a>
+             title="Administration" i18n:attributes="title"/> <span i18n:translate="">Administration</span></a>
     <a href="${portalurl}account" 
        class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
-             title="My account" i18n:attributes="title" /> <span i18n:translate="">My account</span></a>
+             title="My account" i18n:attributes="title"/> <span i18n:translate="">My account</span></a>
     <a href="exiteditor" 
        class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
-             title="Exit editor" i18n:attributes="title" /> <span i18n:translate="">Exit editor</span></a>
+             title="Exit editor" i18n:attributes="title"/> <span i18n:translate="">Exit editor</span></a>
     <a href="${portalurl}logout" 
        class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
-             title="Log out" i18n:attributes="title" /> <span i18n:translate="">Log out</span></a>
+             title="Log out" i18n:attributes="title"/> <span i18n:translate="">Log out</span></a>
  </div>
 </div>

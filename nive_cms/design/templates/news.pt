@@ -6,7 +6,7 @@
 <h4 tal:content="structure context.GetTitle()"/> 
 <div id="news${context.id}" class="header">
 <img tal:define="furl view.FileUrl('image', context)" tal:condition="furl" src="${furl}" 
-     title="news" i18n:attributes="news" />
+     title="news" i18n:attributes="news">
 <div class="itext">
 <p tal:condition="context.data.textblock" tal:replace="structure context.data.textblock"></p>
 <a tal:condition="link" tal:attributes="href link" i18n:translate="">&gt; more</a>
@@ -17,7 +17,7 @@
 <tal:block tal:condition="css == u'teaser'">
 <div class="teaser">
 <img tal:condition="context.files.get('image')"
-          tal:attributes="src view.FileUrl('image', context); title context.GetTitle()" />
+          tal:attributes="src view.FileUrl('image', context); title context.GetTitle()">
 <div class="itext">
 <h3 tal:content="structure context.GetTitle()"/>
 <p tal:condition="context.data.textblock" tal:replace="structure context.data.textblock"></p>
@@ -30,7 +30,7 @@
 <tal:block tal:condition="css == u'teasers'">
 <div class="teaser_s">
 <img tal:condition="context.files.get('image')"
-          tal:attributes="src view.FileUrl('image', context); title context.GetTitle()" />
+          tal:attributes="src view.FileUrl('image', context); title context.GetTitle()">
 <div class="itext">
 <h3 tal:content="structure context.GetTitle()"/>
 <p tal:condition="context.data.textblock" tal:replace="structure context.data.textblock"></p>
@@ -47,7 +47,7 @@
       <a i18n:translate="">&gt; open</a></div>
 <div id="news${context.id}" class="header" style="display:none;">
 <img tal:define="furl view.FileUrl('image', context)" tal:condition="furl" src="${furl}" 
-     title="news" i18n:attributes="news" />
+     title="news" i18n:attributes="news">
 <div class="itext">
 <p tal:condition="context.data.textblock" tal:replace="structure context.data.textblock"></p>
 <a tal:condition="link" tal:attributes="href link" i18n:translate="">&gt; more</a>

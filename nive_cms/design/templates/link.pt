@@ -2,5 +2,5 @@
 <a href="${view.ResolveLink(context.data.linkurl)}" 
    tal:attributes="target context.data.target" 
    tal:content="structure context.meta.title" 
-   class="${context.data.style} ${context.data.color}"/>
+   class="${context.data.style} ${context.data.color}"></a>
 </div>

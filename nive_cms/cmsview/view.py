@@ -373,7 +373,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         elHtml = u"""<div class="element">
   <div class="el_title">%(title)s</div>
   <div class="el_options">%(options)s</div>
-  <br style="clear:both"/>
+  <br style="clear:both">
 </div>"""
         
         if not elements:
@@ -395,7 +395,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
                 src = '%s%s.png' % (static, el.GetTypeID())
             
             if el.IsContainer():
-                title = u"<img src='%s' align='top'/> %s: %s" % (src, localizer(el.GetTypeName()), t)
+                title = u"<img src='%s' align='top'> %s: %s" % (src, localizer(el.GetTypeName()), t)
                 blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
                 for elb in el.GetPageElements():
                     if elb.configuration.get('icon'):
@@ -405,11 +405,11 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
                     t = elb.GetTitle()
                     if not t:
                         t = u"<em>%s</em>" % (localizer(elb.GetTypeName()))
-                    title = u"&gt; <img src='%s' align='top'/> %s" % (srcb, t)
+                    title = u"&gt; <img src='%s' align='top'> %s" % (srcb, t)
                     blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=elb, showCCP=True)})
         
             else:
-                title = u"<img src='%s' align='top'/> %s" % (src, t)
+                title = u"<img src='%s' align='top'> %s" % (src, t)
                 blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
         if not len(elements):
             blocks.write(localizer(_(u"<p><i>empty</i></p>")))
@@ -433,7 +433,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         pHtml = u"""<div class="element">
   <div class="el_title">%(workflow)s<a href="%(url)s" title="%(aTitle)s">%(title)s </a> </div>
   <div class="el_options">%(options)s</div>
-  <br style="clear:both"/>
+  <br style="clear:both">
 </div>"""
         
         useworkflow = 1
@@ -446,7 +446,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         for p in pages:
             wf = u""
             if useworkflow and not p.meta.pool_state:
-                wf = u"""<a href="%(url)sworkflow" class="right" rel="niveOverlay"><img src="%(static)s" title="%(name)s"/></a>""" % {
+                wf = u"""<a href="%(url)sworkflow" class="right" rel="niveOverlay"><img src="%(static)s" title="%(name)s"></a>""" % {
                                     u"static": static, 
                                     u"url": self.FolderUrl(p), 
                                     u"name": localizer(_(u"This page is not public."))

@@ -6,8 +6,8 @@
          class="row">
     <div class="span12">
     <form class="well">
-    <input type="text" name="phrase" value="${result['phrase']}" />
-    <input type="submit" class="btn btn-info" value="Find text" />
+    <input type="text" name="phrase" value="${result['phrase']}">
+    <input type="submit" class="btn btn-info" value="Find text">
     </form>
     <p tal:condition="result['count']==0"> <em>Nothing found!</em></p>
     <p tal:condition="result['count']!=0"> <em>${result['count']} pages found!</em></p>
@@ -15,7 +15,7 @@
     <tr tal:repeat="rec result['items']">
       <td><a href="${rooturl}su?r=${rec['id']}">${rec['title']}</a></td>
       <td><span tal:replace="structure view.FmtTextAsHTML(view.CutText(rec['fulltext'], 300))"/> 
-      <br/><a href="${rooturl}su?r=${rec['id']}">&gt; more</a></td>
+      <br><a href="${rooturl}su?r=${rec['id']}">&gt; more</a></td>
     </tr>
     </table>
       

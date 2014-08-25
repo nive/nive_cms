@@ -21,7 +21,7 @@
   <ul id="sortable">
     <li tal:repeat="obj sortelements"
         id="${obj.GetID()}"
-        ><img src="${view.StaticUrl(obj.configuration.get('icon'))}" align="top"/> 
+        ><img src="${view.StaticUrl(obj.configuration.get('icon'))}" align="top"> 
               (${repeat.obj.number}) ${obj.GetTitle() or obj.GetTypeName()}</li>
   </ul>
   <a onClick="return store();" class="button" i18n:translate="">Save</a>

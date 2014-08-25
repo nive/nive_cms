@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']">
+<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive_cms">
 
 <tal:block metal:fill-slot="editmain">
   <span tal:replace="structure head"/>
@@ -12,13 +12,13 @@
    <div class="block">
    <h3 i18n:translate="">Workflow state of this page</h3>
    <p tal:condition="context.meta.pool_state==0" class="alert"><img src="${staticUrl}exclamation.png" 
-            title="transition.name"/> <span i18n:translate="">The page is in draft mode and not public.</span></p>
+            title="transition.name"> <span i18n:translate="">The page is in draft mode and not public.</span></p>
    <p tal:condition="context.meta.pool_state==1" class="alert" i18n:translate="">The page is public.</p>
 
    <a tal:repeat="transition wf['transitions']" class="btn"
       href="${view.FolderUrl()}action?${view.FmtURLParam(t=transition.id, redirect_url=request.url)}"><img 
             src="${staticUrl+transition.id}.png" 
-            title="${transition.name}" align="top"/> <span i18n:translate="">${transition.name}</span></a>
+            title="${transition.name}" align="top"> ${transition.name}</a>
    </div>
 
    <div tal:define="pages context.GetPages(includeMenu=1)"
@@ -32,9 +32,9 @@
    <a tal:repeat="transition wf['transitions']" class="btn"
       href="${view.FolderUrl(subpage)}action?${view.FmtURLParam(t=transition.id, redirect_url=request.url)}"><img 
             src="${staticUrl+transition.id}.png" 
-            title="${transition.name}" align="top"/> <span i18n:translate="">${transition.name}</span></a>
+            title="${transition.name}" align="top"> ${transition.name}</a>
    <span tal:condition="subpage.meta.pool_state==0"><img src="${staticUrl}exclamation.png" 
-            title="transition.name"/> <span i18n:translate="">The page is in draft mode and not public.</span></span>
+            title="transition.name"> <span i18n:translate="">The page is in draft mode and not public.</span></span>
    <span tal:condition="subpage.meta.pool_state==1" i18n:translate="">The page is public.</span>
    </p>
    </tal:block>
@@ -44,17 +44,17 @@
    <a class="btn"
       href="${view.FolderUrl()}pubr?redirect_url=${request.url}"><img 
             src="${staticUrl}commit.png" 
-            title="" align="top"/> <span i18n:translate="">Publish all contained sub pages</span></a>
+            title="" align="top"> <span i18n:translate="">Publish all contained sub pages</span></a>
 
    </div>
    </div>
 
    <div tal:condition="not wf" class="well">
      <p class="alert"><img src="${staticUrl}exclamation.png" 
-        title="transition.name" align="top" /> <span i18n:translate="">Workflow information could not be loaded.</span></p>
+        title="transition.name" align="top"> <span i18n:translate="">Workflow information could not be loaded.</span></p>
      <p>
-     <span i18n:translate="">Linked workflow process:</span> ${context.meta.pool_wfp or '-empty-'}<br/>
-     <span i18n:translate="">Current workflow state:</span> ${context.meta.pool_wfa or '-empty-'}<br/>
+     <span i18n:translate="">Linked workflow process:</span> ${context.meta.pool_wfp or '-empty-'}<br>
+     <span i18n:translate="">Current workflow state:</span> ${context.meta.pool_wfa or '-empty-'}<br>
      </p>
      <p tal:define="new context.GetNewWf()">
      <span i18n:translate="">Workflow process configured to be used with:</span> '${context.configuration.name}' -> ${ new and new.name or '-none-'}

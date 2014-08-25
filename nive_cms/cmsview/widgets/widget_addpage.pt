@@ -8,12 +8,12 @@
  <div class="widget_content">
  <a href="${pageUrl}add?pool_type=page&amp;pepos=last" class="nivecms" rel="niveOverlay" 
         ><img tal:attributes="src static+'images/subpage.png'" 
-              title="Add a new sub page" align="top" i18n:attributes="title" /> 
+              title="Add a new sub page" align="top" i18n:attributes="title"/> 
               <span i18n:translate="">Add sub page</span></a>
  <a tal:condition="context.GetID()!=0" 
     href="${pageUrl}../add?pool_type=page&amp;pepos=${context.GetID()}" class="nivecms" rel="niveOverlay" 
         ><img tal:attributes="src static+'images/types/page_add.png'" 
-              title="Add a new page after this" align="top" i18n:attributes="title" />
+              title="Add a new page after this" align="top" i18n:attributes="title"/>
               <span i18n:translate="">Add page after this</span></a>
  </div>
 </div>

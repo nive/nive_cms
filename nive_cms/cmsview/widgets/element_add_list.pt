@@ -7,6 +7,6 @@
      tal:attributes="href containerUrl+'add?'+view.FmtURLParam(pool_type=element['id'], pepos=obj.GetID())"
      ><img tal:condition="element.get('icon')" 
            tal:attributes="src view.StaticUrl(element.get('icon')); title element['name']" 
-           align="top" i18n:attributes="title" />
+           align="top" i18n:attributes="title">
      <span i18n:translate="">${element.name}</span></a>
 </div>

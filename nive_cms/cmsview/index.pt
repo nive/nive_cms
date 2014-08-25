@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" i18n:domain="nive_cms">
 <head>
 <title tal:content="view.HtmlTitle()"></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="generator" content="Nive cms" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="Nive cms">
 <tal:block tal:replace="structure view.Assets()"></tal:block>
 <tal:block metal:define-slot="head"></tal:block>
 <tal:block tal:condition="head|None" tal:replace="structure head" tal:on-error="nothing"></tal:block>
