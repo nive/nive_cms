@@ -1,21 +1,21 @@
 # Translations template for nive_cms.
-# Copyright (C) 2013 ORGANIZATION
+# Copyright (C) 2014 ORGANIZATION
 # This file is distributed under the same license as the nive_cms project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: nive_cms 0.9.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-31 18:19+0100\n"
+"POT-Creation-Date: 2014-08-25 17:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 0.9.6\n"
+"Generated-By: Babel 1.3\n"
 
 #: nive_cms/app.py:70
 msgid "Permission"
@@ -439,6 +439,7 @@ msgid "66 % width right"
 msgstr ""
 
 #: nive_cms/menublock.py:54 nive_cms/cmsview/widgets/widget_subpages.pt:5
+#: nive_cms/workflow/templates/editorpage.pt:27
 msgid "Sub pages"
 msgstr ""
 
@@ -556,7 +557,7 @@ msgid ""
 " default behaviour."
 msgstr ""
 
-#: nive_cms/root.py:40 nive_cms/cmsview/cmsroot.py:34
+#: nive_cms/root.py:40 nive_cms/cmsview/cmsroot.py:43
 msgid "Home"
 msgstr ""
 
@@ -604,27 +605,27 @@ msgid ""
 "the web page. "
 msgstr ""
 
-#: nive_cms/cmsview/add.pt:16
+#: nive_cms/cmsview/add.pt:17
 msgid "Add a new page?"
 msgstr ""
 
-#: nive_cms/cmsview/add.pt:18
+#: nive_cms/cmsview/add.pt:19
 msgid "Add a new subpage"
 msgstr ""
 
-#: nive_cms/cmsview/add.pt:20 nive_cms/cmsview/widgets/widget_addpage.pt:12
+#: nive_cms/cmsview/add.pt:21 nive_cms/cmsview/widgets/widget_addpage.pt:12
 msgid "Add sub page"
 msgstr ""
 
-#: nive_cms/cmsview/add.pt:24 nive_cms/cmsview/widgets/widget_addpage.pt:15
+#: nive_cms/cmsview/add.pt:25 nive_cms/cmsview/widgets/widget_addpage.pt:15
 msgid "Add a new page after this"
 msgstr ""
 
-#: nive_cms/cmsview/add.pt:26 nive_cms/cmsview/widgets/widget_addpage.pt:17
+#: nive_cms/cmsview/add.pt:27 nive_cms/cmsview/widgets/widget_addpage.pt:17
 msgid "Add page after this"
 msgstr ""
 
-#: nive_cms/cmsview/add.pt:28 nive_cms/cmsview/widgets/element_add_list.pt:5
+#: nive_cms/cmsview/add.pt:29 nive_cms/cmsview/widgets/element_add_list.pt:5
 msgid "Add a new page element?"
 msgstr ""
 
@@ -652,7 +653,7 @@ msgstr ""
 msgid "Column names used in the main template. For multiple columns enter one per line."
 msgstr ""
 
-#: nive_cms/cmsview/cutcopy.py:69 nive_cms/cmsview/cutcopy.py:109 nive_cms/cmsview/view.py:583
+#: nive_cms/cmsview/cutcopy.py:69 nive_cms/cmsview/cutcopy.py:109 nive_cms/cmsview/view.py:593
 msgid "Object not found"
 msgstr ""
 
@@ -676,31 +677,31 @@ msgstr ""
 msgid "Method unknown"
 msgstr ""
 
-#: nive_cms/cmsview/delete.pt:5
+#: nive_cms/cmsview/delete.pt:6
 msgid "Confirm delete"
 msgstr ""
 
-#: nive_cms/cmsview/delete.pt:18
+#: nive_cms/cmsview/delete.pt:19
 msgid "Warning: This will delete the element and all it's contents!"
 msgstr ""
 
-#: nive_cms/cmsview/delete.pt:19
+#: nive_cms/cmsview/delete.pt:20
 msgid "Warning: This will delete the page and all sub pages!"
 msgstr ""
 
-#: nive_cms/cmsview/delete.pt:30
+#: nive_cms/cmsview/delete.pt:31
 msgid "Delete all"
 msgstr ""
 
-#: nive_cms/cmsview/sort.pt:18
+#: nive_cms/cmsview/sort.pt:19
 msgid "Sort"
 msgstr ""
 
-#: nive_cms/cmsview/sort.pt:26
+#: nive_cms/cmsview/sort.pt:27
 msgid "Save"
 msgstr ""
 
-#: nive_cms/cmsview/sort.pt:29
+#: nive_cms/cmsview/sort.pt:30
 msgid "Nothing to sort!"
 msgstr ""
 
@@ -708,7 +709,7 @@ msgstr ""
 msgid "List is empty"
 msgstr ""
 
-#: nive_cms/cmsview/sort.py:88 nive_cms/cmsview/view.py:613 nive_cms/workflow/view.py:54
+#: nive_cms/cmsview/sort.py:88 nive_cms/cmsview/view.py:623 nive_cms/workflow/view.py:54
 msgid "OK"
 msgstr ""
 
@@ -756,31 +757,31 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:406
+#: nive_cms/cmsview/view.py:415
 msgid "<p><i>empty</i></p>"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:407
+#: nive_cms/cmsview/view.py:416
 msgid "Page elements"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:443
+#: nive_cms/cmsview/view.py:452
 msgid "This page is not public."
 msgstr ""
 
-#: nive_cms/cmsview/view.py:449
+#: nive_cms/cmsview/view.py:459
 msgid "<p><i>no sub pages</i></p>"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:578
+#: nive_cms/cmsview/view.py:588
 msgid "Nothing to delete"
 msgstr ""
 
-#: nive_cms/cmsview/view.py:590 nive_cms/cmsview/view.py:592
+#: nive_cms/cmsview/view.py:600 nive_cms/cmsview/view.py:602
 msgid "OK. Deleted."
 msgstr ""
 
-#: nive_cms/cmsview/view.py:611
+#: nive_cms/cmsview/view.py:621
 msgid "Delete failed"
 msgstr ""
 
@@ -921,18 +922,100 @@ msgstr ""
 msgid "Website design and view"
 msgstr ""
 
-#: nive_cms/design/templates/image.pt:17 nive_cms/design/templates/news.pt:12
-#: nive_cms/design/templates/news.pt:24 nive_cms/design/templates/news.pt:37
-#: nive_cms/design/templates/news.pt:53
+#: nive_cms/design/templates/box.pt:16
+msgid "empty box"
+msgstr ""
+
+#: nive_cms/design/templates/image.pt:17 nive_cms/design/templates/image.pt:35
+#: nive_cms/design/templates/news.pt:12 nive_cms/design/templates/news.pt:24
+#: nive_cms/design/templates/news.pt:37 nive_cms/design/templates/news.pt:53
 msgid "&gt; more"
+msgstr ""
+
+#: nive_cms/design/templates/media.pt:7
+msgid "Sorry, your browser does not support the video element."
+msgstr ""
+
+#: nive_cms/design/templates/media.pt:13
+msgid "Sorry, your browser does not support the audio element."
 msgstr ""
 
 #: nive_cms/design/templates/news.pt:47
 msgid "&gt; open"
 msgstr ""
 
-#: nive_cms/doc/default.pt:1
+#: nive_cms/design/templates/page.pt:12
+msgid "This page is redirected in view mode:"
+msgstr ""
+
+#: nive_cms/doc/default.pt:2
 msgid "Welcome to Nive cms!"
+msgstr ""
+
+#: nive_cms/doc/default.pt:6
+msgid "The website is empty."
+msgstr ""
+
+#: nive_cms/doc/default.pt:7
+msgid "You have to sign in to start editing content."
+msgstr ""
+
+#: nive_cms/doc/default.pt:9
+msgid "Please note: This page will disappear automatically after adding content."
+msgstr ""
+
+#. Default: Nive is a new -out of the box- open source content management system based on Python and
+#. Pyramid.<dynamic element> The cms comes with everything needed to set up a simple website: a default
+#. design with templates, a set of basic content elements and an included webserver. No python
+#. knowledge is required to get started.
+#: nive_cms/doc/default.pt:12
+msgid "nive_introduction"
+msgstr ""
+
+#: nive_cms/doc/default.pt:20
+msgid "It's easy to use"
+msgstr ""
+
+#. Default: The <dynamic element> (by default on the right) contains all page and system options. Page
+#. options always refer to the current page. The toolbox is draggable by clicking on the header. It
+#. remembers its position throughout page reloads.
+#: nive_cms/doc/default.pt:21
+msgid "nive_toolbox"
+msgstr ""
+
+#. Default: Small <dynamic element> and column provide options to handle page elements at these
+#. locations. The first icon lets you add elements, the second lists existing elements.<dynamic
+#. element> <dynamic element> Content <dynamic element> (Except this message). Backgrounds will be
+#. colored yellow when the pointer enters the elements area and the element's edit bar appears on
+#. click. This bar includes the options for the specific element.<dynamic element> <dynamic element>
+#. Some elements like links or linked images are already interactive themselves. A click on a link for
+#. example will load the new page and not the edit bar. <dynamic element> and load the edit bar only.
+#: nive_cms/doc/default.pt:27
+msgid "nive_editbars"
+msgstr ""
+
+#: nive_cms/doc/default.pt:42
+msgid "Please refer to the online documentation for further information"
+msgstr ""
+
+#: nive_cms/doc/default.pt:44
+msgid "Editing websites"
+msgstr ""
+
+#: nive_cms/doc/default.pt:45
+msgid "CMS elements and modules"
+msgstr ""
+
+#: nive_cms/doc/default.pt:46
+msgid "Styling the website"
+msgstr ""
+
+#: nive_cms/doc/default.pt:47
+msgid "API"
+msgstr ""
+
+#: nive_cms/doc/default.pt:48
+msgid "Community and Support"
 msgstr ""
 
 #: nive_cms/extensions/fulltextpage.py:148
@@ -963,11 +1046,11 @@ msgstr ""
 msgid "Delete and rewrite the fulltext index."
 msgstr ""
 
-#: nive_cms/extensions/images.py:87
+#: nive_cms/extensions/images.py:84
 msgid "Python image library (PIL) not installed."
 msgstr ""
 
-#: nive_cms/extensions/images.py:127
+#: nive_cms/extensions/images.py:124
 msgid "Image not found: "
 msgstr ""
 
@@ -1003,15 +1086,44 @@ msgstr ""
 msgid "Revoke"
 msgstr ""
 
-#: nive_cms/workflow/templates/editorpage.pt:12
+#: nive_cms/workflow/templates/editorpage.pt:13
 msgid "Workflow state of this page"
 msgstr ""
 
-#: nive_cms/workflow/templates/editorpage.pt:14 nive_cms/workflow/templates/widget.pt:9
+#: nive_cms/workflow/templates/editorpage.pt:15 nive_cms/workflow/templates/editorpage.pt:37
+#: nive_cms/workflow/templates/widget.pt:9
 msgid "The page is in draft mode and not public."
 msgstr ""
 
-#: nive_cms/workflow/templates/editorpage.pt:15
+#: nive_cms/workflow/templates/editorpage.pt:16 nive_cms/workflow/templates/editorpage.pt:38
 msgid "The page is public."
+msgstr ""
+
+#: nive_cms/workflow/templates/editorpage.pt:43
+msgid "Publish all sub pages recursive"
+msgstr ""
+
+#: nive_cms/workflow/templates/editorpage.pt:47
+msgid "Publish all contained sub pages"
+msgstr ""
+
+#: nive_cms/workflow/templates/editorpage.pt:54
+msgid "Workflow information could not be loaded."
+msgstr ""
+
+#: nive_cms/workflow/templates/editorpage.pt:56
+msgid "Linked workflow process:"
+msgstr ""
+
+#: nive_cms/workflow/templates/editorpage.pt:57
+msgid "Current workflow state:"
+msgstr ""
+
+#: nive_cms/workflow/templates/editorpage.pt:60
+msgid "Workflow process configured to be used with:"
+msgstr ""
+
+#: nive_cms/workflow/templates/widget.pt:17
+msgid "Open workflow page"
 msgstr ""
 

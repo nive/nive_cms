@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <tal:block metal:use-macro="view.index_tmpl().macros['main']">
   <tal:block metal:fill-slot="head">
     <meta tal:condition="context.IsLinked() and not view.IsEditmode()"
-          http-equiv="refresh" content="0; url=${view.ResolveUrl(context.IsLinked())}">
+          http-equiv="refresh" content="0; url=${view.ResolveUrl(context.IsLinked())}"/>
   </tal:block>   
   
   <tal:block metal:fill-slot="content">

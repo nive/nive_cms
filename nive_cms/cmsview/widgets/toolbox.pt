@@ -1,6 +1,6 @@
+<tal:block i18n:domain="nive_cms">
 <div tal:define="static view.StaticUrl('nive_cms.cmsview:static/images/');"
-     id="nive-toolbox"
-     i18n:domain="nive_cms">
+     id="nive-toolbox">
   <div id="toolbox_header">
     <img class="toggle" id="toolbox_toggle" title="toggle toolbox" 
          src="${static}toggle.png" i18n:attributes="title" />
@@ -20,7 +20,7 @@ $(function() {
    if($.cookie("toolboxY")!=null) {
      var top=$.cookie("toolboxY")*1;
      // if beyond top of screen get it back
-     top = top<0?1:top;
+     top = 0>top?1:top;
      $('#nive-toolbox').css({ top: top, left: $.cookie("toolboxX")*1 });
    }
    if($.cookie("toolboxD")=='none') $('#toolbox_contents').css('display','none');
@@ -38,3 +38,4 @@ $(document).ready(function(){
   $.niveOverlay();
 });
 </script>
+</tal:block>

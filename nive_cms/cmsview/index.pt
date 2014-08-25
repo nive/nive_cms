@@ -1,4 +1,5 @@
-<tal:block metal:define-macro="main"><!DOCTYPE html>
+<!DOCTYPE html>
+<tal:block metal:define-macro="main">
 <html xmlns="http://www.w3.org/1999/xhtml" i18n:domain="nive_cms">
 <head>
 <title tal:content="view.HtmlTitle()"></title>

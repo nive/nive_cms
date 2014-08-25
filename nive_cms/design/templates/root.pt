@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <tal:block metal:use-macro="view.index_tmpl().macros['main']">
   <tal:block metal:fill-slot="content">
     <div tal:define="elements context.GetPageElements(user=view.User(), checkPermissions=True)" 

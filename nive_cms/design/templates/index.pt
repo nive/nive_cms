@@ -1,4 +1,5 @@
-<tal:block metal:define-macro="main"><!DOCTYPE html>
+<!DOCTYPE html>
+<tal:block metal:define-macro="main">
 <html lang="en" i18n:domain="nive_cms">
 <head>
 <title tal:content="view.HtmlTitle()"></title>
@@ -34,7 +35,8 @@
               tal:content="structure view.navigationTop(addHome=0)">
           </ul>
         </div><!--/.nav-collapse -->
-        <form class="navbar-search pull-right visible-desktop" action="${view.FolderUrl(context.root())}search"><input type="text" name="phrase" class="search-query input-small" placeholder="Search"></form>
+        <form class="navbar-search pull-right visible-desktop" action="${view.FolderUrl(context.root())}search">
+          <input type="text" name="phrase" class="search-query input-small" placeholder="Search"/></form>
       </div>
     </div>
   </div>

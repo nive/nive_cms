@@ -1,24 +1,25 @@
 # This file is distributed under the same license as the nive project.
 msgid ""
 msgstr ""
-"Project-Id-Version: nive 0.9.5\n"
+"Project-Id-Version: nive 0.9.12\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-12-18 15:40+0100\n"
+"POT-Creation-Date: 2014-08-25 17:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: nive_cms/app.py:69
+#: nive_cms/app.py:70
 msgid "Permission"
 msgstr "Freigabe"
 
-#: nive_cms/app.py:70
+#: nive_cms/app.py:71
 msgid "Only displayed to users in the selected group"
 msgstr "Wird nur Benutzern/innen in der ausgewählten Gruppe angezeigt."
 
@@ -27,8 +28,13 @@ msgid "Box"
 msgstr "Box"
 
 #: nive_cms/box.py:73
-msgid "A box is a container to group elements on a page. It can be used as anadvanced styling element for web pages. The box itself only stores a title and styling selector."
-msgstr "Eine Box ist ein Container mit dem Elemente zusammengefasst werden können und kann als spezielles Styling-Element auf Webseiten verwendet werden. "
+msgid ""
+"A box is a container to group elements on a page. It can be used as "
+"anadvanced styling element for web pages. The box itself only stores a title "
+"and styling selector."
+msgstr ""
+"Eine Box ist ein Container mit dem Elemente zusammengefasst werden können "
+"und kann als spezielles Styling-Element auf Webseiten verwendet werden. "
 
 #: nive_cms/box.py:78
 msgid "Span 1"
@@ -82,9 +88,7 @@ msgstr "Breite 12 (100% breit)"
 msgid "Top box (hero-unit)"
 msgstr "Top Box (hero-unit)"
 
-#: nive_cms/box.py:92
-#: nive_cms/link.py:37
-#: nive_cms/link.py:43
+#: nive_cms/box.py:92 nive_cms/link.py:37 nive_cms/link.py:43
 msgid "none"
 msgstr "nicht gesetzt"
 
@@ -153,16 +157,23 @@ msgid "Block empty offset left"
 msgstr "Leerer Abstand links in Spalten"
 
 #: nive_cms/box.py:114
-msgid "Please note: The blocksize and offset values added together can not be larger than 1. Adjust both fields accordingly."
-msgstr "Bitte beachten: Abstand und Spalten zusammen können nicht mehr als 12 betragen."
+msgid ""
+"Please note: The blocksize and offset values added together can not be "
+"larger than 12. Adjust both fields accordingly."
+msgstr ""
+"Bitte beachten: Abstand und Spalten zusammen können nicht mehr als 12 "
+"betragen."
 
 #: nive_cms/box.py:116
 msgid "Highlight box contents"
 msgstr "Box Inhalte hervorheben"
 
 #: nive_cms/box.py:116
-msgid "This option will add a colored background to highlight the box and its contents."
-msgstr "Diese Option hinterlegt die Box mit einem farbigen Hintergrund und Rahmen."
+msgid ""
+"This option will add a colored background to highlight the box and its "
+"contents."
+msgstr ""
+"Diese Option hinterlegt die Box mit einem farbigen Hintergrund und Rahmen."
 
 #: nive_cms/box.py:118
 msgid "Use as image gallery"
@@ -177,17 +188,26 @@ msgid "Enable responsive layout"
 msgstr "Responsive Layout aktivieren"
 
 #: nive_cms/box.py:120
-msgid "Show and hide the box and it contents. The setting takes effect based on viewport or browser window sizes. It does not check the hardware device. Please note: The responsive setting is ignored in edit mode."
-msgstr "Automatisches anzeigen und ausblenden der Box-Inhalte. Die Einstellungen orientieren sich an der größe des Browser Fensters, nicht an der tatsächlichen Monitorgröße. Im Edit-Modus wird diese Einstellung ignoriert."
+msgid ""
+"Show and hide the box and it contents. The setting takes effect based on "
+"viewport or browser window sizes. It does not check the hardware device. "
+"Please note: The responsive setting is ignored in edit mode."
+msgstr ""
+"Automatisches anzeigen und ausblenden der Box-Inhalte. Die Einstellungen "
+"orientieren sich an der größe des Browser Fensters, nicht an der "
+"tatsächlichen Monitorgröße. Im Edit-Modus wird diese Einstellung ignoriert."
 
-#: nive_cms/code.py:27
-#: nive_cms/code.py:44
+#: nive_cms/code.py:27 nive_cms/code.py:44
 msgid "Code"
 msgstr "Code"
 
 #: nive_cms/code.py:33
-msgid "Text element to add code snippets to web pages. Supports Javascript, HTML and CSS."
-msgstr "Text Element um Code Schnipsel in Webseiten einzufügen. Unterstützt Javascript, HTML und CSS."
+msgid ""
+"Text element to add code snippets to web pages. Supports Javascript, HTML "
+"and CSS."
+msgstr ""
+"Text Element um Code Schnipsel in Webseiten einzufügen. Unterstützt "
+"Javascript, HTML und CSS."
 
 #: nive_cms/code.py:36
 msgid "No format"
@@ -214,8 +234,15 @@ msgid "Column"
 msgstr "Spalte"
 
 #: nive_cms/column.py:76
-msgid "A column is a container to group elements on a page. Columns are not added likenormal page elements but have to be defined manually in the main template. A column canbe inherited through a hierarchy of pages."
-msgstr "Eine Spalte ist ein spezieller Container um Elemente auf einer Seite zusammenzufassen. Spalten werden nicht wie normale Elemente hinzugefügt, sondern müssen im Template definiert werden. Eine Spalte kann über eine Hirarchie vererbt werden."
+msgid ""
+"A column is a container to group elements on a page. Columns are not added "
+"likenormal page elements but have to be defined manually in the main "
+"template. A column canbe inherited through a hierarchy of pages."
+msgstr ""
+"Eine Spalte ist ein spezieller Container um Elemente auf einer Seite "
+"zusammenzufassen. Spalten werden nicht wie normale Elemente hinzugefügt, "
+"sondern müssen im Template definiert werden. Eine Spalte kann über eine "
+"Hirarchie vererbt werden."
 
 #: nive_cms/column.py:81
 msgid "Show on subpages"
@@ -223,23 +250,27 @@ msgstr "Auf Unterseiten vererben"
 
 #: nive_cms/column.py:81
 msgid "If checked the column will be displayed on sub pages until overwritten."
-msgstr "Wenn angekreutzt wird die Spalte auf Unterseiten angezeigt bis sie überschrieben wird."
+msgstr ""
+"Wenn angekreutzt wird die Spalte auf Unterseiten angezeigt bis sie "
+"überschrieben wird."
 
 #: nive_cms/column.py:85
 msgid "Column type"
 msgstr "Spalten Typ"
 
-#: nive_cms/file.py:46
-#: nive_cms/file.py:56
+#: nive_cms/file.py:46 nive_cms/file.py:56
 msgid "File"
 msgstr "Datei"
 
 #: nive_cms/file.py:52
-msgid "The file element provides a simple file download with title and optional description."
-msgstr "Das Datei Element stellt einen einfachen Datei Download mit Titel und optionaler Beschreibung bereit."
+msgid ""
+"The file element provides a simple file download with title and optional "
+"description."
+msgstr ""
+"Das Datei Element stellt einen einfachen Datei Download mit Titel und "
+"optionaler Beschreibung bereit."
 
-#: nive_cms/file.py:57
-#: nive_cms/page.py:73
+#: nive_cms/file.py:57 nive_cms/page.py:73
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -259,8 +290,7 @@ msgstr "Einfach"
 msgid "Float right"
 msgstr "Rechts Umfliessend"
 
-#: nive_cms/image.py:65
-#: nive_cms/news.py:34
+#: nive_cms/image.py:65 nive_cms/news.py:34
 msgid "Teaser"
 msgstr "Teaser"
 
@@ -268,13 +298,11 @@ msgstr "Teaser"
 msgid "Teaser large"
 msgstr "Teaser groß"
 
-#: nive_cms/image.py:67
-#: nive_cms/news.py:35
+#: nive_cms/image.py:67 nive_cms/news.py:35
 msgid "Teaser small"
 msgstr "Teaser klein"
 
-#: nive_cms/image.py:71
-#: nive_cms/news.py:39
+#: nive_cms/image.py:71 nive_cms/news.py:39
 msgid "Imagefile"
 msgstr "Bild Datei"
 
@@ -282,30 +310,27 @@ msgstr "Bild Datei"
 msgid "Imagefile fullsize"
 msgstr "Bild Datei hochauflösend"
 
-#: nive_cms/image.py:73
-#: nive_cms/media.py:49
-#: nive_cms/news.py:40
-#: nive_cms/text.py:40
-#: nive_cms/text.py:50
+#: nive_cms/image.py:73 nive_cms/media.py:49 nive_cms/news.py:40
+#: nive_cms/text.py:40 nive_cms/text.py:50
 msgid "Text"
 msgstr "Text"
 
-#: nive_cms/image.py:74
-#: nive_cms/menublock.py:60
-#: nive_cms/news.py:42
+#: nive_cms/image.py:74 nive_cms/menublock.py:60 nive_cms/news.py:42
 #: nive_cms/spacer.py:43
 msgid "Styling"
 msgstr "Style"
 
-#: nive_cms/image.py:75
-#: nive_cms/link.py:26
-#: nive_cms/news.py:43
+#: nive_cms/image.py:75 nive_cms/link.py:26 nive_cms/news.py:43
 msgid "Link"
 msgstr "Link"
 
 #: nive_cms/link.py:32
-msgid "With the link element you can add internal or external links into the web page."
-msgstr "Mit dem Link Element lassen sich externe oder interne Links in die Webseite einfügen."
+msgid ""
+"With the link element you can add internal or external links into the web "
+"page."
+msgstr ""
+"Mit dem Link Element lassen sich externe oder interne Links in die Webseite "
+"einfügen."
 
 #: nive_cms/link.py:35
 msgid "Same window"
@@ -356,8 +381,12 @@ msgid "Link url"
 msgstr "Link Url"
 
 #: nive_cms/link.py:52
-msgid "External links must start with http:// or similar. Internal links can be referenced as page id (the number) and are resolved automatically."
-msgstr "Externe Links müssen mit http:// beginnen. Interne Links können auch als Seiten ID (Zahl) angegeben werden."
+msgid ""
+"External links must start with http:// or similar. Internal links can be "
+"referenced as page id (the number) and are resolved automatically."
+msgstr ""
+"Externe Links müssen mit http:// beginnen. Interne Links können auch als "
+"Seiten ID (Zahl) angegeben werden."
 
 #: nive_cms/link.py:53
 msgid "Target window"
@@ -376,8 +405,13 @@ msgid "Media"
 msgstr "Media"
 
 #: nive_cms/media.py:37
-msgid "Element to insert audio or video files into the web page. Uses HTML 5 mediaand audio tags and the browser's default player."
-msgstr "Mit dem Media Element lassen sich Audio und Video Dateien mitsamt Player in die Webseite einbinden. Verwendet HTML 5 video und audio Tags und den Default Player des Browsers."
+msgid ""
+"Element to insert audio or video files into the web page. Uses HTML 5 "
+"mediaand audio tags and the browser's default player."
+msgstr ""
+"Mit dem Media Element lassen sich Audio und Video Dateien mitsamt Player in "
+"die Webseite einbinden. Verwendet HTML 5 video und audio Tags und den "
+"Default Player des Browsers."
 
 #: nive_cms/media.py:41
 msgid "Video player"
@@ -408,8 +442,12 @@ msgid "Navigation"
 msgstr "Navigation"
 
 #: nive_cms/menublock.py:44
-msgid "Element to render navigation trees and linked table of contents. The menublock can be used as main navigation for the web page."
-msgstr "Element um Navigationsbäume und Ihaltslisten anzuzeigen. Kann als Hauptnavigation der Webseite verwendet werden."
+msgid ""
+"Element to render navigation trees and linked table of contents. The "
+"menublock can be used as main navigation for the web page."
+msgstr ""
+"Element um Navigationsbäume und Ihaltslisten anzuzeigen. Kann als "
+"Hauptnavigation der Webseite verwendet werden."
 
 #: nive_cms/menublock.py:47
 msgid "50 % width left"
@@ -435,8 +473,8 @@ msgstr "33 % breit, rechts"
 msgid "66 % width right"
 msgstr "66 % breit, rechts"
 
-#: nive_cms/menublock.py:54
-#: nive_cms/cmsview/widgets/widget_subpages.pt:5
+#: nive_cms/menublock.py:54 nive_cms/cmsview/widgets/widget_subpages.pt:5
+#: nive_cms/workflow/templates/editorpage.pt:27
 msgid "Sub pages"
 msgstr "Unterseiten"
 
@@ -480,14 +518,16 @@ msgstr "Datum"
 msgid "Used as publish date on the website."
 msgstr "Wird als Veröffentlichungs-Datum auf der Webseite angezeigt."
 
-#: nive_cms/note.py:34
-#: nive_cms/note.py:44
+#: nive_cms/note.py:34 nive_cms/note.py:44
 msgid "Note"
 msgstr "Notiz"
 
 #: nive_cms/note.py:40
-msgid "Simple text note for authors. The note is only visible to cms authors and not published."
-msgstr "Text Notiz für Autoren. Wird nur intern und im Bearbeitungsmodus angezeigt."
+msgid ""
+"Simple text note for authors. The note is only visible to cms authors and "
+"not published."
+msgstr ""
+"Text Notiz für Autoren. Wird nur intern und im Bearbeitungsmodus angezeigt."
 
 #: nive_cms/page.py:57
 msgid "Page"
@@ -495,7 +535,8 @@ msgstr "Seite"
 
 #: nive_cms/page.py:64
 msgid "Pages are rendered as html files and make up the website."
-msgstr "Seiten werden als HTML Dateien gerendert und setzen die Webseite zusammen."
+msgstr ""
+"Seiten werden als HTML Dateien gerendert und setzen die Webseite zusammen."
 
 #: nive_cms/page.py:69
 msgid "Page header"
@@ -526,8 +567,11 @@ msgid "Hide in navigation"
 msgstr "In Navigation ausblenden"
 
 #: nive_cms/page.py:78
-msgid "Hide the page in navigation. It will only be accessible by direct links."
-msgstr "In der Navigation ausblenden. Wird nur noch durch direkte LInks aufzurufen sein."
+msgid ""
+"Hide the page in navigation. It will only be accessible by direct links."
+msgstr ""
+"In der Navigation ausblenden. Wird nur noch durch direkte LInks aufzurufen "
+"sein."
 
 #: nive_cms/page.py:80
 msgid "Page is a menu"
@@ -535,7 +579,9 @@ msgstr "Seite ist ein Menu."
 
 #: nive_cms/page.py:80
 msgid "Used in some navigation lists. If checked the page is handled as menu."
-msgstr "Wird in Navigationslisten verwendet. Wenn angekreutzt wird die Seite als Menu behandelt."
+msgstr ""
+"Wird in Navigationslisten verwendet. Wenn angekreutzt wird die Seite als "
+"Menu behandelt."
 
 #: nive_cms/page.py:82
 msgid "Page is redirected to this link"
@@ -543,24 +589,32 @@ msgstr "Seite wird auf diesen Link umgeleitet"
 
 #: nive_cms/page.py:82
 msgid "Automatically redirect the page to the linked page. Only in view mode."
-msgstr "Im Ansichtsmodus wird die Seite automatisch zu diesem Link weitergeleitet."
+msgstr ""
+"Im Ansichtsmodus wird die Seite automatisch zu diesem Link weitergeleitet."
 
 #: nive_cms/page.py:84
 msgid "Enter page filename manually"
 msgstr "Url Name der Seite"
 
 #: nive_cms/page.py:84
-msgid "By default page URL-names are generated automatically by the title. Use this option to change the default behaviour."
-msgstr "Per Default werden die Url Namen der Seite automatisch vom Titel generiert. Mit dieser Option kann das Default verhalten deaktiviert werden."
+msgid ""
+"By default page URL-names are generated automatically by the title. Use this "
+"option to change the default behaviour."
+msgstr ""
+"Per Default werden die Url Namen der Seite automatisch vom Titel generiert. "
+"Mit dieser Option kann das Default verhalten deaktiviert werden."
 
-#: nive_cms/root.py:40
-#: nive_cms/cmsview/cmsroot.py:34
+#: nive_cms/root.py:40 nive_cms/cmsview/cmsroot.py:43
 msgid "Home"
 msgstr "Hauptseite"
 
 #: nive_cms/root.py:41
-msgid "The root is the home page of the website. All contained pages and elements are stored in the database."
-msgstr "Das Root ist die Hauptseite der Webseite. Alle enthaltenen Seiten und Elemente werden in der Datenbank gespeichert."
+msgid ""
+"The root is the home page of the website. All contained pages and elements "
+"are stored in the database."
+msgstr ""
+"Das Root ist die Hauptseite der Webseite. Alle enthaltenen Seiten und "
+"Elemente werden in der Datenbank gespeichert."
 
 #: nive_cms/spacer.py:25
 msgid "Spacer"
@@ -568,7 +622,9 @@ msgstr "Abstand"
 
 #: nive_cms/spacer.py:31
 msgid "Styling element to add line breaks and vertical space between elements."
-msgstr "Styling Element um einen Zeilenumbruch und vertikalen Abstand in die Seite einzufügen."
+msgstr ""
+"Styling Element um einen Zeilenumbruch und vertikalen Abstand in die Seite "
+"einzufügen."
 
 #: nive_cms/spacer.py:34
 msgid "Border"
@@ -595,34 +651,34 @@ msgid "4 lines"
 msgstr "4 Zeilen"
 
 #: nive_cms/text.py:46
-msgid "Text element for the web page. Can be used to add headers, preformatted text and paragraphs to the web page. "
-msgstr "Text Element um Überschriften, vorformatierten Text und Absätze in die Seite einzufügen."
+msgid ""
+"Text element for the web page. Can be used to add headers, preformatted text "
+"and paragraphs to the web page. "
+msgstr ""
+"Text Element um Überschriften, vorformatierten Text und Absätze in die Seite "
+"einzufügen."
 
-#: nive_cms/cmsview/add.pt:16
+#: nive_cms/cmsview/add.pt:17
 msgid "Add a new page?"
 msgstr "Neue Seite hinzufügen?"
 
-#: nive_cms/cmsview/add.pt:18
+#: nive_cms/cmsview/add.pt:19
 msgid "Add a new subpage"
 msgstr "Neue Unterseite hinzufügen"
 
-#: nive_cms/cmsview/add.pt:20
-#: nive_cms/cmsview/widgets/widget_addpage.pt:12
+#: nive_cms/cmsview/add.pt:21 nive_cms/cmsview/widgets/widget_addpage.pt:12
 msgid "Add sub page"
 msgstr "Unterseite hinzufügen"
 
-#: nive_cms/cmsview/add.pt:24
-#: nive_cms/cmsview/widgets/widget_addpage.pt:15
+#: nive_cms/cmsview/add.pt:25 nive_cms/cmsview/widgets/widget_addpage.pt:15
 msgid "Add a new page after this"
 msgstr "Neue Seite nach dieser hinzufügen"
 
-#: nive_cms/cmsview/add.pt:26
-#: nive_cms/cmsview/widgets/widget_addpage.pt:17
+#: nive_cms/cmsview/add.pt:27 nive_cms/cmsview/widgets/widget_addpage.pt:17
 msgid "Add page after this"
 msgstr "Seite nach dieser einfügen"
 
-#: nive_cms/cmsview/add.pt:28
-#: nive_cms/cmsview/widgets/element_add_list.pt:5
+#: nive_cms/cmsview/add.pt:29 nive_cms/cmsview/widgets/element_add_list.pt:5
 msgid "Add a new page element?"
 msgstr "Neues Seitenelement hinzufügen?"
 
@@ -647,12 +703,15 @@ msgid "Column names"
 msgstr "Spalten Namen"
 
 #: nive_cms/cmsview/admin.py:51
-msgid "Column names used in the main template. For multiple columns enter one per line."
-msgstr "Im Haupttemplate verwendete Spaltennamen. Mehrere Namen zeilenweise eintragen. "
+msgid ""
+"Column names used in the main template. For multiple columns enter one per "
+"line."
+msgstr ""
+"Im Haupttemplate verwendete Spaltennamen. Mehrere Namen zeilenweise "
+"eintragen. "
 
-#: nive_cms/cmsview/cutcopy.py:69
-#: nive_cms/cmsview/cutcopy.py:109
-#: nive_cms/cmsview/view.py:596
+#: nive_cms/cmsview/cutcopy.py:69 nive_cms/cmsview/cutcopy.py:109
+#: nive_cms/cmsview/view.py:593
 msgid "Object not found"
 msgstr "Objekt nicht gefunden"
 
@@ -676,118 +735,114 @@ msgstr "OK. Kopiert."
 msgid "Method unknown"
 msgstr "Unbekannte Methode"
 
-#: nive_cms/cmsview/delete.pt:5
+#: nive_cms/cmsview/delete.pt:6
 msgid "Confirm delete"
 msgstr "Löschen bestätigen"
 
-#: nive_cms/cmsview/delete.pt:18
-msgid "Warning: This will delete the element and all it's contents!"
-msgstr "Warnung: Hiermit werden das Element und alle enthaltenen Elemente gelöscht!"
-
 #: nive_cms/cmsview/delete.pt:19
+msgid "Warning: This will delete the element and all it's contents!"
+msgstr ""
+"Warnung: Hiermit werden das Element und alle enthaltenen Elemente gelöscht!"
+
+#: nive_cms/cmsview/delete.pt:20
 msgid "Warning: This will delete the page and all sub pages!"
 msgstr "Warnung: Hiermit werden die Seite und alle Unterseiten gelöscht!"
 
-#: nive_cms/cmsview/delete.pt:30
+#: nive_cms/cmsview/delete.pt:31
 msgid "Delete all"
 msgstr "Alle löschen"
 
-#: nive_cms/cmsview/sort.pt:18
+#: nive_cms/cmsview/sort.pt:19
 msgid "Sort"
 msgstr "Sortierung"
 
-#: nive_cms/cmsview/sort.pt:26
+#: nive_cms/cmsview/sort.pt:27
 msgid "Save"
 msgstr "Speichern"
+
+#: nive_cms/cmsview/sort.pt:30
+msgid "Nothing to sort!"
+msgstr "Nichts zum Sortieren."
 
 #: nive_cms/cmsview/sort.py:61
 msgid "List is empty"
 msgstr "Liste ist leer"
 
-#: nive_cms/cmsview/sort.py:88
-#: nive_cms/cmsview/view.py:626
+#: nive_cms/cmsview/sort.py:88 nive_cms/cmsview/view.py:623
 #: nive_cms/workflow/view.py:54
 msgid "OK"
 msgstr "OK"
 
-#: nive_cms/cmsview/sort.py:249
-#: nive_cms/cmsview/sort.py:272
+#: nive_cms/cmsview/sort.py:249 nive_cms/cmsview/sort.py:272
 msgid "Nothing to sort."
 msgstr "Nichts zum Sortieren."
 
-#: nive_cms/cmsview/sort.py:294
-#: nive_cms/cmsview/sort.py:315
-#: nive_cms/cmsview/sort.py:336
-#: nive_cms/cmsview/sort.py:357
+#: nive_cms/cmsview/sort.py:294 nive_cms/cmsview/sort.py:315
+#: nive_cms/cmsview/sort.py:336 nive_cms/cmsview/sort.py:357
 msgid "Not found"
 msgstr "Nicht gefunden"
 
-#: nive_cms/cmsview/view.py:104
+#: nive_cms/cmsview/view.py:112
 msgid "Add new page"
 msgstr "Neue Seite hinzufügen"
 
-#: nive_cms/cmsview/view.py:105
-#: nive_cms/cmsview/widgets/widget_editpage.pt:9
+#: nive_cms/cmsview/view.py:113 nive_cms/cmsview/widgets/widget_editpage.pt:9
 msgid "Edit page"
 msgstr "Seite bearbeiten"
 
-#: nive_cms/cmsview/view.py:106
+#: nive_cms/cmsview/view.py:114
 msgid "Sub pages and parent"
 msgstr "Unterseiten und höhere Ebene"
 
-#: nive_cms/cmsview/view.py:107
-#: nive_cms/cmsview/widgets/widget_settings.pt:7
+#: nive_cms/cmsview/view.py:115 nive_cms/cmsview/widgets/widget_settings.pt:7
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: nive_cms/cmsview/view.py:109
+#: nive_cms/cmsview/view.py:117
 #: nive_cms/cmsview/widgets/editblock_element.pt:24
 #: nive_cms/cmsview/widgets/editblock_list.pt:10
-#: nive_cms/cmsview/widgets/editblock_list.pt:14
-#: nive_cms/workflow/wf.py:30
+#: nive_cms/cmsview/widgets/editblock_list.pt:14 nive_cms/workflow/wf.py:30
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: nive_cms/cmsview/view.py:110
+#: nive_cms/cmsview/view.py:118
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: nive_cms/cmsview/view.py:111
-#: nive_cms/cmsview/widgets/widget_editpage.pt:18
+#: nive_cms/cmsview/view.py:119 nive_cms/cmsview/widgets/widget_editpage.pt:18
 #: nive_cms/cmsview/widgets/widget_editpage.pt:20
 msgid "Sort sub pages"
 msgstr "Unterseiten sortieren"
 
-#: nive_cms/cmsview/view.py:112
+#: nive_cms/cmsview/view.py:120
 msgid "Meta"
 msgstr "Meta Informationen"
 
-#: nive_cms/cmsview/view.py:419
+#: nive_cms/cmsview/view.py:415
 msgid "<p><i>empty</i></p>"
 msgstr "<p><i>leer</i></p>"
 
-#: nive_cms/cmsview/view.py:420
+#: nive_cms/cmsview/view.py:416
 msgid "Page elements"
 msgstr "Seitenelemente"
 
-#: nive_cms/cmsview/view.py:456
+#: nive_cms/cmsview/view.py:452
 msgid "This page is not public."
 msgstr "Diese Seite ist nicht öffentlich."
 
-#: nive_cms/cmsview/view.py:462
+#: nive_cms/cmsview/view.py:459
 msgid "<p><i>no sub pages</i></p>"
 msgstr "<p><i>keine Unterseiten</i></p>"
 
-#: nive_cms/cmsview/view.py:591
+#: nive_cms/cmsview/view.py:588
 msgid "Nothing to delete"
 msgstr "Nichts zu löschen"
 
-#: nive_cms/cmsview/view.py:603
-#: nive_cms/cmsview/view.py:605
+#: nive_cms/cmsview/view.py:600 nive_cms/cmsview/view.py:602
 msgid "OK. Deleted."
 msgstr "Ok. Gelöscht."
 
-#: nive_cms/cmsview/view.py:624
+#: nive_cms/cmsview/view.py:621
 msgid "Delete failed"
 msgstr "Löschen fehlgeschlagen"
 
@@ -918,25 +973,155 @@ msgstr "Interaktive Elemente aktivieren"
 msgid "Disable interactive elements"
 msgstr "Interaktive Elemente deaktivieren"
 
+#: nive_cms/cmsview/widgets/widget_settings.pt:22
+#: nive_cms/cmsview/widgets/widget_settings.pt:23
+msgid "User management"
+msgstr "Benutzerverwaltung"
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:27
+#: nive_cms/cmsview/widgets/widget_settings.pt:28
+msgid "Administration"
+msgstr "Verwaltung"
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:30
+#: nive_cms/cmsview/widgets/widget_settings.pt:31
+msgid "My account"
+msgstr "Mein Konto"
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:33
+#: nive_cms/cmsview/widgets/widget_settings.pt:34
+msgid "Exit editor"
+msgstr "Editor verlassen"
+
+#: nive_cms/cmsview/widgets/widget_settings.pt:36
+#: nive_cms/cmsview/widgets/widget_settings.pt:37
+msgid "Log out"
+msgstr "Ausloggen"
+
+#: nive_cms/cmsview/widgets/widget_subpages.pt:9
+#: nive_cms/cmsview/widgets/widget_subpages.pt:10
+msgid "Open parent page"
+msgstr "Übergeordnete Seite öffnen"
+
 #: nive_cms/design/view.py:34
 msgid "Website design and view"
 msgstr "Webseite Design und Views"
 
-#: nive_cms/design/templates/image.pt:17
-#: nive_cms/design/templates/news.pt:12
-#: nive_cms/design/templates/news.pt:24
-#: nive_cms/design/templates/news.pt:37
-#: nive_cms/design/templates/news.pt:53
+#: nive_cms/design/templates/box.pt:16
+msgid "empty box"
+msgstr "Box ist leer"
+
+#: nive_cms/design/templates/image.pt:17 nive_cms/design/templates/image.pt:35
+#: nive_cms/design/templates/news.pt:12 nive_cms/design/templates/news.pt:24
+#: nive_cms/design/templates/news.pt:37 nive_cms/design/templates/news.pt:53
 msgid "&gt; more"
 msgstr "&gt; mehr"
+
+#: nive_cms/design/templates/media.pt:7
+msgid "Sorry, your browser does not support the video element."
+msgstr "Entschuldigung, der Browser kann das Video Element nicht anzeigen."
+
+#: nive_cms/design/templates/media.pt:13
+msgid "Sorry, your browser does not support the audio element."
+msgstr "Entschuldigung, der Browser kann das Audio Element nicht abspielen."
 
 #: nive_cms/design/templates/news.pt:47
 msgid "&gt; open"
 msgstr "&gt; aufklappen"
 
-#: nive_cms/doc/default.pt:1
+#: nive_cms/design/templates/page.pt:12
+msgid "This page is redirected in view mode:"
+msgstr "Diese Seite wird im Ansichtsmodus umgeleitet: "
+
+#: nive_cms/doc/default.pt:2
 msgid "Welcome to Nive cms!"
 msgstr "Willkommen in der neuen Nive cms Webseite!"
+
+#: nive_cms/doc/default.pt:6
+msgid "The website is empty."
+msgstr "Die Webseite ist leer."
+
+#: nive_cms/doc/default.pt:7
+msgid "You have to sign in to start editing content."
+msgstr "Zum Bearbeiten der Inhalte, bitte erst anmelden."
+
+#: nive_cms/doc/default.pt:9
+msgid ""
+"Please note: This page will disappear automatically after adding content."
+msgstr ""
+"Hinweis: Diese Seite verschwindet automatisch nachdem Inhalte hinzugefügt "
+"wurden."
+
+#. Default: Nive is a new -out of the box- open source content management system based on Python and
+#. Pyramid.<dynamic element> The cms comes with everything needed to set up a simple website: a default
+#. design with templates, a set of basic content elements and an included webserver. No python
+#. knowledge is required to get started.
+#: nive_cms/doc/default.pt:12
+msgid "nive_introduction"
+msgstr ""
+"Nive cms ist ein -out of the box- Open Source Content Management System "
+"basierend auf Python und Pyramid.<br/>Das cms kommt mit allem was benötigt "
+"wird um eine einfache Website aufzusetzen. "
+
+#: nive_cms/doc/default.pt:20
+msgid "It's easy to use"
+msgstr "Einfach anzuwenden"
+
+#. Default: The <dynamic element> (by default on the right) contains all page and system options. Page
+#. options always refer to the current page. The toolbox is draggable by clicking on the header. It
+#. remembers its position throughout page reloads.
+#: nive_cms/doc/default.pt:21
+msgid "nive_toolbox"
+msgstr ""
+"Die <strong>Toolbox</strong> (normalerweise auf der rechten Seite) enthält "
+"alle Bearbeitungs-Optionen.  Die Toolbox kann auf der Webseite verschoben "
+"werden. Einfach auf den Kopf der Box klicken und verschieben. "
+
+#. Default: Small <dynamic element> and column provide options to handle page elements at these
+#. locations. The first icon lets you add elements, the second lists existing elements.<dynamic
+#. element> <dynamic element> Content <dynamic element> (Except this message). Backgrounds will be
+#. colored yellow when the pointer enters the elements area and the element's edit bar appears on
+#. click. This bar includes the options for the specific element.<dynamic element> <dynamic element>
+#. Some elements like links or linked images are already interactive themselves. A click on a link for
+#. example will load the new page and not the edit bar. <dynamic element> and load the edit bar only.
+#: nive_cms/doc/default.pt:27
+msgid "nive_editbars"
+msgstr ""
+"Kleine <strong>Blöcke mit Bearbeitungsoptionen</strong> am unteren Seite der "
+"Seite und Spalten beinhalten die Optionen zum Anlegen und Bearbeiten von "
+"Elementen an der jeweiligen Stelle. Über den ersten Button können neue "
+"Elemente hinzugefügt, mit dem zweiten können die bereits bestehenden "
+"aufgelistet werden.<br/><br/> <strong>Inhalte auf der Seitze sind "
+"interaktiv</strong> (dieser Text ist eine Ausnahme). Ein Klick auf das "
+"jeweilige Element öffnet die Optionen zum Bearbeiten.<br/><br/>Manche "
+"Elemente haben von sich aus schon Funktionen bei Klicks, wie z.B Links. Um "
+"die Optionen dieser Elemente zu öffnen bitte die Strg-Taste der Tastatur "
+"beim Klick mit der Maus gedrückt halten. Dann werden nur die Optionen "
+"angezeigt. "
+
+#: nive_cms/doc/default.pt:42
+msgid "Please refer to the online documentation for further information"
+msgstr "Weitere Informationen gibt es in der Online-Hilfe"
+
+#: nive_cms/doc/default.pt:44
+msgid "Editing websites"
+msgstr "Webseiten bearbeiten"
+
+#: nive_cms/doc/default.pt:45
+msgid "CMS elements and modules"
+msgstr "CMS Elemente und Module"
+
+#: nive_cms/doc/default.pt:46
+msgid "Styling the website"
+msgstr "Design Integration"
+
+#: nive_cms/doc/default.pt:47
+msgid "API"
+msgstr "API"
+
+#: nive_cms/doc/default.pt:48
+msgid "Community and Support"
+msgstr "Community und Support"
 
 #: nive_cms/extensions/fulltextpage.py:148
 msgid "Deleted previous fulltext index.<br/>"
@@ -966,11 +1151,11 @@ msgstr "Volltext Index neu erstellen"
 msgid "Delete and rewrite the fulltext index."
 msgstr "Volltext Index löschen und neu erstellen."
 
-#: nive_cms/extensions/images.py:87
+#: nive_cms/extensions/images.py:84
 msgid "Python image library (PIL) not installed."
 msgstr "Python image library (PIL) ist nicht installiert."
 
-#: nive_cms/extensions/images.py:127
+#: nive_cms/extensions/images.py:124
 msgid "Image not found: "
 msgstr "Bild nicht gefunden: "
 
@@ -978,8 +1163,7 @@ msgstr "Bild nicht gefunden: "
 msgid "CMS workflow extension"
 msgstr "CMS Workflow Erweiterung"
 
-#: nive_cms/workflow/view.py:30
-#: nive_cms/workflow/view.py:31
+#: nive_cms/workflow/view.py:30 nive_cms/workflow/view.py:31
 #: nive_cms/workflow/templates/widget.pt:6
 msgid "Workflow"
 msgstr "Workflow"
@@ -1008,18 +1192,48 @@ msgstr "Veröffentlichen"
 msgid "Revoke"
 msgstr "Sperren"
 
-#: nive_cms/workflow/templates/editorpage.pt:12
+#: nive_cms/workflow/templates/editorpage.pt:13
 msgid "Workflow state of this page"
 msgstr "Workflow Status dieser Seite"
 
-#: nive_cms/workflow/templates/editorpage.pt:14
+#: nive_cms/workflow/templates/editorpage.pt:15
+#: nive_cms/workflow/templates/editorpage.pt:37
 #: nive_cms/workflow/templates/widget.pt:9
 msgid "The page is in draft mode and not public."
 msgstr "Diese Seite ist im Entwurfsmodus und nicht öffentlich."
 
-#: nive_cms/workflow/templates/editorpage.pt:15
+#: nive_cms/workflow/templates/editorpage.pt:16
+#: nive_cms/workflow/templates/editorpage.pt:38
 msgid "The page is public."
 msgstr "Diese Seite ist öffentlich."
+
+#: nive_cms/workflow/templates/editorpage.pt:43
+msgid "Publish all sub pages recursive"
+msgstr "Unterseiten veröffentlichen"
+
+#: nive_cms/workflow/templates/editorpage.pt:47
+msgid "Publish all contained sub pages"
+msgstr "Alle enthaltenen Unterseiten freigeben"
+
+#: nive_cms/workflow/templates/editorpage.pt:54
+msgid "Workflow information could not be loaded."
+msgstr "Workflow Informationen konnten nicht geladen werden."
+
+#: nive_cms/workflow/templates/editorpage.pt:56
+msgid "Linked workflow process:"
+msgstr "Workflow Prozess"
+
+#: nive_cms/workflow/templates/editorpage.pt:57
+msgid "Current workflow state:"
+msgstr "Aktueller Workflow Status:"
+
+#: nive_cms/workflow/templates/editorpage.pt:60
+msgid "Workflow process configured to be used with:"
+msgstr "Workflow Prozess verwendet:"
+
+#: nive_cms/workflow/templates/widget.pt:17
+msgid "Open workflow page"
+msgstr "Workflow öffnen"
 
 #~ msgid "String"
 #~ msgstr "String"
@@ -1187,9 +1401,6 @@ msgstr "Diese Seite ist öffentlich."
 #~ msgid "Tools"
 #~ msgstr "Tools"
 
-#~ msgid "Workflow processes"
-#~ msgstr "Workflow Prozesse"
-
 #~ msgid "Other modules"
 #~ msgstr "Andere Module"
 
@@ -1239,10 +1450,6 @@ msgstr "Diese Seite ist öffentlich."
 #~ msgstr "Veröffentlicht"
 
 #, fuzzy
-#~ msgid "administration"
-#~ msgstr "Verwaltung"
-
-#, fuzzy
 #~ msgid "user management"
 #~ msgstr "Benutzerverwaltung"
 
@@ -1251,9 +1458,6 @@ msgstr "Diese Seite ist öffentlich."
 
 #~ msgid "Application description"
 #~ msgstr "Anwendung Beschreibung"
-
-#~ msgid "Enable workflow engine"
-#~ msgstr "Workflow aktivieren"
 
 #~ msgid "Enable fulltext index"
 #~ msgstr "Volltext Index aktivieren"
@@ -1332,24 +1536,6 @@ msgstr "Diese Seite ist öffentlich."
 
 #~ msgid "Right column"
 #~ msgstr "Rechte Spalte"
-
-#~ msgid "User management"
-#~ msgstr "Benutzerverwaltung"
-
-#~ msgid "My account"
-#~ msgstr "Mein Konto"
-
-#~ msgid "Exit editor"
-#~ msgstr "Editor verlassen"
-
-#~ msgid "Log out"
-#~ msgstr "Ausloggen"
-
-#~ msgid "Open parent page"
-#~ msgstr "Übergeordnete Seite öffnen"
-
-#~ msgid "This page is redirected in view mode:"
-#~ msgstr "Diese Seite wird im Ansichtsmodus umgeleitet: "
 
 #~ msgid "Cut and copy to clipboard"
 #~ msgstr "Ausschneiden und in den Zwischenspeicher kopieren"
@@ -1577,8 +1763,8 @@ msgstr "Diese Seite ist öffentlich."
 #~ msgid ""
 #~ "<div class='alert alert-error'>Database connection error (${name})</div>"
 #~ msgstr ""
-#~ "<div class='alert alert-error'>Datenbankverbindug fehlgeschlagen (${name})"
-#~ "</div>"
+#~ "<div class='alert alert-error'>Datenbankverbindug fehlgeschlagen "
+#~ "(${name})</div>"
 
 #~ msgid "<div class='alert alert-success'>Database created: '${name}'</div>"
 #~ msgstr ""
@@ -1604,8 +1790,8 @@ msgstr "Diese Seite ist öffentlich."
 
 #~ msgid "<div class='alert alert-error'>Table creation failed (${name})</div>"
 #~ msgstr ""
-#~ "<div class='alert alert-error'>Tabelle erstellen fehlgeschlagen (${name})"
-#~ "</div>"
+#~ "<div class='alert alert-error'>Tabelle erstellen fehlgeschlagen "
+#~ "(${name})</div>"
 
 #~ msgid "Modify selected columns"
 #~ msgstr "Ausgewählte Spalten ändern"
