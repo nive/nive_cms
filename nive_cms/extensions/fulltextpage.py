@@ -145,7 +145,7 @@ class RewriteFulltext(Tool):
         c.execute(sql)
         c.close()
         conn.commit()
-        self.stream.write(localizer.translate(_(u"Deleted previous fulltext index.<br/>")))
+        self.stream.write(localizer.translate(_(u"Deleted previous fulltext index.<br>")))
         
         pages = root.Select(parameter={"pool_stag":10,"pool_state":1})
         cnt = len(pages)
@@ -155,18 +155,18 @@ class RewriteFulltext(Tool):
             obj = root.LookupObj(page)
             if not obj:
                 err += 1
-                self.stream.write(localizer.translate(_(u"Error: Unable to open page (${id}).<br/>", mapping={"id":page})))
+                self.stream.write(localizer.translate(_(u"Error: Unable to open page (${id}).<br>", mapping={"id":page})))
             else:
                 try:
                     obj.UpdateFulltext()
                 except Exception, e:
                     err += 1
-                    self.stream.write(localizer.translate(_(u"Error: Unable to update page (${id}).<br/>", mapping={"id":page})))
+                    self.stream.write(localizer.translate(_(u"Error: Unable to update page (${id}).<br>", mapping={"id":page})))
                     self.stream.write(unicode(e))
-                    self.stream.write(u"<br/><br/>")
+                    self.stream.write(u"<br><br>")
         conn.commit()
-        self.stream.write(localizer.translate(_(u"Updated fulltext index. Finished.<br/>")))
-        self.stream.write(localizer.translate(_(u"${cnt} pages ok. ${err} failed.<br/>", mapping={"cnt":cnt,"err":err})))
+        self.stream.write(localizer.translate(_(u"Updated fulltext index. Finished.<br>")))
+        self.stream.write(localizer.translate(_(u"${cnt} pages ok. ${err} failed.<br>", mapping={"cnt":cnt,"err":err})))
         return 1
 
 

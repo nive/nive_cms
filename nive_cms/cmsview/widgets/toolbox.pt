@@ -3,7 +3,7 @@
      id="nive-toolbox">
   <div id="toolbox_header">
     <img class="toggle" id="toolbox_toggle" title="toggle toolbox" 
-         src="${static}toggle.png" i18n:attributes="title"/>
+         src="${static}toggle.png" i18n:attributes="title">
     <h1 i18n:translate="">toolbox</h1>
   </div>
   <div id="toolbox_contents">

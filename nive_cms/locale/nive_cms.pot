@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE 1.0\n"
-"POT-Creation-Date: 2014-08-25 19:08+0200\n"
+"POT-Creation-Date: 2014-08-26 11:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1122,26 +1122,26 @@ msgid "Delete and rewrite the fulltext index."
 msgstr ""
 
 #: ./nive_cms/extensions/fulltextpage.py:148
-msgid "Deleted previous fulltext index.<br/>"
+msgid "Deleted previous fulltext index.<br>"
 msgstr ""
 
 #: ./nive_cms/extensions/fulltextpage.py:168
-msgid "Updated fulltext index. Finished.<br/>"
+msgid "Updated fulltext index. Finished.<br>"
 msgstr ""
 
 #: ./nive_cms/extensions/fulltextpage.py:169
 #, python-format
-msgid "${cnt} pages ok. ${err} failed.<br/>"
+msgid "${cnt} pages ok. ${err} failed.<br>"
 msgstr ""
 
 #: ./nive_cms/extensions/fulltextpage.py:158
 #, python-format
-msgid "Error: Unable to open page (${id}).<br/>"
+msgid "Error: Unable to open page (${id}).<br>"
 msgstr ""
 
 #: ./nive_cms/extensions/fulltextpage.py:164
 #, python-format
-msgid "Error: Unable to update page (${id}).<br/>"
+msgid "Error: Unable to update page (${id}).<br>"
 msgstr ""
 
 #: ./nive_cms/extensions/images.py:84
