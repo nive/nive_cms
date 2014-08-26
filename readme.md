@@ -5,8 +5,11 @@ python and the webframework pyramid.
 Please refer to the website cms.nive.co for detailed information.
 
 ## Version
-This version is a beta release. The application is stable and complete. The public API as documented 
-on the website is stable will not change. 
+The package will soon be released as stable 1.0 version. For a better package management the previous
+`nive` package has been split up into several smaller packages.
+
+If you are updating from version 0.9.11 or older please read `update-0.9.11-to-1.0.txt`.
+Version 0.9.12 is compatible.
 
 ## Source code
 The source code is hosted on github: https://github.com/nive/nive_cms
@@ -15,9 +18,9 @@ The source code is hosted on github: https://github.com/nive/nive_cms
 http://cms.nive.co
 
 ### Translations
-Translations can be extracted using lingua>=3.1
+Translations can be extracted using lingua>=3.2
 
-    > pip install lingua-3.1
+    > pip install lingua-3.2
     > bin/pot-create -o nive_cms/locale/nive_cms.pot nive_cms
     
 ### Third party modules 
