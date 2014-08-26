@@ -49,15 +49,6 @@ POSTGRES_CONF = DatabaseConf(
 ENABLE_SQLITE_TESTS = True
 ENABLE_MYSQL_TESTS = False
 ENABLE_POSTGRES_TESTS = False
-try:
-    import MySQLdb
-except ImportError:
-    ENABLE_MYSQL_TESTS = False
-
-try:
-    import psycopg2
-except ImportError:
-    ENABLE_POSTGRES_TESTS = False
 
 
 
