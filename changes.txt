@@ -1,7 +1,18 @@
 
 
+0.9.13b
+------
+Update from 0.9.12 requires manual changes! Sorry.
+- extracted `nive_cms.design` and moved to separated package `nive_cms_design_bs2`
+  Please replace all imports of `nive_cms.design` to `nive_cms_design_bs2`. And 
+  do not forget to install the package first.
+
+The default design is now based on bootstrap 3 and also available as separate package
+`nive_cms_design_bs3`.
+
 0.9.12b
 ------
+Update from 0.9.11 requires manual changes!
 - refactored previous package nive -> nive, nive_cms, nive_userdb
   see packages.txt for changed imports
 

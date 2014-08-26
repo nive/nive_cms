@@ -8,8 +8,8 @@ Please refer to the website cms.nive.co for detailed information.
 The package will soon be released as stable 1.0 version. For a better package management the previous
 `nive` package has been split up into several smaller packages.
 
-If you are updating from version 0.9.11 or older please read `update-0.9.11-to-1.0.txt`.
-Version 0.9.12 is compatible.
+If you are updating from version 0.9.11 or older please read `nive/update-0.9.11-to-1.0.txt`.
+If you are updating from version 0.9.12 read `changes.txt`.
 
 ## Source code
 The source code is hosted on github: https://github.com/nive/nive_cms
