@@ -44,20 +44,12 @@ configuration = ObjectConf(
     description = _(u"Element to render navigation trees and linked table of contents. The menublock can be used as main navigation for the web page.")
 )
 
-css =[  {'id': u'cols1_2', 'name': _(u'50 % width left')},
-        {'id': u'cols1_3', 'name': _(u'33 % width left')},
-        {'id': u'cols2_3', 'name': _(u'66 % width left')},
-        {'id': u'colsRight1_2', 'name': _(u'50 % width right')},
-        {'id': u'colsRight1_3', 'name': _(u'33 % width right')},
-        {'id': u'colsRight2_3', 'name': _(u'66 % width right')},
-]
 menu=[  {'id': u'sub', 'name': _(u'Sub pages')},
         {'id': u'level', 'name': _(u'Same level pages')},
         {'id': u'tree', 'name': _(u'Tree navigation')},
         {'id': u'subtree', 'name': _(u'Tree navigation - first level as base')},
 ]
 configuration.data = [
-    FieldConf(id="cssClass", datatype="list", size=12, default=u"", name=_(u"Styling"), listItems=css, description=u""),
     FieldConf(id="menutype", datatype="list", size=12, default=u"", name=_(u"Menu type"), listItems=menu, description=u"")
 ]
 

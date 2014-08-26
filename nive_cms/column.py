@@ -23,39 +23,30 @@ class column(PageElementContainerBase):
         return self.parent
 
     def IsLocal(self, page):
-        #
         return self.meta.pool_unitref == page.id
     
     def GetName(self):
-        #
         return self.meta["title"]
     
     def IsContainer(self):
-        #
         return True
 
     def IsPage(self):
-        #
         return False
 
     def GetPage(self):
-        # returns the current page
         return self.parent
 
     def GetPages(self):
-        # columns have no subpages
         return []
 
     def GetElementContainer(self):
-        # returns the current element container
         return self 
 
     def GetContainer(self):
-        # returns the current container
         return self.parent
 
     def GetColumn(self, name):
-        # 
         if name == self.meta["title"]:
             return self
         return self.GetPage().GetColumn(name)

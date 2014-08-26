@@ -35,14 +35,8 @@ from nive_cms.baseobjects import PageElementFileBase
 from nive_cms.extensions.images import PILloaded
 
 class image(PageElementFileBase):
-    
-    def Span(self):
-        # css class span for the css selection
-        if self.data.cssClass=="teaserl":
-            return u"span4"
-        elif self.data.cssClass=="teasers":
-            return u"span2"
-        return u"span3"
+    """
+    """
     
 
 
@@ -60,18 +54,11 @@ configuration = ObjectConf(
     description = _(u"The image element inserts images into the web page.")
 )
 
-css = [{"id": u"default", "name": _(u"Simple")}, 
-       {"id": u"left",    "name": _(u"Float right")}, 
-       {"id": u"teaser",  "name": _(u"Teaser")},
-       {"id": u"teaserl", "name": _(u"Teaser large")},
-       {"id": u"teasers", "name": _(u"Teaser small")},
-]
-
 configuration.data = [
     FieldConf(id="image",     datatype="file", size=0,     default=u"", name=_(u"Imagefile")),
     FieldConf(id="imagefull", datatype="file", size=0,     default=u"", name=_(u"Imagefile fullsize")),
     FieldConf(id="textblock", datatype="htext",size=100000,default=u"", name=_(u"Text"), fulltext=1, required=0),
-    FieldConf(id="cssClass",  datatype="list", size=10,    default=u"", name=_(u"Styling"), listItems=css),
+    FieldConf(id="cssClass",  datatype="list", size=10,    default=u"", name=_(u"Styling"), listItems=()),
     FieldConf(id="link",      datatype="url",  size=1000,  default=u"", name=_(u"Link"))
 ]
 
@@ -84,20 +71,8 @@ configuration.forms = {"create": {"fields":fields}, "edit": {"fields":fields}}
 configuration.views = []
 
 
-# image profiles
-def CheckDeafult(imageObject):
-    return imageObject.data.cssClass in (u'', u'default', u'left', u'teaserl')
+ProfileImage = Conf(source="imagefull", dest="image", format="JPEG", quality="90", width=360, height=0, extension="jpg")
 
-def CheckTeaser(imageObject):
-    return imageObject.data.cssClass == u'teaser'
-
-def CheckTeaserSmall(imageObject):
-    return imageObject.data.cssClass == u'teasers'
-
-ProfileImage = Conf(source="imagefull", dest="image", format="JPEG", quality="90", width=360, height=0, extension="jpg", condition=CheckDeafult)
-ProfileTeaser = Conf(source="imagefull", dest="image", format="JPEG", quality="90", width=260, height=0, extension="jpg", condition=CheckTeaser)
-ProfileTeaserSmall = Conf(source="imagefull", dest="image", format="JPEG", quality="90", width=160, height=0, extension="jpg", condition=CheckTeaserSmall)
-
-configuration.imageProfiles = [ProfileImage, ProfileTeaser, ProfileTeaserSmall]
+configuration.imageProfiles = [ProfileImage]
 
 

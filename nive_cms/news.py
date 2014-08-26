@@ -30,16 +30,11 @@ configuration = ObjectConf(
     description = _(u"Simple news item with title, text, image, publish date and link.")
 )
 
-css = [{"id": u"simple", "name": _(u"Block")},
-       {"id": u"teaser", "name": _(u"Teaser")},
-       {"id": u"teasers", "name": _(u"Teaser small")},
-       {"id": u"line", "name": _(u"Single line, fold out")}]
-
 configuration.data = [
     FieldConf(id="image",     datatype="file",  size=0,      default=u"", name=_(u"Imagefile"), description=u""),
     FieldConf(id="textblock", datatype="htext", size=100000, default=u"", fulltext=1, name=_(u"Text"), description=u""),
     FieldConf(id="publish",   datatype="date",  size=0,      default=u"", required=0, name=_(u"Date"), description=_(u"Used as publish date on the website.")),
-    FieldConf(id="cssClass",  datatype="list",  size=10,     default=u"", listItems=css, name=_(u"Styling"), description=u""),
+    FieldConf(id="cssClass",  datatype="list",  size=10,     default=u"", listItems=(), name=_(u"Styling"), description=u""),
     FieldConf(id="link",      datatype="url",   size=1000,   default=u"", name=_(u"Link"), description=u"")
 ]
 

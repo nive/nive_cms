@@ -22,7 +22,7 @@ Minimal local system configuration (sqlite example) and usage
                        context=u"Sqlite3",
                        dbName="/var/opt/website/website.db")
     app.modules.append(dbConfiguration)
-    design = ViewModuleConf("nive_cms.design.view")
+    design = ViewModuleConf("nive_cms_design_bs3.view")
     app.modules.append(design)
 
 - Groups: *group:editor, group:author, group:admin*
@@ -32,11 +32,11 @@ Minimal local system configuration (sqlite example) and usage
 A design is not included by default. The default can simply be included with the 
 following line ::
 
-    app.modules.append("nive_cms.design.view")
+    app.modules.append("nive_cms_design_bs3.view")
 
 To include a customized copy of the design use ::
 
-    design = ViewModuleConf("nive_cms.design.view")
+    design = ViewModuleConf("nive_cms_design_bs3.view")
     # design customizations here
     design.static = "mywebsite:static" 
     # add to website
@@ -44,7 +44,7 @@ To include a customized copy of the design use ::
 
 This will replace the static directory of the design with your own directory. However, now you will
 have to add the required css, images and javascript used by the templates to the new folder.
-(For a start just copy the contents of ``nive_cms.design:static``.)
+(For a start just copy the contents of ``nive_cms_design_bs3:static``.)
 """
 import copy
 
@@ -80,7 +80,7 @@ configuration.modules = [
     # cms editor
     "nive_cms.cmsview",
     # design: not included by default
-    #"nive_cms.design.view"
+    #"nive_cms_design_bs3"
     # workflow
     "nive_cms.workflow",
     "nive_cms.workflow.wf.wfProcess", 

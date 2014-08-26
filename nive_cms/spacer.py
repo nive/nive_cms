@@ -31,16 +31,8 @@ configuration = ObjectConf(
     description = _(u"Styling element to add line breaks and vertical space between elements.")
 )
 
-css =[  {'id': u'bo', 'name': _(u'Border')},
-        {'id': u'h0', 'name': _(u'Invisible')},
-        {'id': u'h1', 'name': _(u'1 line')},
-        {'id': u'h2', 'name': _(u'2 lines')},
-        {'id': u'h3', 'name': _(u'3 lines')},
-        {'id': u'h4', 'name': _(u'4 lines')},
-        ]
-
 configuration.data = [
-    FieldConf(id="cssClass", datatype="list", size=5, default=u"", listItems=css, name=_(u"Styling"), description=u"")
+    FieldConf(id="cssClass", datatype="list", size=5, default=u"", listItems=(), name=_(u"Styling"), description=u"")
 ]
 
 fields =["cssClass", "pool_groups"]

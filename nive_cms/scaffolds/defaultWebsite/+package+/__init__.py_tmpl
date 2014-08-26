@@ -37,13 +37,13 @@ Please refer to :py:module:``nive.definitions.ViewModuleConf`` for all configura
 # extend the template directory with our own for replacements. The cms will look first in the project
 # directory for a template and if not found in the original directory. Adding a new template will
 # require a restart
-design = ViewModuleConf("nive_cms.design.view",
+design = ViewModuleConf("nive_cms_design_bs3.view",
     templates="{{package}}:templates"
 )
 website.modules.append(design)
 # Alternatively to use the default design and templates without customization use the following
 # line instead of the lines above
-# website.modules.append("nive_cms.design.view")
+# website.modules.append("nive_cms_design_bs3.view")
 
 # add a new static directory for customized and new asset files
 static = ViewModuleConf(

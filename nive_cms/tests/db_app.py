@@ -13,7 +13,6 @@ from nive import File
 
 def app_db(confs=None):
     appconf = AppConf("nive_cms.app")
-    appconf.modules.append("nive_cms.design.view")
     a = WebsitePublisher()
     a.Register(appconf)
     if confs:
@@ -37,7 +36,6 @@ def app_db(confs=None):
 
 def app_nodb():
     appconf = AppConf("nive_cms.app")
-    appconf.modules.append("nive_cms.design.view")
     a = WebsitePublisher()
     a.Register(appconf)
     a.Register(DatabaseConf())

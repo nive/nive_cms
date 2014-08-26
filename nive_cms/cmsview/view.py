@@ -52,6 +52,7 @@ configuration = ViewModuleConf(
     context = IObject,
     containment = ICMSRoot,  
     view = "nive_cms.cmsview.view.Editor",
+    # assets list the requirements for the editor pages. These are not mixed with the design!
     assets = [
         ('bootstrap.css', 'nive_cms.cmsview:static/mods/bootstrap/css/bootstrap.min.css'),
         ('cmsview.css', 'nive_cms.cmsview:static/cmsview.css'),              # nive css
@@ -60,7 +61,7 @@ configuration = ViewModuleConf(
         ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
         ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
-    # the editorAssets list the requirements to include the editor in the websites design
+    # editorAssets list the requirements to include the editor in the websites design.
     editorAssets = [
         ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
         ('overlay.css', 'nive_cms.cmsview:static/overlay/overlay.css'),

@@ -113,3 +113,56 @@ class FolderBase(ContainerCopy, PageElement, ObjectContainerBase):
     - supports paste of elements
     """
     implements(IFolder)
+    
+    
+
+# design view base class --------------------------------------------
+
+from nive.views import BaseView
+from nive.helper import ResolveName
+from nive.definitions import ICMSRoot, IViewModuleConf
+
+class DesignBase(BaseView):
+    """
+    *Website design base class*
+    
+    - lookup view module automatically
+    - load editor instance
+    """
+    
+    def __init__(self, context, request):
+        super(DesignBase, self).__init__(context, request)
+        # the viewModule is used for template/template directory lookup 
+        self.viewModuleID = "design"
+        if not self.viewModule:
+            raise ConfigurationError, "'design' view module configuration not found"
+        
+    @property
+    def editorview(self):
+        """
+        Tries to load the editor view class. If none is registered the function 
+        will simply return None. Otherwise the editor view class instance with 
+        context and request set.
+        """
+        if hasattr(self, "_c_editor"):
+            return self._c_editor
+        # restrict editor to roots with ICMSRoot Interface. Otherwise the editor views
+        # will not be found 
+        root = self.context.dataroot
+        if not ICMSRoot.providedBy(root):
+            return None
+        module = self.context.app.QueryConfByName(IViewModuleConf, "editor")
+        if not module:
+            return None
+        cls =  ResolveName(module.view)
+        editor = cls(self.context, self.request)
+        self._c_editor = editor
+        return editor
+            
+
+    def IsEditmode(self):
+        try:
+            return self.request.editmode
+        except:
+            return False
+        

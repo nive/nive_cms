@@ -10,6 +10,7 @@ requires = [
     'nive',
     'nive_userdb',
     'nive_cms',
+    'nive_cms_design_bs3',
     'pyramid_debugtoolbar',
     'pyramid_mako',
     'waitress',
