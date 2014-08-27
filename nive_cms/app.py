@@ -3,7 +3,7 @@
 # Released under GPL3. See license.txt
 #
 
-__doc__ = """
+"""
 Nive cms default configuration
 
 This file links together all modules included in a default nive installation.
@@ -96,21 +96,8 @@ configuration.modules = [
 ]
 
 configuration.acl = [
+    # basic permissions. explicit view definitions are part of the view modules' conf.
     (Allow, Everyone, 'view'),
-    (Allow, 'group:editor', 'read'),
-    (Allow, 'group:editor', 'add'),
-    (Allow, 'group:editor', 'edit'), 
-    (Allow, 'group:editor', 'delete'), 
-    (Allow, 'group:editor', 'publish'), 
-    (Allow, 'group:editor', 'revoke'), 
-    (Allow, 'group:author', 'read'),
-    (Allow, 'group:author', 'add'),
-    (Allow, 'group:author', 'edit'), 
-    (Allow, 'group:author', 'delete'), 
-    (Allow, 'group:reviewer', 'read'),
-    (Allow, 'group:reviewer', 'publish'),
-    (Allow, 'group:reviewer', 'revoke'), 
-    (Allow, 'group:reader', 'read'),
     (Allow, 'group:admin', ALL_PERMISSIONS), 
     (Deny, Everyone, ALL_PERMISSIONS),
 ]

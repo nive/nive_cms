@@ -24,16 +24,17 @@ from pyramid.response import Response
 from pyramid.renderers import get_renderer, render, render_to_response
 
     
-from nive_cms.i18n import _, translator
 from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf
 from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot
 from nive.definitions import IToolboxWidgetConf, IEditorWidgetConf, IViewModuleConf, ICMSRoot, IColumn
 from nive.utils.utils import SortConfigurationList
 from nive.helper import ResolveName
-
+from nive.security import Allow, Deny, Everyone
 from nive.forms import ObjectForm
 from nive.views import BaseView
 
+from nive_cms.i18n import _
+from nive_cms.i18n import translator
 from nive_cms.cmsview import cutcopy
 from nive_cms.cmsview import sort
 
@@ -70,6 +71,23 @@ configuration = ViewModuleConf(
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
         ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
+    acl = (
+        (Allow, Everyone, 'view'),
+        (Allow, 'group:editor', 'read'),
+        (Allow, 'group:editor', 'add'),
+        (Allow, 'group:editor', 'edit'), 
+        (Allow, 'group:editor', 'delete'), 
+        (Allow, 'group:editor', 'publish'), 
+        (Allow, 'group:editor', 'revoke'), 
+        (Allow, 'group:author', 'read'),
+        (Allow, 'group:author', 'add'),
+        (Allow, 'group:author', 'edit'), 
+        (Allow, 'group:author', 'delete'), 
+        (Allow, 'group:reviewer', 'read'),
+        (Allow, 'group:reviewer', 'publish'),
+        (Allow, 'group:reviewer', 'revoke'), 
+        (Allow, 'group:reader', 'read'),
+    ),
     description=__doc__
 )
 
