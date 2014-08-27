@@ -56,4 +56,7 @@ configuration.data = [
 fields = ["title", "menutype", "pool_groups"]
 configuration.forms = {"create": {"fields":fields}, "edit": {"fields":fields}}
 
+jsonfields = fields + ["pool_type","pool_filename"]
+configuration.toJson = tuple(jsonfields)
+
 configuration.views = []

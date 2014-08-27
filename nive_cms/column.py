@@ -78,6 +78,8 @@ configuration.forms = {
         "edit":   {"fields": ["showsub", "pool_groups"]}
 }
 
+configuration.toJson = ("title", "showsub", "pool_groups", "pool_type", "pool_filename")
+
 configuration.views = []
 
 

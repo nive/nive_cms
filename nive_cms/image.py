@@ -68,6 +68,8 @@ else:
     fields = ["title", "image", "imagefull", "textblock", "cssClass", "link", "pool_groups"]
 configuration.forms = {"create": {"fields":fields}, "edit": {"fields":fields}}
 
+configuration.toJson = ("title", "image", "imagefull", "textblock", "cssClass", "link", "pool_groups", "pool_type", "pool_filename")
+
 configuration.views = []
 
 

@@ -110,6 +110,20 @@ configuration.groups = [
     GroupConf(id="group:admin",  name="group:admin"),
 ]
 
+"""
+Web api support 
+---------------
+A simple example how to enable and integrate the json subtree renderer for the website
+"""
+#configuration.modules.append("nive_datastore.webapi")
+#configuration.extensions=("nive_datastore.app.DataStorage",)
+#configuration.subtree = {"page": {
+#    "descent": ("nive.definitions.IPageElement",),     # item types or interfaces to descent into subtree
+#    "fields": {},                                      # if empty uses type definition toJson defaults
+#    }
+#}
+#configuration.defaultSubtree = "page"
+
 
 class WebsitePublisher(ApplicationBase):
     """ the main cms application class """

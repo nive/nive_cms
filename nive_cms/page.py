@@ -88,4 +88,7 @@ fields = ["title", "header", "description", "navHidden", "pagelink",
           "customfilename", "pool_filename", "pool_groups"]
 configuration.forms = {"create": {"fields":fields}, "edit": {"fields":fields}}
 
+jsonfields = fields + ["pool_type"]
+configuration.toJson = tuple(jsonfields)
+
 configuration.views = []
