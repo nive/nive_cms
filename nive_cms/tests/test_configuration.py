@@ -6,7 +6,7 @@ import unittest
 from nive.helper import FormatConfTestFailure
 
 from nive_cms import app, box, column, file, image, link, media, menublock, news, note, page, root
-from nive_cms import spacer, text, code
+from nive_cms import spacer, text, codeblock
 
 
 
@@ -118,7 +118,7 @@ class TestConf(unittest.TestCase):
         self.assert_(False, "Configuration Error")
 
     def test_conf17(self):
-        r=code.configuration.test()
+        r=codeblock.configuration.test()
         if not r:
             return
         print FormatConfTestFailure(r)

@@ -2,17 +2,13 @@
 # Released under GPL3. See license.txt
 #
 
-import string
-from types import StringType, UnicodeType, IntType, LongType
-
 from nive.utils.utils import ConvertToNumberList
 
 from nive_cms.i18n import _
-from nive.definitions import StagPage, StagPageElement
-from nive.definitions import implements, Interface, IObject, ISort
+from nive.definitions import implements, ISort
 
-from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf
-from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot
+from nive.definitions import ViewConf
+from nive.definitions import IContainer, IPage, IObject, IRoot
 
 
 class Sort:
