@@ -27,6 +27,7 @@ class cmsroot(PageRootBase):
             (Allow, 'group:author', 'view'),
             (Allow, 'group:reviewer', 'view'),
             (Allow, 'group:reader', 'view'),
+            (Allow, 'group:admin', 'view'),
             (Deny, Everyone, 'view'),
         )
     

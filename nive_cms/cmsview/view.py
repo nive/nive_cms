@@ -72,7 +72,6 @@ configuration = ViewModuleConf(
         ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
     acl = (
-        (Allow, Everyone, 'view'),
         (Allow, 'group:editor', 'read'),
         (Allow, 'group:editor', 'add'),
         (Allow, 'group:editor', 'edit'), 
