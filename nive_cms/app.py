@@ -74,7 +74,7 @@ configuration.modules = [
     # objects
     "nive_cms.box", "nive_cms.column", "nive_cms.menublock", "nive_cms.file", 
     "nive_cms.image", "nive_cms.media", "nive_cms.note", "nive_cms.text",
-    "nive_cms.news", "nive_cms.spacer", "nive_cms.link", "nive_cms.code", 
+    "nive_cms.news", "nive_cms.spacer", "nive_cms.link", "nive_cms.codeblock",
     # page, root
     "nive_cms.root", "nive_cms.page", 
     # cms editor
