@@ -124,6 +124,7 @@
   line-height:1.2em;
   font-weight:bold;
   font-family: Verdana, Arial, sans-serif;
+  text-transform: none;
   color: black;
 }
 .addElements a {
@@ -173,6 +174,7 @@
   font-size:9pt;
   line-height:1.2em;
   font-family: Verdana, Arial, sans-serif;
+  text-transform: none;
   color: black;
 }
 .listElements a {
@@ -209,9 +211,10 @@
   font-family: Verdana, Arial, sans-serif;
   color: black;
   display: inline;
-  font-size: 1em;
+  font-size: 9pt;
   line-height:1.3em;
   font-weight: normal;
+  text-transform: none;
 }
 .listElements .el_options {
   float:right;
