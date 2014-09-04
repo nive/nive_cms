@@ -61,6 +61,7 @@ configuration = ObjectConf(
     selectTag = StagPage,
     container = True,
     workflowEnabled = True,
+    icon = "nive_cms.cmsview:static/images/types/page.png",
     description = _(u"Pages are rendered as html files and make up the website.")
 )
 
