@@ -130,4 +130,93 @@ class AlternatePath(object):
         if not self.__name__:
             self.__name__ = str(self.id)
 
-    
+
+
+
+class AlternateRootPath(object):
+    """
+    Extension for nive root objects to handle alternative url names
+    """
+
+    # system functions -----------------------------------------------------------------
+
+    def __getitem__(self, id):
+        """
+        Traversal lookup based on object.pool_filename and object.id. Trailing extensions
+        are ignored.
+        `file` is a reserved name and used in the current object to map file downloads.
+        """
+        if id == u"file":
+            raise KeyError, id
+        id = id.split(u".")
+        if len(id)>2:
+            id = (u".").join(id[:-1])
+        else:
+            id = id[0]
+        try:
+            id = long(id)
+        except:
+            name = id
+            id = 0
+            if name:
+                id = self.dataroot.FilenameToID(name, self.id)
+            if not id:
+                raise KeyError, id
+        o = self.GetObj(id)
+        if not o:
+            raise KeyError, id
+        return o
+
+
+class PersistentRootPath(object):
+    """
+    Extension for nive root objects to handle alternative url names
+    """
+
+    def Init(self):
+        self.ListenEvent("commit", "UpdateRouting")
+        self.ListenEvent("dataloaded", "UpdateRouting")
+        self.UpdateRouting()
+
+    def UpdateRouting(self):
+        # check url name of root
+        if self.meta.get("pool_filename"):
+            name = self.meta.get("pool_filename")
+            if name != self.__name__:
+                # close cached root
+                self.app._CloseRootObj(name=self.__name__)
+                # update __name__ and hash
+                self.__name__ = str(name)
+                self.path = name
+                # unique root id generated from name . negative integer.
+                self.idhash = abs(hash(self.__name__))*-1
+
+
+class AlternateAppPath(object):
+    """
+    Extension for nive applications to support alternative root names
+    """
+    # system functions -----------------------------------------------------------------
+
+    def __getitem__(self, name):
+        """
+        Traversal lookup based on object.pool_filename and object.id. Trailing extensions
+        are ignored.
+        """
+        name = name.split(u".")
+        if len(name)>2:
+            name = (u".").join(name[:-1])
+        else:
+            name = name[0]
+
+        o = self.root(name)
+        if o and o.configuration.urlTraversal:
+            return o
+        default = self.root(name="")
+        if default.path == name:
+            # copy configuration and pass to factory
+            conf = default.configuration.copy()
+            conf.id = name
+            return self.GetRoot(conf)
+
+        raise KeyError, name

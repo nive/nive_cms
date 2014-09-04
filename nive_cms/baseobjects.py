@@ -23,7 +23,7 @@ from nive.definitions import IPage, IPageContainer, IPageElement, IFile, IPageEl
 
 # page elements for subclassing --------------------------------------------
 
-from nive_cms.extensions.path import AlternatePath
+from nive_cms.extensions.path import AlternatePath, AlternateRootPath
 from nive_cms.extensions.pages import PageContainer, PageElementContainer, PageElement, PageColumns
 from nive_cms.cmsview.sort import Sort
 from nive_cms.cmsview.cutcopy import ObjCopy, ContainerCopy
@@ -45,7 +45,7 @@ class PageBase(ContainerCopy, Sort, AlternatePath, PageColumns, PageContainer, P
     implements(IPage, IPageContainer, IPageElementContainer)
 
 
-class PageRootBase(ContainerCopy, Sort, AlternatePath, PageColumns, PageContainer, PageElementContainer, RootBase):
+class PageRootBase(ContainerCopy, Sort, AlternateRootPath, PageColumns, PageContainer, PageElementContainer, RootBase):
     """
     *Root with content element support*
     

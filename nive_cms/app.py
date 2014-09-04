@@ -54,7 +54,7 @@ from nive.definitions import AppConf, FieldConf, GroupConf
 from nive.definitions import AllMetaFlds
 from nive.security import ALL_PERMISSIONS, Allow, Everyone, Deny
 from nive.components.objects.base import ApplicationBase
-
+from nive_cms.extensions.path import AlternateAppPath
 
 #@nive_module
 configuration = AppConf(
@@ -125,7 +125,7 @@ A simple example how to enable and integrate the json subtree renderer for the w
 #configuration.defaultSubtree = "page"
 
 
-class WebsitePublisher(ApplicationBase):
+class WebsitePublisher(AlternateAppPath, ApplicationBase):
     """ the main cms application class """
     implements(IWebsite)
     

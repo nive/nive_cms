@@ -17,6 +17,8 @@ from nive.definitions import IWebsiteRoot, implements
 from nive.definitions import RootConf
 
 
+from nive_cms.extensions.path import PersistentRootPath
+
 class root(PageRootBase):
 
     implements(IWebsiteRoot)
@@ -36,7 +38,7 @@ configuration = RootConf(
     template = "root.pt",
     default = True,
     subtypes = "*",
-    extensions = ("nive.extensions.persistentRoot.Persistent",),
+    extensions = ("nive.extensions.persistentRoot.Persistent","nive_cms.extensions.path.PersistentRootPath"),
     name = _(u"Home"),
     description = _(u"The root is the home page of the website. All contained pages and elements are stored in the database.")
 )
