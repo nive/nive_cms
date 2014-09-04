@@ -202,6 +202,7 @@ Example: ::
         this.options = $.extend({}, options, _defaults);
         this.options = $.extend({}, options, _settings);
         this.options = $.extend({}, options, params);
+        if(!$(this.options.parent).length) this.options.parent='body'; // fallback if container undefined
         this.close = function (url) {
             jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(_settings.fadeOutSpeed, function () { 
                       jQuery(this).unbind().remove(); 
