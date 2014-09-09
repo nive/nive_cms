@@ -8,6 +8,7 @@ Extensions for easier Page, Column and Page element handling.
 
 import string
 from datetime import datetime
+from pyramid.security import has_permission
 
 from nive.utils.utils import ConvertToList
 from nive.definitions import StagPage, StagPageElement
@@ -20,7 +21,7 @@ class PageContainer:
     Extension for page containers. Adds sub page selection functionality.
     """
 
-    def GetPages(self, includeMenu=1, hidden=1, public=None):
+    def GetPages(self, includeMenu=1, hidden=1, public=None, **kw):
         """
         Returns sub pages as objects based on parameters. ::
         
@@ -28,7 +29,7 @@ class PageContainer:
             hidden = include hidden pages
             public = only published pages (pool_state=1). if none 
                      queryRestraint default is used
-            
+
         returns object list
         """
         parameter, operators = {},{}
@@ -39,7 +40,7 @@ class PageContainer:
         elif public==0:
             if u"pool_state" in parameter:
                 del parameter[u"pool_state"]
-        pages = self.GetObjs(parameter = parameter, operators = operators)
+        pages = self.GetObjs(parameter = parameter, operators = operators, **kw)
         if includeMenu and hidden:
             return pages
         p2 = []
@@ -135,7 +136,9 @@ class PageElementContainer:
         
             addBoxContents = add elements contained in boxes
             skipColumns = do not include columns
-            kw = passed to GetObj() internally
+            permission = check current users permissions for the page. requires request object.
+            request = used to look up security context
+            kw = passed to GetObjs() internally
             
         returns a list of elements
         """
@@ -200,17 +203,6 @@ class PageElement:
 
     def Init(self):
         self.ListenEvent("commit", self.TouchPage)
-        groups = self.meta.get("pool_groups")
-        if groups:
-            groups = ConvertToList(groups)
-            acl = [(Allow, "group:editor", "view"),(Allow, "group:author", "view"),(Allow, "group:admin", "view")]
-            for g in groups:
-                if g == u"authenticated":
-                    acl.append((Allow, Authenticated, "view"))
-                else:
-                    acl.append((Allow, g, "view"))
-            acl.append((Deny, Everyone, 'view'))
-            self.__acl__ = acl 
 
 
     def GetElementContainer(self):

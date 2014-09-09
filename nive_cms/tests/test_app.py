@@ -105,8 +105,8 @@ class ObjectTest_db(object):
         
         self.assert_(p.IsLinked()==u"")
         self.assert_(p.IsPage())
-        p.meta["pool_groups"] = ["authenticated","another"]
-        p.Init()
+        p.meta["pool_groups"] = ["sys:authenticated","another"]
+        p.Signal("init")
         self.assert_((Allow, Authenticated, "view") in p.__acl__)
 
         r = p

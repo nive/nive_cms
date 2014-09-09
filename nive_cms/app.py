@@ -86,7 +86,7 @@ configuration.modules = [
     "nive_cms.workflow.wf.wfProcess", 
     #extensions
     "nive_cms.extensions.fulltextpage", 
-    #"nive.extensions.localgroups",
+    "nive_cms.extensions.localgroups",
     # tools
     "nive.tools.dbStructureUpdater", "nive.tools.cmsstatistics",
     "nive.tools.exportJson", "nive.tools.dbSqlDump", "nive.tools.dbJsonDump", 
@@ -98,6 +98,7 @@ configuration.modules = [
 configuration.acl = [
     # basic permissions. explicit view definitions are part of the view modules' conf.
     (Allow, Everyone, 'view'),
+    (Allow, Everyone, 'api-subtree'),
     (Allow, 'group:admin', ALL_PERMISSIONS), 
     (Deny, Everyone, ALL_PERMISSIONS),
 ]

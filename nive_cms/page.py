@@ -26,20 +26,6 @@ class page(PageBase):
 
     extension = u"html"
 
-    def Init(self):
-        #opt
-        groups = self.meta.get("pool_groups")
-        if groups:
-            acl = [(Allow, "group:editor", "view"),(Allow, "group:author", "view"),(Allow, "group:admin", "view")]
-            for g in groups:
-                if g in (u"authenticated", u"sys:authenticated"):
-                    acl.append((Allow, Authenticated, "view"))
-                else:
-                    acl.append((Allow, g, "view"))
-            acl.append((Deny, Everyone, 'view'))
-            self.__acl__ = acl 
-    
-    
     def IsLinked(self):
         """
         returns True if the page is redirected in public mode. 
