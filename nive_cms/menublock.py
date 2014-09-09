@@ -16,18 +16,18 @@ from nive_cms.baseobjects import PageElementBase
 
 class menublock(PageElementBase):
     
-    def GetMenuPages(self, request=None):
+    def GetMenuPages(self, **kw):
         """
         """
         menu = self.data.get("menutype")
         if menu == u"sub":
-            return self.GetPage().GetPages(hidden=0, securityContext=request, permission="view")
+            return self.GetPage().GetPages(hidden=0, **kw)
         elif menu == u"level":
             p = self.GetPage().parent
             if not p:
                 #root
                 p = self.GetPage()
-            return p.GetPages(hidden=0, securityContext=request, permission="view")
+            return p.GetPages(hidden=0, **kw)
         return []
 
 
