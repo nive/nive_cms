@@ -588,6 +588,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         
     
     def add(self):
+        self.ResetFlashMessages()
         typeID = self.GetFormValue("pool_type")
         if not typeID:
             return {u"content": u"", u"showAddLinks": True, u"result": True, u"head": u""}
@@ -600,6 +601,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
 
     
     def delete(self):
+        self.ResetFlashMessages()
         id = self.GetFormValue(u"id")
         result = {u"msgs": [], u"objToDelete": None, u"content":u"", u"cmsview": self, u"result": False}
         if not id:
@@ -623,6 +625,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
     
     
     def edit(self):
+        self.ResetFlashMessages()
         form = ObjectForm(view=self, loadFromType=self.context.configuration)
         form.use_ajax = True
         form.Setup(subset="edit")
@@ -632,6 +635,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
 
 
     def delfile(self):
+        self.ResetFlashMessages()
         file = self.GetFormValue(u"fid")
         try:
             r=self.context.DeleteFile(file, self.User())

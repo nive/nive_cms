@@ -19,21 +19,21 @@
     <a tal:condition="view.Allowed('manage users', context=app.portal.userdb)"
        tal:on-error="nothing"
        href="${portalurl}userdb/usermanagement" 
-       class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
+       class="nivecms"><img tal:attributes="src static+'images/users.png'"
              title="User management" i18n:attributes="title"/> <span i18n:translate="">User management</span></a>
     <a tal:condition="view.Allowed('administration', context=app)"
        tal:on-error="nothing"
        href="${view.FolderUrl(app)}admin" 
-       class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
+       class="nivecms"><img tal:attributes="src static+'images/system.png'"
              title="Administration" i18n:attributes="title"/> <span i18n:translate="">Administration</span></a>
     <a href="${portalurl}account" 
-       class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
+       class="nivecms"><img tal:attributes="src static+'images/account.png'"
              title="My account" i18n:attributes="title"/> <span i18n:translate="">My account</span></a>
     <a href="exiteditor" 
-       class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
+       class="nivecms"><img tal:attributes="src static+'images/view.png'"
              title="Exit editor" i18n:attributes="title"/> <span i18n:translate="">Exit editor</span></a>
     <a href="${portalurl}logout" 
-       class="nivecms"><img tal:attributes="src static+'images/jumpto.png'"  
+       class="nivecms"><img tal:attributes="src static+'images/quit.png'"
              title="Log out" i18n:attributes="title"/> <span i18n:translate="">Log out</span></a>
  </div>
 </div>

@@ -43,7 +43,7 @@
    <h3 i18n:translate="">Publish all sub pages recursive</h3>
    <a class="btn"
       href="${view.FolderUrl()}pubr?redirect_url=${request.url}"><img 
-            src="${staticUrl}commit.png" 
+            src="${staticUrl}publish.png"
             title="" align="top"> <span i18n:translate="">Publish all contained sub pages</span></a>
 
    </div>

@@ -13,6 +13,6 @@
             title="${transition.name}" align="top"> ${transition.name}</a>
 
    <a href="${pageUrl}workflow" 
-      class="nivecms" rel="niveOverlay"><img tal:attributes="src view.StaticUrl('nive_cms.cmsview:static/images/jumpto.png')"  
+      class="nivecms" rel="niveOverlay"><img tal:attributes="src view.StaticUrl('nive_cms.cmsview:static/images/node.png')"
              title="" alt=""> <span i18n:translate="">Open workflow page</span></a> </div>
 </div>
