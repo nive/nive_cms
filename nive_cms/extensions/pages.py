@@ -12,7 +12,7 @@ from pyramid.security import has_permission
 
 from nive.utils.utils import ConvertToList
 from nive.definitions import StagPage, StagPageElement
-from nive.definitions import IColumn
+from nive.definitions import IColumn, IPage, IRoot
 from nive.security import Allow, Deny, Authenticated, Everyone
 
 
@@ -188,6 +188,9 @@ class PageElementContainer:
         """ returns if the element is a column """
         return IColumn.providedBy(self)
 
+    def IsPage(self):
+        """ returns if the element is a column """
+        return IPage.providedBy(self) or IRoot.providedBy(self)
 
 
 class PageElement:
@@ -222,7 +225,12 @@ class PageElement:
             self.page.CommitInternal(user=user) 
         except AttributeError:
             self.page.meta[u"pool_change"]=datetime.now()
-    
+
+
+    def IsPage(self):
+        """ returns if the element is a column """
+        return IPage.providedBy(self) or IRoot.providedBy(self)
+
 
 class PageColumns:
     """

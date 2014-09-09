@@ -9,10 +9,14 @@ In edit mode the cms will use this root to render the webpage. nive_cms.root is 
 in normal mode. 
 """
 
-from nive_cms.i18n import _
-from nive.definitions import RootConf, implements, IWebsiteRoot, ICMSRoot
-from nive_cms.baseobjects import PageRootBase
+from nive.definitions import RootConf, FieldConf
+from nive.definitions import implements, IWebsiteRoot, ICMSRoot
 from nive.security import Deny, Allow, Everyone
+
+from nive.adminview.view import RootnameValidator
+
+from nive_cms.i18n import _
+from nive_cms.baseobjects import PageRootBase
 
 
 class cmsroot(PageRootBase):
@@ -30,7 +34,8 @@ class cmsroot(PageRootBase):
             (Allow, 'group:admin', 'view'),
             (Deny, Everyone, 'view'),
         )
-    
+
+
 
 
 # Root definition ------------------------------------------------------------------
@@ -45,3 +50,20 @@ configuration = RootConf(
     extensions = ("nive.extensions.persistentRoot.Persistent",),
     description = __doc__
 )
+
+configuration.data = [
+    FieldConf(id=u"pool_filename",   datatype="string", size=30,   required=1, name=_(u"Default root url name"),
+              settings={"validator": RootnameValidator}, default=configuration.id),
+    FieldConf(id=u"title",           datatype="string", size=255,  required=0, name=_(u"Root title"), default=configuration.name),
+    FieldConf(id=u"description",     datatype="text",   size=5000, required=0, name=_(u"Root description")),
+    FieldConf(id="pool_groups",      datatype="mcheckboxes", size=250, default="", name=_(u"Permission"),
+              description=_(u"Only displayed to users in the selected group"))
+]
+
+
+fields = ["title", "description", "pool_filename", "pool_groups"]
+configuration.forms = {"edit": {"fields":fields}}
+
+configuration.toJson = tuple(fields)
+
+configuration.views = []

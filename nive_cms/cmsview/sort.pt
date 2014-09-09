@@ -16,19 +16,18 @@
 </tal:block>
    
 <tal:block metal:fill-slot="editmain">
-  <h3 i18n:translate="">Sort</h3>
-  <tal:block tal:condition="sortelements">
-  <ul id="sortable">
-    <li tal:repeat="obj sortelements"
-        id="${obj.GetID()}"
-        ><img src="${view.StaticUrl(obj.configuration.get('icon'))}" align="top"> 
-              (${repeat.obj.number}) ${obj.GetTitle() or obj.GetTypeName()}</li>
-  </ul>
-  <a onClick="return store();" class="button" i18n:translate="">Save</a>
-  </tal:block>
+      <h3 i18n:translate="">Sort</h3>
+      <tal:block tal:condition="sortelements">
+      <ul id="sortable">
+        <li tal:repeat="obj sortelements"
+            id="${obj.GetID()}"
+            ><img src="${view.StaticUrl(obj.configuration.get('icon'))}" align="top">
+                  (${repeat.obj.number}) ${obj.GetTitle() or obj.GetTypeName()}</li>
+      </ul>
+      <a onClick="return store();" class="button" i18n:translate="">Save</a>
+      </tal:block>
 
-  <p tal:condition="not sortelements" class="alert" i18n:translate="">Nothing to sort!</p>
-
+      <p tal:condition="not sortelements" class="alert" i18n:translate="">Nothing to sort!</p>
 </tal:block>
 
 </tal:block>

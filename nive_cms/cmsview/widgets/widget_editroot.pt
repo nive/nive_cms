@@ -1,0 +1,33 @@
+<div tal:define="page context.GetPage(); 
+                 pageUrl view.FolderUrl(page);
+                 elementContainer context.GetElementContainer();
+                 static view.StaticUrl('nive_cms.cmsview:static/');
+                 containerUrl view.FolderUrl(elementContainer)"
+     class="toolbox_widget"
+     i18n:domain="nive_cms">
+ <!-- current page edit, delete and options -->
+  <div class="widget_head" i18n:translate="">Edit page</div>
+  <div class="widget_content">
+    <a href="${pageUrl}edit" class="nivecms" rel="niveOverlay"
+   	       ><img tal:attributes="src static+'images/editor.png'" 
+   	             title="Edit page settings" align="top" i18n:attributes="title"> 
+   	             <span i18n:translate="">Edit page settings</span></a>
+
+    <a href="${pageUrl}sortpages" class="nivecms" rel="niveOverlay" 
+     	   ><img tal:attributes="src static+'images/sort.png'" 
+     	         title="Sort sub pages" align="top" i18n:attributes="title"> 
+     	         <span i18n:translate="">Sort sub pages</span></a>
+
+    <a tal:condition="page.CanPaste() and not view.ClipboardEmpty()"
+       href="${view.FolderUrl(page)}paste?pepos=${context.GetID()}" class="nivecms"
+           ><img src="${static+'images/paste.png'}" 
+                 title="Paste here" align="top" i18n:attributes="title"> 
+                 <span i18n:translate="">Paste here</span></a>
+
+    <p>
+      <span i18n:translate="">Page ID</span> ${page.GetID()}<br>
+      <span i18n:translate="">Changed</span> ${view.RenderField('pool_change')}
+      <span i18n:translate="">by</span> ${page.meta.pool_changedby}
+    </p>
+ </div>
+</div>

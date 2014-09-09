@@ -25,7 +25,7 @@ from pyramid.renderers import get_renderer, render, render_to_response
 
     
 from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf
-from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot
+from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot, IPageElementContainer
 from nive.definitions import IToolboxWidgetConf, IEditorWidgetConf, IViewModuleConf, ICMSRoot, IColumn
 from nive.utils.utils import SortConfigurationList
 from nive.helper import ResolveName
@@ -99,10 +99,14 @@ configuration.views = [
     ViewConf(name="exiteditor", attr="exit",    context=IContainer,   permission="view", containment=IApplication),
     ViewConf(name="exiteditor", attr="exitapp", context=IApplication, permission="view", containment=IPortal),
     
-    #ViewConf(id="rootview", name = "",     attr = "view", context = ICMSRoot, containment=IApplication),
-    #ViewConf(id="objview",  name = "",     attr = "view", context = IPage),
-    
+
+    # root
+    ViewConf(id="view",   name="view",  attr="view",  context=IRoot,   renderer=t+"view.pt", containment=IApplication),
+    ViewConf(name="edit", attr="edit", context=IRoot, renderer=t+"edit.pt", permission="edit"),
+    ViewConf(name="meta", attr="meta", context=IRoot, renderer=t+"meta.pt"),
+
     # object
+    ViewConf(id="view",   name="view",  attr="view", context=IObject, renderer=t+"view.pt", containment=IApplication),
     ViewConf(name="edit", attr="edit", renderer=t+"edit.pt", permission="edit"),
     ViewConf(name="meta", attr="meta", renderer=t+"meta.pt"),
     ViewConf(name="delfile", attr="delfile", permission="delete"),
@@ -120,6 +124,7 @@ configuration.views = [
     # widgets
     ViewConf(name = "addpageWidget",  attr = "tmpl", renderer = t+"widgets/widget_addpage.pt",    context = IContainer, permission="add"),
     ViewConf(name = "editpageWidget", attr = "tmpl", renderer = t+"widgets/widget_editpage.pt",   context = IContainer, permission="edit"),
+    ViewConf(name = "editrootWidget", attr = "tmpl", renderer = t+"widgets/widget_editroot.pt",   context = IContainer, permission="edit"),
     ViewConf(name = "subpagesWidget", attr = "tmpl", renderer = t+"widgets/widget_subpages.pt",   context = IContainer),
     ViewConf(name = "settingsWidget", attr = "tmpl", renderer = t+"widgets/widget_settings.pt",   context = IContainer)
 ] + sort.views + cutcopy.views
@@ -129,13 +134,16 @@ configuration.views = [
 configuration.widgets = [
     WidgetConf(name=_(u"Add new page"),         widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="addpageWidget", id="cms.addpage", sort=100),
     WidgetConf(name=_(u"Edit page"),            widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="editpageWidget", id="cms.editpage", sort=200),
+    WidgetConf(name=_(u"Edit root"),            widgetType=IToolboxWidgetConf, apply=(IRoot,),      viewmapper="editrootWidget", id="cms.editroot", sort=200),
     WidgetConf(name=_(u"Sub pages and parent"), widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="subpagesWidget", id="cms.subpages", sort=300),
     WidgetConf(name=_(u"Settings"),             widgetType=IToolboxWidgetConf, apply=(IApplication,IContainer), viewmapper="settingsWidget", id="cms.settings", sort=400),
     
-    WidgetConf(name=_(u"Edit"),          widgetType=IEditorWidgetConf, apply=(IObject,),    viewmapper="edit",   id="editor.edit", sort=100),
+    WidgetConf(name=_(u"Contents"),      widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="view",   id="editor.view", sort=0),
+    WidgetConf(name=_(u"Edit"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="edit",  id="editor.edit", sort=100),
     WidgetConf(name=_(u"Add"),           widgetType=IEditorWidgetConf, apply=(IContainer,), viewmapper="add",    id="editor.add",  sort=200),
-    WidgetConf(name=_(u"Sort sub pages"),widgetType=IEditorWidgetConf, apply=(IPage,),      viewmapper="sortpages", id="editor.sortpages", sort=300),
-    WidgetConf(name=_(u"Meta"),          widgetType=IEditorWidgetConf, apply=(IObject,),    viewmapper="meta",   id="editor.meta", sort=400)
+    WidgetConf(name=_(u"Sort sub pages"),widgetType=IEditorWidgetConf, apply=(IPage,IRoot), viewmapper="sortpages", id="editor.sortpages", sort=300),
+    WidgetConf(name=_(u"Sort elements"), widgetType=IEditorWidgetConf, apply=(IPageElementContainer,), viewmapper="sortelements", id="editor.sortelements", sort=300),
+    WidgetConf(name=_(u"Meta"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="meta",   id="editor.meta", sort=400)
 ]
 
 
@@ -478,7 +486,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         return html % {u"blocks": blocks.getvalue()}
         
 
-    def breadcrumbs(self, addHome=0, link=True):
+    def breadcrumbs(self, addHome=0, link=True, view=u""):
         """
         """
         base = self.context #.GetPage()
@@ -486,20 +494,20 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         parents.reverse()
         if not addHome:
             parents = parents[1:]
-        if len(parents)==0:
-            return u""
+        if not view:
+            view = self.request.view_name
         html = StringIO()
         for page in parents:
             title = page.GetTitle() or page.GetTypeName()
             if not link:
                 html.write(u"""<span>%s</span> &gt; """ % (title))
             else:
-                html.write(u"""<a href="%s" class="nivecms">%s</a> &gt; """ % (self.PageUrl(page), title))
+                html.write(u"""<a href="%s%s" class="nivecms">%s</a> &gt; """ % (self.FolderUrl(page), view, title))
         title = base.GetTitle() or base.GetTypeName()
         if not link:
             html.write(u"""<span>%s</span>""" % (title))
         else:
-            html.write(u"""<a href="%s" class="nivecms">%s</a>""" % (self.PageUrl(base), title))
+            html.write(u"""<a href="%s%s" class="nivecms">%s</a>""" % (self.FolderUrl(base), view, title))
         return html.getvalue()
     
     
@@ -586,7 +594,11 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         self._c_design = design
         return design
         
-    
+
+    def view(self):
+        return {}
+
+
     def add(self):
         self.ResetFlashMessages()
         typeID = self.GetFormValue("pool_type")

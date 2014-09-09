@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive_cms">
+
+<tal:block metal:fill-slot="editmain">
+<table tal:condition="context.IsPage()" class="table table-striped">
+<tr><th>Pages</th></tr>
+<tr><td><tal:block tal:repeat="page context.GetPages()"><a href="${view.FolderUrl(page)}view">${page.GetTitle()}</a>, </tal:block></td></tr>
+</table>
+
+<table tal:condition="context.IsContainer()" class="table table-striped">
+<tr tal:repeat="obj context.GetPageElements(addBoxContents=0, addColumnContents=0)"
+    ><th><a href="${view.FolderUrl(obj)}view">
+      <img src="${view.StaticUrl(obj.configuration.get('icon'))}" title="${obj.GetTypeName()}" align="top">
+        (${repeat.obj.number}) ${obj.GetTitle() or obj.GetTypeName()}</a></th>
+     <td tal:content="structure view.RenderView(obj, raiseUnauthorized=False)"></td></tr>
+</table>
+
+<table tal:condition="not context.IsContainer() and not context.IsRoot()" class="table table-striped">
+<tr><th><img src="${view.StaticUrl(context.configuration.get('icon'))}" title="${context.GetTypeName()}" align="top">
+        ${context.GetTitle() or context.GetTypeName()}</th>
+     <td tal:content="structure view.RenderView(context, raiseUnauthorized=False)"></td></tr>
+</table>
+</tal:block>
+   
+</tal:block>
