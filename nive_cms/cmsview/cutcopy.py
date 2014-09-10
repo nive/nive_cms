@@ -8,7 +8,7 @@ from nive_cms.i18n import _
 from nive.utils.utils import ConvertListToStr, ConvertToNumberList
 
 from nive.definitions import StagPage, StagPageElement
-from nive.definitions import IContainer, ViewConf
+from nive.definitions import IContainer, ViewConf, IRoot
 
 from nive_cms.cmsview.sort import ISort
 
@@ -43,6 +43,8 @@ class ContainerCopy:
     def CanCopy(self):
         """
         """
+        if IRoot.providedBy(self):
+            return False
         return not hasattr(self, "disableCopy") or not self.disableCopy
 
 
@@ -154,6 +156,7 @@ class CopyView:
     def cut(self):
         """
         """
+        self.ResetFlashMessages()
         ids = self.GetFormValue(u"ids")
         if not ids:
             ids = [self.context.id]
@@ -163,12 +166,13 @@ class CopyView:
             url = self.PageUrl(self.context)
         msgs = _(u"OK. Cut.")
         ok = True
-        return self.Redirect(url, [msgs])
+        return self.Redirect(url, [msgs], refresh=True)
 
 
     def copy(self):
         """
         """
+        self.ResetFlashMessages()
         ids = self.GetFormValue(u"ids")
         if not ids:
             ids = [self.context.id]
@@ -177,12 +181,13 @@ class CopyView:
         if not url:
             url = self.PageUrl(self.context)
         msgs = _(u"OK. Copied.")
-        return self.Redirect(url, [msgs])
+        return self.Redirect(url, [msgs], refresh=True)
 
 
     def paste(self):
         """
         """
+        self.ResetFlashMessages()
         deleteClipboard=1
         url = self.GetFormValue(u"url")
         if not url:
@@ -190,7 +195,7 @@ class CopyView:
         action, ids = self.GetCopyInfo()
         if not action or not ids:
             msgs = []
-            return self.Redirect(url, msgs)
+            return self.Redirect(url, msgs, refresh=True)
 
         pepos = self.GetFormValue(u"pepos",0)
         result = False
@@ -201,7 +206,7 @@ class CopyView:
                 cp = self.DeleteCopyInfo()
         elif action == u"copy":
             result, msgs = self.context.Paste(ids, pepos, user=self.User())
-        return self.Redirect(url, msgs)
+        return self.Redirect(url, msgs, refresh=result)
     
     
     def SetCopyInfo(self, action, ids, context):

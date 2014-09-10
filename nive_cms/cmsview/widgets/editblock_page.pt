@@ -30,7 +30,7 @@
   <!-- cut copy paste -->
   <div class="options_block">
     <a tal:condition="elementContainer.CanPaste() and not view.ClipboardEmpty()"
-       href="${pageUrl}paste?pepos=${obj.GetID()}" class="nivecms"
+       href="${pageUrl}paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/paste.png'}" 
              title="Paste here" align="top" i18n:attributes="title"> </a>
   </div>

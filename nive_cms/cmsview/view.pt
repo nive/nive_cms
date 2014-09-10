@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <tal:block metal:use-macro="view.cmsIndex_tmpl().macros['main']" i18n:domain="nive_cms">
 
-<tal:block metal:fill-slot="editmain">
-<table tal:condition="context.IsPage()" class="table table-striped">
-<tr><th>Pages</th></tr>
-<tr><td><tal:block tal:repeat="page context.GetPages()"><a href="${view.FolderUrl(page)}view">${page.GetTitle()}</a>, </tal:block></td></tr>
-</table>
+<tal:block tal:define="static view.StaticUrl('nive_cms.cmsview:static/');"
+     metal:fill-slot="editmain">
+<div class="row">
 
-<table tal:condition="context.IsContainer()" class="table table-striped">
-<tr tal:repeat="obj context.GetPageElements(addBoxContents=0, addColumnContents=0)"
-    ><th><a href="${view.FolderUrl(obj)}view">
-      <img src="${view.StaticUrl(obj.configuration.get('icon'))}" title="${obj.GetTypeName()}" align="top">
-        (${repeat.obj.number}) ${obj.GetTitle() or obj.GetTypeName()}</a></th>
-     <td tal:content="structure view.RenderView(obj, raiseUnauthorized=False)"></td></tr>
-</table>
+<div tal:condition="context.IsContainer()" class="span6">
+<div class="listElements">
+    <span tal:replace="structure view.elementListWidget(context, addResponse=False, showCCP=True, defaultview=u'edit')"/>
+</div>
+</div>
 
-<table tal:condition="not context.IsContainer() and not context.IsRoot()" class="table table-striped">
-<tr><th><img src="${view.StaticUrl(context.configuration.get('icon'))}" title="${context.GetTypeName()}" align="top">
-        ${context.GetTitle() or context.GetTypeName()}</th>
-     <td tal:content="structure view.RenderView(context, raiseUnauthorized=False)"></td></tr>
-</table>
+<div tal:condition="context.IsPage()" class="span6">
+<div class="listElements">
+    <h4>Pages</h4>
+    <div tal:condition="not context.IsRoot()" class="element">
+    <a tal:attributes="href view.FolderUrl(context.parent)+'view'"
+       class="nivecms"><img tal:attributes="src static+'images/parent.png'"
+             title="Open parent page" i18n:attributes="title"> <span i18n:translate="">Open parent page</span></a>
+    </div>
+    <span tal:replace="structure view.pageListWidget(page=context, showCCP=True, defaultview=u'view')"/>
+</div>
+</div>
+
+<div tal:condition="not context.IsContainer() and not context.IsRoot()" class="">
+    <h3><img src="${view.StaticUrl(context.configuration.get('icon'))}" title="${context.GetTypeName()}" align="top">
+           ${context.GetTitle() or context.GetTypeName()}</h3>
+    <span tal:replace="structure view.RenderView(context, raiseUnauthorized=False)"/>
+</div>
+
+</div>
 </tal:block>
    
 </tal:block>

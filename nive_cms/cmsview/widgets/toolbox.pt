@@ -30,12 +30,8 @@ $(function() {
      stop: function (event, ui) {
          $.cookie("toolboxY", ui.position.top, { path: '/' });
          $.cookie("toolboxX", ui.position.left, { path: '/' });
-     } 
+     }
   });
-});
-  
-$(document).ready(function(){
-  $.niveOverlay();
 });
 </script>
 </tal:block>

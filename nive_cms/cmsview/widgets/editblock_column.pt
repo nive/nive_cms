@@ -37,7 +37,7 @@
   <!-- cut copy paste -->
   <div class="options_block">
     <a tal:condition="column.CanPaste() and not view.ClipboardEmpty()"
-       href="${columnUrl}paste?pepos=${column.GetID()}" class="nivecms"
+       href="${columnUrl}paste?pepos=${column.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}paste.png" title="Paste here" align="top" i18n:attributes="title"> </a>
   </div>
   <div class="options_label"><span i18n:translate="">Column:</span> ${name}</div>

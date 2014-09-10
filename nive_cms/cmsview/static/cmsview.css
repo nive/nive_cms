@@ -2,35 +2,35 @@ body {
 	font-family: Verdana, Arial, sans-serif;
 	font-style: normal;
 	padding: 0px;
-	margin: 0px;
-	font-size: 80%;
+	font-size: 90%;
 }
-
-#header { 
-  width: 100%; height: 30px; background-color:#aaaaaa; 
-  background-image: url(images/logocms.png);
-  background-repeat: no-repeat;
-  background-position: 870px 3px;
+body.fixed {
+	margin-top: 50px;
 }
-#header h1 {
-  font-family: courier, monospace;
-  font-size:13pt;
-  font-weight:bold;
-  line-height: 1.2em;
-  color: white;
-  margin: 0px;
-  padding: 4px 12px;
-  width: auto;
+.navbar         { background-color:#a5a5a5; border:none; padding:0px; margin:0px; }
+.navbar-inner   { border:none; padding:0px; margin:0px; background-color:transparent; box-shadow:none; background-image:none; }
+.navbar-inner .container-fluid { background-color:transparent; border:none; padding-left:0px; margin-left:0px; }
+.navbar .divider-vertical { }
+.navbar .nav li a { color:#ffffff; text-shadow: none; padding: 10px; border-right: 1px solid white; }
+.navbar .nav li a:hover,
+.navbar .nav li a:focus {
+  background-color:#bbbbbb;
+  color: #ffffff;
+  box-shadow: none;
+  outline-color: #828282;
 }
-#nive_edit { padding: 10px; min-height: 400px; }
-#breadcrumbs { clear:both; padding: 10px 0px 0px 10px; color: #999999; }
-#main { clear: both; }
-#container {
-	text-align: left;
-	vertical-align: top;
-	width: 960px;
-	margin-left: auto;
-	margin-right: auto;
+.navbar .nav .active a:hover {
+  background-color:#cccccc;
+}
+.navbar .btn-navbar { margin-top: 12px; margin-right: 12px;}
+.navbar .brand {
+	background-image: url(images/logocms.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+	margin: 5px 12px 3px 12px;
+	padding:0px;
+	height:25px;
+	width:85px;
 }
 
 h1     { font-size: 160%; line-height: 1.3em; }
@@ -81,7 +81,7 @@ nav .btn-group {margin-top:5px;}
 .poolform .req { color: red; }
 .poolform .error { background-color: #FFDFDF; }
 .poolform .error label.desc { color: #DF0000; }
-.poolform .errorMsg, .poolform .errorMsgLbl { font-size: 90%; padding:0px; margin:0px; }
+.poolform .errorMsg, .poolform .errorMsgLbl { padding:0px; margin:0px; }
 
 a.button {
   cursor: pointer;
@@ -130,3 +130,86 @@ a.button {
   text-decoration:none;
 }
 
+/* element list --------------------------------- */
+.listElements {
+  width: auto;
+  border: 1px solid #cdcdcd;
+  background-color: #ffffff;
+  text-align:left;
+  margin-bottom: 20px;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements h4 {
+  display: block;
+  padding:4px;
+  margin:0px;
+  font-family: Verdana, Arial, sans-serif;
+  text-transform: none;
+  color: black;
+}
+.listElements a {
+  margin: 0px;
+  display: block;
+  padding: 0px;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements a:hover {
+  background-color: #eaeaff;
+  text-decoration:none;
+}
+.listElements .element {
+  border-top: 1px solid #cdcdcd;
+  padding: 4px;
+}
+.listElements .el_title {
+  float: left;
+  padding-left: 6px;
+  width: auto;
+}
+.listElements .el_title h1,
+.listElements .el_title h2,
+.listElements .el_title h3,
+.listElements .el_title h4,
+.listElements .el_title h5,
+.listElements .el_title h6,
+ {
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+  display: inline;
+  font-weight: normal;
+  text-transform: none;
+}
+.listElements .el_options {
+  float:right;
+  width: auto;
+  padding-right: 6px;
+}
+.listElements .el_options a {
+  margin: 0px;
+  width: auto;
+  display: inline;
+  font-family: Verdana, Arial, sans-serif;
+  color: black;
+}
+.listElements .el_options a img {
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  display: inline;
+}
+.listElements .el_options .block {
+  float:left;
+  width: auto;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin: 0px;
+  border-right: 1px solid #cdcdcd;
+}
+.listElements .el_options .block_del {
+  width: auto;
+  float:right;
+  padding-left: 6px;
+  padding-right: 0px;
+}

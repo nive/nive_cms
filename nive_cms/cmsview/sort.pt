@@ -17,7 +17,22 @@
    
 <tal:block metal:fill-slot="editmain">
       <h3 i18n:translate="">Sort</h3>
-      <tal:block tal:condition="sortelements">
+
+      <tal:block tal:condition="not result and len(msgs)">
+        <div class="alert alert-error">
+          <div tal:repeat="msg msgs"
+               tal:content="structure msg"></div>
+        </div>
+      </tal:block>
+
+      <tal:block tal:condition="result and len(msgs)">
+        <div class="alert alert-success">
+          <div tal:repeat="msg msgs"
+               tal:content="structure msg"></div>
+        </div>
+      </tal:block>
+
+    <tal:block tal:condition="sortelements">
       <ul id="sortable">
         <li tal:repeat="obj sortelements"
             id="${obj.GetID()}"

@@ -11,18 +11,12 @@
 </head>
 
 <body>
-<div class="container" id="container">
 <a name="top"></a>
-<header id="header"></header>
-<nav>
-<div class="spacer"> </div>
-<a tal:repeat="tab view.GetEditorWidgets(context)"
-   tal:content="structure tab.name"
-   tal:attributes="href tab.viewmapper; class 'tab active'+str(request.view_name==tab.viewmapper)"></a>
-</nav>
-<div id="breadcrumbs">
-  <span tal:replace="structure view.breadcrumbs(addHome=1,link=True)"/>
-</div>
+
+<div class="container">
+<ul class="breadcrumb">
+  <span tal:replace="structure view.breadcrumbs(addHome=1,link=False)"/>
+</ul>
 <div id="main">
 <div id="nive_edit">
 

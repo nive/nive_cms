@@ -77,7 +77,7 @@ Uses cookies to store settings between page relods.
         
         this.loadToggleBlock = function(url, blockid) {
           ref = $(blockid);
-          if(ref.html()=="") { ref.load(url, function(){ ref.toggle('fast'); $.niveOverlay(blockid);}); return; }
+          if(ref.html()=="") { ref.load(url, function(){ ref.toggle('fast'); $.niveOverlay(blockid); $.niveAction(blockid);}); return; }
           ref.toggle('fast');
         }
         
@@ -117,7 +117,8 @@ Uses cookies to store settings between page relods.
                     function(data) { 
                          $(_settings.elementPrefix+id).prepend(data); 
                          $(this).toggleBlock(eid);
-                         $.niveOverlay(eid); 
+                         $.niveOverlay(eid);
+                         $.niveAction(eid);
                      }).error(function(jqXHR, textStatus, errorThrown) { /*alert("?"); errorThrown*/ });
           }
           else this.toggleBlock(eid);
@@ -139,8 +140,7 @@ Uses cookies to store settings between page relods.
 })(jQuery);
 
 
-
-/*
+ /*
 Modal overlay window handling
 -----------------------------
 Makes links call overlays with the linked page as content.
@@ -165,7 +165,8 @@ Example: ::
         fadeInSpeed: 0,
         fadeOutSpeed: 0,
         reloadOnClose: true,         // reload the parent on close
-        closeOnClickOutside: true    // ask and close if clicked outside overlay
+        closeOnClickOutside: true,   // ask and close if clicked outside overlay
+        forceReload: false           // adds a random number to the url if true
     }
       
     /********************************** 
@@ -210,13 +211,13 @@ Example: ::
                         if(options.reloadOnClose) location.reload(); 
                       } else {
                         // force reload by inserting a random number
-                        var rand;
-                        if(url.indexOf('?')==-1) { 
-                          rand = "?__r="+Math.random();
-                        } else { 
-                          rand = "&__r="+Math.random();
+                        if(options.forceReload) {
+                            var rand;
+                            if (url.indexOf('?') == -1) rand = "?__r=" + Math.random();
+                            else rand = "&__r=" + Math.random();
+                            if (url.indexOf('#') == -1) url += rand;
+                            else url = url.substring(0, url.indexOf('#')) + rand + url.substring(url.indexOf('#'));
                         }
-                        url = url.substring(0, url.indexOf('#') + rand + url.substring(url.indexOf('#')));
                         location.href=url; 
                       } 
                    });
@@ -228,30 +229,30 @@ Example: ::
         this.open = function () {
             if (typeof options.src == 'function') {
                 options.src = options.src(sender);
-            } else {
-                options.src = options.src || _defaults.src(sender);
+            } else if(options.src == undefined) {
+                    options.src = _defaults.src(sender);
             }
-  
-            var fileExt = /^.+\.((jpg)|(gif)|(jpeg)|(png)|(jpg))$/i;
-            var contentHTML = '';
-            if (fileExt.test(options.src)) {
-                contentHTML = '<div class="' + options.imageClassName + '"><img src="' + options.src + '"/></div>';
-            } else {
-                contentHTML = '<iframe frameborder="0" allowtransparency="true" src="' + options.src + '"></iframe>';
-            }
-            options.content = options.content || contentHTML;
-   
+
+            var fid = "overlayiframe";
+            var content = options.content || '';
+            var contentHTML = '<iframe id="'+fid+'" frameborder="0" allowtransparency="true" src="' + options.src + '"></iframe>';
+
             if (jQuery('.' + options.modalClassName).length && jQuery('.' + options.overlayClassName).length) {
-                jQuery('.' + options.modalClassName).html(options.content);
+                jQuery('.' + options.modalClassName).html(contentHTML);
             } else {
                 $overlay = jQuery((_isIE6()) ? '<iframe src="BLOCKED SCRIPT\'<html></html>\';" scrolling="no" frameborder="0" class="' + 
                                                options.overlayClassName + '"></iframe><div class="' + options.overlayClassName + '"></div>' : 
                                                '<div class="' + options.overlayClassName + '"></div>');
                 $overlay.hide().appendTo(options.parent);
       
-                $modal = jQuery('<div id="' + options.id + '" class="' + options.modalClassName + '" >' + options.content + '</div>');
+                $modal = jQuery('<div id="' + options.id + '" class="' + options.modalClassName + '" >' + contentHTML + '</div>');
                 $modal.hide().appendTo(options.parent);
-     
+                if(content) {
+                    var iFrame = $('#'+fid, $modal);
+                    var iFrameDoc = iFrame[0].contentDocument || iFrame[0].contentWindow.document;
+                    iFrameDoc.write(content);
+                    iFrameDoc.close();
+                }
                 $close = jQuery('<a id="' + options.closeClassName + '"></a>');
                 $close.appendTo($modal);
       
@@ -301,8 +302,57 @@ Example: ::
         }
     }
 })(jQuery); 
- 
- 
+
+/*
+Editor link actions
+-----------------------------
+Turns editor actions links into ajax calls and handles responses based on the content and
+information returned. HTML documents are opened in modal windows, triggers redirects, and shows messages
+if refresh = false returned by the server.
+To activate just add `rel="niveAction"` as attribute to a link (a).
+
+Example: ::
+
+  <a href="page/moveup" rel="niveAction">Move page up</a>
+
+*/
+(function ($) {
+    var _settings = {
+        id: 'callaction',
+        src: function (sender) {
+            return jQuery(sender).attr('href');
+        },
+    }
+
+    $.niveAction= function (id) {
+        if (id) $(id + " a[rel^='niveAction']").attr("onClick", "$(this).callaction(); return false;");
+        else    $("a[rel^='niveAction']").attr("onClick", "$(this).callaction(); return false;");
+    }
+    $.callaction = function () {
+        return "";
+    }
+    $.fn.callaction = function () {
+        var href = jQuery(this).attr('href');
+        $.ajax(href)
+            .done(function(data, message, jqXHR)    {
+                if(data.refresh) {
+                    if(data.location)   location.href=data.location;
+                    else                location.href=location.href;
+                } else {
+                    // json expected if it is not open in modal window
+                    if (jqXHR.getResponseHeader("Content-Type").indexOf("application/json") == -1) {
+                        $(this).modal({content:data, src:''}).open();
+                    }
+                }
+            })
+            .fail(function(jqXHR, message, error)   { console.log(message); });
+    }
+})(jQuery);
+
+$(document).ready(function(){
+  $.niveOverlay();
+  $.niveAction();
+});
 /**
 * jQuery Cookie plugin
 *

@@ -19,7 +19,7 @@
      	         <span i18n:translate="">Sort sub pages</span></a>
 
     <a tal:condition="page.CanPaste() and not view.ClipboardEmpty()"
-       href="${view.FolderUrl(page)}paste?pepos=${context.GetID()}" class="nivecms"
+       href="${view.FolderUrl(page)}paste?pepos=${context.GetID()}" class="nivecms" rel="niveAction"
            ><img src="${static+'images/paste.png'}" 
                  title="Paste here" align="top" i18n:attributes="title"> 
                  <span i18n:translate="">Paste here</span></a>

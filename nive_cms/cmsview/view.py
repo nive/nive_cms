@@ -24,13 +24,13 @@ from pyramid.response import Response
 from pyramid.renderers import get_renderer, render, render_to_response
 
     
-from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf
+from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf, Conf
 from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot, IPageElementContainer
 from nive.definitions import IToolboxWidgetConf, IEditorWidgetConf, IViewModuleConf, ICMSRoot, IColumn
 from nive.utils.utils import SortConfigurationList
 from nive.helper import ResolveName
 from nive.security import Allow, Deny, Everyone
-from nive.forms import ObjectForm
+from nive.forms import HTMLForm, ObjectForm
 from nive.views import BaseView
 
 from nive_cms.i18n import _
@@ -60,9 +60,9 @@ configuration = ViewModuleConf(
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
         ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
-        ('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
+        #('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
     ],
-    # editorAssets list the requirements to include the editor in the websites design.
+    # editorAssets list the requirements to include the editor in the websites' design.
     editorAssets = [
         ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
         ('overlay.css', 'nive_cms.cmsview:static/overlay/overlay.css'),
@@ -133,7 +133,7 @@ configuration.views = [
 # toolbox and editor widgets ----------------------------------------------------------------------------------
 configuration.widgets = [
     WidgetConf(name=_(u"Add new page"),         widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="addpageWidget", id="cms.addpage", sort=100),
-    WidgetConf(name=_(u"Edit page"),            widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="editpageWidget", id="cms.editpage", sort=200),
+    WidgetConf(name=_(u"Edit page"),            widgetType=IToolboxWidgetConf, apply=(IPage,), viewmapper="editpageWidget", id="cms.editpage", sort=200),
     WidgetConf(name=_(u"Edit root"),            widgetType=IToolboxWidgetConf, apply=(IRoot,),      viewmapper="editrootWidget", id="cms.editroot", sort=200),
     WidgetConf(name=_(u"Sub pages and parent"), widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="subpagesWidget", id="cms.subpages", sort=300),
     WidgetConf(name=_(u"Settings"),             widgetType=IToolboxWidgetConf, apply=(IApplication,IContainer), viewmapper="settingsWidget", id="cms.settings", sort=400),
@@ -382,7 +382,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         return render("widgets/element_add_list.pt", {u"obj":obj, u"view":self}, request=self.request)
 
 
-    def elementListWidget(self, obj=None, elements=None, addResponse=True):
+    def elementListWidget(self, obj=None, elements=None, addResponse=True, showCCP=True, defaultview=u"edit"):
         """
         Widget with existing elements list and edit options
         call with obj = current object / page
@@ -397,7 +397,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         """
         
         elHtml = u"""<div class="element">
-  <div class="el_title">%(title)s</div>
+  <div class="el_title"><a href="%(link)s" class="nivecms" rel="niveOverlay">%(title)s</a></div>
   <div class="el_options">%(options)s</div>
   <br style="clear:both">
 </div>"""
@@ -422,7 +422,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             
             if el.IsContainer():
                 title = u"<img src='%s' align='top'> %s: %s" % (src, localizer(el.GetTypeName()), t)
-                blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
+                blocks.write(elHtml % {u"title": title, u"link": self.FolderUrl(el)+defaultview, u"options": self.editBlockList(obj=el, showCCP=showCCP)})
                 for elb in el.GetPageElements():
                     if elb.configuration.get('icon'):
                         srcb = self.StaticUrl(elb.configuration.get('icon')) 
@@ -432,11 +432,11 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
                     if not t:
                         t = u"<em>%s</em>" % (localizer(elb.GetTypeName()))
                     title = u"&gt; <img src='%s' align='top'> %s" % (srcb, t)
-                    blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=elb, showCCP=True)})
+                    blocks.write(elHtml % {u"title": title, u"link": self.FolderUrl(elb)+defaultview, u"options": self.editBlockList(obj=elb, showCCP=showCCP)})
         
             else:
                 title = u"<img src='%s' align='top'> %s" % (src, t)
-                blocks.write(elHtml % {u"title": title, u"options": self.editBlockList(obj=el, showCCP=True)})
+                blocks.write(elHtml % {u"title": title, u"link": self.FolderUrl(el)+defaultview, u"options": self.editBlockList(obj=el, showCCP=showCCP)})
         if not len(elements):
             blocks.write(localizer(_(u"<p><i>empty</i></p>")))
         data = html % {u"blocks": blocks.getvalue(), u"id": str(obj.GetID()), u"title": localizer(_(u"Page elements"))}
@@ -447,7 +447,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         return data
         
 
-    def pageListWidget(self, page=None, pages=None):
+    def pageListWidget(self, page=None, pages=None, showCCP=False, defaultview=u""):
         """
         Widget with existing pages list and edit options
         call with page = current page
@@ -479,17 +479,19 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
                                 }
             title = p.meta.get(u"title")
             linkTitle = u"ID: %d, %s" % (p.id, title)
-            options = self.editBlockList(obj=p, page=page)
-            blocks.write(pHtml % {u"url": self.FolderUrl(p), u"aTitle": linkTitle, u"title": title, u"options": options, u"workflow": wf})
+            options = self.editBlockList(obj=p, page=page, showCCP=showCCP)
+            blocks.write(pHtml % {u"url": self.FolderUrl(p)+defaultview, u"aTitle": linkTitle, u"title": title, u"options": options, u"workflow": wf})
         if not len(pages):
+            blocks.write(u"""<div class="element">""")
             blocks.write(localizer(_(u"<p><i>no sub pages</i></p>")))
+            blocks.write(u"""</div>""")
         return html % {u"blocks": blocks.getvalue()}
         
 
     def breadcrumbs(self, addHome=0, link=True, view=u""):
         """
         """
-        base = self.context #.GetPage()
+        base = self.context
         parents = base.GetParents()
         parents.reverse()
         if not addHome:
@@ -500,14 +502,14 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         for page in parents:
             title = page.GetTitle() or page.GetTypeName()
             if not link:
-                html.write(u"""<span>%s</span> &gt; """ % (title))
+                html.write(u"""<li><span>%s</span> <span class="divider">/</span></li>""" % (title))
             else:
-                html.write(u"""<a href="%s%s" class="nivecms">%s</a> &gt; """ % (self.FolderUrl(page), view, title))
+                html.write(u"""<li><a href="%s%s">%s</a> <span class="divider">/</span></li>""" % (self.FolderUrl(page), view, title))
         title = base.GetTitle() or base.GetTypeName()
         if not link:
-            html.write(u"""<span>%s</span>""" % (title))
+            html.write(u"""<li class="active"><span>%s</span></li>""" % (title))
         else:
-            html.write(u"""<a href="%s%s" class="nivecms">%s</a>""" % (self.FolderUrl(base), view, title))
+            html.write(u"""<li class="active"><a href="%s%s">%s</a></li>""" % (self.FolderUrl(base), view, title))
         return html.getvalue()
     
     
@@ -607,43 +609,50 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         form = ObjectForm(view=self, loadFromType=typeID)
         form.Setup(subset="create", addTypeField=True)
         form.use_ajax = True
-        head = form.HTMLHead()
         result, data, action = form.Process(redirectSuccess="page_url")
-        return {u"content": data, u"result": result, u"cmsview": self, u"showAddLinks": False, u"head": head}
+        return {u"content": data, u"result": result, u"cmsview": self, u"showAddLinks": False, u"head": form.HTMLHead()}
 
-    
-    def delete(self):
-        self.ResetFlashMessages()
-        id = self.GetFormValue(u"id")
-        result = {u"msgs": [], u"objToDelete": None, u"content":u"", u"cmsview": self, u"result": False}
-        if not id:
-            result[u"msgs"] = [_(u"Nothing to delete")]
-            return result
-        delete = self.GetFormValue(u"delete")
-        obj = self.context.obj(id)
-        if not obj:
-            result[u"msgs"] = [_(u"Object not found")]
-            return result
-        if obj.IsContainer() and delete != u"1":
-            result[u"objToDelete"] = obj
-            return result
-        result[u"result"] = self.context.Delete(id, user=self.User(), obj=obj)
-        if result[u"result"]:
-            result[u"msgs"] = [_(u"OK. Deleted.")]
-        self.Relocate("""<script type="text/javascript">window.parent.close("%s");</script>""" % (self.PageUrl()), 
-                      [_(u"OK. Deleted.")], 
-                      raiseException=True)
-        return result
-    
     
     def edit(self):
         self.ResetFlashMessages()
         form = ObjectForm(view=self, loadFromType=self.context.configuration)
         form.use_ajax = True
         form.Setup(subset="edit")
-        head = form.HTMLHead()
         result, data, action = form.Process(redirectSuccess="page_url")
-        return {u"content": data, u"result": result, u"cmsview":self, u"head": head}
+        return {u"content": data, u"result": result, u"cmsview":self, u"head": form.HTMLHead()}
+
+
+    def delete(self):
+        self.ResetFlashMessages()
+        class DeleteForm(HTMLForm):
+            def Delete(self, action, **kw):
+                redirectSuccess = kw.get("redirectSuccess")
+                msgs = []
+                result,data,errors = self.Validate(self.request)
+                if result:
+                    obj=self.context
+                    user = kw.get("user") or self.view.User()
+                    obj = self.context.obj(data.get("id"))
+                    if not obj:
+                        result = False
+                        msgs = [_(u"Object not found")]
+                    else:
+                        result = self.context.Delete(id, user=user, obj=obj)
+                return self._FinishFormProcessing(result, data, msgs, errors, **kw)
+
+        form = DeleteForm(view=self)
+        form.actions = [
+            Conf(id="default",    method="StartRequestGET", name=u"Initialize",     hidden=True),
+            Conf(id="delete",     method="Delete",    name=_(u"Delete all"),  hidden=False),
+        ]
+        form.fields = [
+            FieldConf(id="id",     name=u"ids",   datatype="number", hidden=True, required=True),
+        ]
+        form.use_ajax = True
+        form.Setup()
+        result, data, action = form.Process(redirectSuccess="page_url")
+        obj = self.context.obj(self.GetFormValue(u"id"))
+        return {u"content": data, u"result": result, u"cmsview":self, u"objToDelete": obj, u"head": form.HTMLHead()}
 
 
     def delfile(self):

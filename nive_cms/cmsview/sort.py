@@ -233,6 +233,7 @@ class SortView:
         """
         display the sortview and editor
         """
+        self.ResetFlashMessages()
         result = {u"msgs": [], u"content":"", u"cmsview": self, u"result": False, u"sortelements":[]}
         ids = self.GetFormValue(u"ids")
         sort = self.GetFormValue(u"sort")
@@ -246,7 +247,7 @@ class SortView:
             return result
         user = self.User()
         ok, msgs = self.context.UpdateSort(ids, user=user)
-        result[u"msgs"] = msgs
+        result[u"msgs"] = [msgs]
         result[u"result"] = ok
         result[u"sortelements"] = self.context.GetSortElements("pages")
         return result
@@ -256,6 +257,7 @@ class SortView:
         """
         display the sortview and editor
         """
+        self.ResetFlashMessages()
         result = {u"msgs": [], u"content":u"", u"cmsview": self, u"result": False, u"sortelements":[]}
         ids = self.GetFormValue(u"ids")
         sort = self.GetFormValue(u"sort")
@@ -269,7 +271,7 @@ class SortView:
             return result
         user = self.User()
         ok, msgs = self.context.UpdateSort(ids, user=user)
-        result[u"msgs"] = msgs
+        result[u"msgs"] = [msgs]
         result[u"result"] = ok
         result[u"sortelements"] = self.context.GetSortElements("elements")
         return result
@@ -281,6 +283,7 @@ class SortView:
         redirect to request.url
         parameter: id, url in request
         """
+        self.ResetFlashMessages()
         try:
             id = int(self.GetFormValue(u"id"))
         except:
@@ -293,7 +296,7 @@ class SortView:
         url = self.GetFormValue(u"url")
         if not url:
             url = self.PageUrl(self.context)
-        return self.Redirect(url, [msgs])
+        return self.Redirect(url, [msgs], refresh=ok)
 
 
     def movedown(self):
@@ -302,6 +305,7 @@ class SortView:
         redirect to request.url
         parameter: id, url in request
         """
+        self.ResetFlashMessages()
         try:
             id = int(self.GetFormValue(u"id"))
         except:
@@ -314,7 +318,7 @@ class SortView:
         url = self.GetFormValue(u"url")
         if not url:
             url = self.PageUrl(self.context)
-        return self.Redirect(url, [msgs])
+        return self.Redirect(url, [msgs], refresh=ok)
 
     
     def movetop(self):
@@ -323,6 +327,7 @@ class SortView:
         redirect to request.url
         parameter: id, url in request
         """
+        self.ResetFlashMessages()
         try:
             id = int(self.GetFormValue(u"id"))
         except:
@@ -335,7 +340,7 @@ class SortView:
         url = self.GetFormValue(u"url")
         if not url:
             url = self.PageUrl(self.context)
-        return self.Redirect(url, [msgs])
+        return self.Redirect(url, [msgs], refresh=ok)
     
     
     def movebottom(self):
@@ -344,6 +349,7 @@ class SortView:
         redirect to request.url
         parameter: id, url in request
         """
+        self.ResetFlashMessages()
         try:
             id = int(self.GetFormValue(u"id"))
         except:
@@ -356,7 +362,7 @@ class SortView:
         url = self.GetFormValue(u"url")
         if not url:
             url = self.PageUrl(self.context)
-        return self.Redirect(url, [msgs])
+        return self.Redirect(url, [msgs], refresh=ok)
 
 
 
