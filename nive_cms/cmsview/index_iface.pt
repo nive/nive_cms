@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<tal:block metal:define-macro="main">
+<html xmlns="http://www.w3.org/1999/xhtml" i18n:domain="nive_cms">
+<head>
+<title tal:content="view.HtmlTitle()"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="Nive cms">
+<tal:block tal:replace="structure view.Assets()"></tal:block>
+<tal:block metal:define-slot="head"></tal:block>
+<tal:block tal:condition="head|None" tal:replace="structure head" tal:on-error="nothing"></tal:block>
+</head>
+
+<body class="fixed">
+<a name="top"></a>
+<header id="topnav">
+<div class="container">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="${view.FolderUrl(context.root())}view">&nbsp;</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li tal:repeat="tab view.GetEditorWidgets(context)"
+                tal:attributes="class 'active' if tab.id.endswith(request.view_name) else ''">
+              <a tal:content="structure tab.name"
+                 tal:attributes="href tab.viewmapper;"></a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  </div>
+</header>
+
+<div class="container">
+<ul class="breadcrumb">
+  <span tal:replace="structure view.breadcrumbs(addHome=1,link=True,view=u'view')"/>
+</ul>
+<div id="main">
+<div id="nive_edit">
+
+  <div tal:condition="request.session.peek_flash()" class="alert alert-sucess">
+    <ul><li tal:repeat="msg request.session.pop_flash()"
+            tal:content="msg"></li></ul>
+  </div>
+
+  <tal:block metal:define-slot="editmain"></tal:block>
+</div>
+</div>
+ 
+</div>
+
+</body>
+</html>
+</tal:block>

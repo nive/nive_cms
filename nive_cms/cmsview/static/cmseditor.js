@@ -155,23 +155,22 @@ Example: ::
 
 */
 (function ($) {
-      
+
     var _settings = {
-        overlayOpacity: .85, // Use this value if not set in CSS or HTML
-        id: 'modal',
-        src: function (sender) {
-            return jQuery(sender).attr('href');
-        },
-        fadeInSpeed: 0,
-        fadeOutSpeed: 0,
+        width: 980,
+        height: '100%',
+        parent: 'body',
+        overlayOpacity: 50,          // Use this value if not set in CSS or HTML
         reloadOnClose: true,         // reload the parent on close
         closeOnClickOutside: true,   // ask and close if clicked outside overlay
-        forceReload: false           // adds a random number to the url if true
+        forceReload: false,          // adds a random number to the url if true
+        fadeInSpeed: 300,
+        fadeOutSpeed: 300
     }
-      
-    /********************************** 
-    * DO NOT CUSTOMIZE BELOW THIS LINE 
-    **********************************/  
+
+    /**********************************
+    * DO NOT CUSTOMIZE BELOW THIS LINE
+    **********************************/
     $.niveOverlay = function (id) {
         if(id) $(id+" a[rel^='niveOverlay']").attr("onClick", "$(this).modal().open(); return false;");
         else   $("a[rel^='niveOverlay']").attr("onClick", "$(this).modal().open(); return false;");
@@ -192,20 +191,22 @@ Example: ::
         this.options = {
             parent: null,
             overlayOpacity: null,
-            id: null,
             content: null,
-            modalClassName: null,
-            imageClassName: null,
-            closeClassName: null,
-            overlayClassName: null,
-            src: null
+            id: 'modal',
+            modalClassName: 'modal-window',
+            imageClassName: 'modal-image',
+            closeClassName: 'close-window',
+            overlayClassName: 'modal-overlay',
+            src: function (sender) {
+                return jQuery(sender).attr('href');
+            }
         }
-        this.options = $.extend({}, options, _defaults);
         this.options = $.extend({}, options, _settings);
         this.options = $.extend({}, options, params);
         if(!$(this.options.parent).length) this.options.parent='body'; // fallback if container undefined
+
         this.close = function (url) {
-            jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(_settings.fadeOutSpeed, function () { 
+            jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(options.fadeOutSpeed, function () {
                       jQuery(this).unbind().remove(); 
                       if(!url) {
                         if(options.reloadOnClose) location.reload(); 
@@ -223,14 +224,14 @@ Example: ::
                    });
         }
         this.cancel = function () {
-            jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(_settings.fadeOutSpeed, function () { 
+            jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(options.fadeOutSpeed, function () {
                       jQuery(this).unbind().remove(); });
         }
         this.open = function () {
             if (typeof options.src == 'function') {
                 options.src = options.src(sender);
             } else if(options.src == undefined) {
-                    options.src = _defaults.src(sender);
+                    options.src = options.src(sender);
             }
 
             var fid = "overlayiframe";
@@ -246,6 +247,15 @@ Example: ::
                 $overlay.hide().appendTo(options.parent);
       
                 $modal = jQuery('<div id="' + options.id + '" class="' + options.modalClassName + '" >' + contentHTML + '</div>');
+                // figure out size and position
+                $modal.height(options.height);
+                parent = $(options.parent);
+                if(options.width=="parent")   $modal.width(parent.width());
+                else                          $modal.width(options.width);
+                if(parent.width()>options.width) {
+                    // adjust position
+                    $modal.css('left',(parent.width()-options.width)/2+parent.offset().left);
+                }
                 $modal.hide().appendTo(options.parent);
                 if(content) {
                     var iFrame = $('#'+fid, $modal);
@@ -257,8 +267,8 @@ Example: ::
                 $close.appendTo($modal);
       
                 var overlayOpacity = _getOpacity($overlay.not('iframe')) || options.overlayOpacity;
-                $overlay.fadeTo(0, 0).show().not('iframe').fadeTo(_settings.fadeInSpeed, overlayOpacity);
-                $modal.fadeIn(_settings.fadeInSpeed);
+                $overlay.fadeTo(0, 0).show().not('iframe').fadeTo(options.fadeInSpeed, overlayOpacity);
+                $modal.fadeIn(options.fadeInSpeed);
       
                 $close.click(function () { jQuery.modal().close(); });
                 if(options.closeOnClickOutside)
@@ -288,20 +298,7 @@ Example: ::
         }
         return '';
     }
-    _defaults = {
-        parent: '#container',
-        overlayOpacity: 70,
-        id: 'modal',
-        content: null,
-        modalClassName: 'modal-window',
-        imageClassName: 'modal-image',
-        closeClassName: 'close-window',
-        overlayClassName: 'modal-overlay',
-        src: function (sender) {
-            return jQuery(sender).attr('href');
-        }
-    }
-})(jQuery); 
+})(jQuery);
 
 /*
 Editor link actions

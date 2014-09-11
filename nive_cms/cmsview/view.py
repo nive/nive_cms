@@ -65,7 +65,7 @@ configuration = ViewModuleConf(
     # editorAssets list the requirements to include the editor in the websites' design.
     editorAssets = [
         ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
-        ('overlay.css', 'nive_cms.cmsview:static/overlay/overlay.css'),
+        ('jquery-ui.css', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/css/ui-lightness/jquery-ui-1.10.3.custom.min.css'),
         ('cmseditor.css', 'nive_cms.cmsview:static/cmseditor.css'),
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
