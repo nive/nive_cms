@@ -8,18 +8,18 @@
  <!-- current page edit, delete and options -->
   <div class="widget_head" i18n:translate="">Edit page</div>
   <div class="widget_content">
-    <a href="${pageUrl}edit" class="nivecms" rel="niveOverlay"
+    <a href="${pageUrl}@edit" class="nivecms" rel="niveOverlay"
    	       ><img tal:attributes="src static+'images/editor.png'" 
    	             title="Edit page settings" align="top" i18n:attributes="title"> 
    	             <span i18n:translate="">Edit page settings</span></a>
 
-    <a href="${pageUrl}sortpages" class="nivecms" rel="niveOverlay" 
+    <a href="${pageUrl}@sortpages" class="nivecms" rel="niveOverlay"
      	   ><img tal:attributes="src static+'images/sort.png'" 
      	         title="Sort sub pages" align="top" i18n:attributes="title"> 
      	         <span i18n:translate="">Sort sub pages</span></a>
 
     <a tal:condition="page.CanPaste() and not view.ClipboardEmpty()"
-       href="${view.FolderUrl(page)}paste?pepos=${context.GetID()}" class="nivecms" rel="niveAction"
+       href="${view.FolderUrl(page)}@paste?pepos=${context.GetID()}" class="nivecms" rel="niveAction"
            ><img src="${static+'images/paste.png'}" 
                  title="Paste here" align="top" i18n:attributes="title"> 
                  <span i18n:translate="">Paste here</span></a>

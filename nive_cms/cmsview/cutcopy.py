@@ -139,11 +139,9 @@ class ContainerCopy:
 
 
 views = [
-    # cut, copy
-    ViewConf(name = "cut",  attr = "cut",  context = IContainer, permission="edit"),
-    ViewConf(name = "copy", attr = "copy", context = IContainer, permission="edit"),    
-    # paste
-    ViewConf(name = "paste", attr = "paste", context = IContainer, permission = "add")
+    ViewConf(name="@cut",   attr = "cut",   context = IContainer, permission="edit"),
+    ViewConf(name="@copy",  attr = "copy",  context = IContainer, permission="edit"),
+    ViewConf(name="@paste", attr = "paste", context = IContainer, permission="add")
 ]
 
 

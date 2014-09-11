@@ -214,13 +214,13 @@ class Sort:
 
 views = [
     # sort
-    ViewConf(name = "sortpages", attr = "sortpages", context = IPage, renderer = "nive_cms.cmsview:sort.pt", permission="edit"),
-    ViewConf(name = "sortpages", attr = "sortpages", context = IRoot, renderer = "nive_cms.cmsview:sort.pt", permission="edit"),
-    ViewConf(name="sortelements",attr="sortelements",context = IContainer, renderer = "nive_cms.cmsview:sort.pt", permission="edit"),
-    ViewConf(name = "moveup",    attr = "moveup",    context = IContainer, permission="edit"),
-    ViewConf(name = "movedown",  attr = "movedown",  context = IContainer, permission="edit"),
-    ViewConf(name = "movetop",   attr = "movetop",   context = IContainer, permission="edit"),
-    ViewConf(name = "movebottom",attr = "movebottom",context = IContainer, permission="edit"),
+    ViewConf(name = "@sortpages", attr = "sortpages", context = IPage, renderer = "nive_cms.cmsview:sort.pt", permission="edit"),
+    ViewConf(name = "@sortpages", attr = "sortpages", context = IRoot, renderer = "nive_cms.cmsview:sort.pt", permission="edit"),
+    ViewConf(name="@sortelements",attr="sortelements",context = IContainer, renderer = "nive_cms.cmsview:sort.pt", permission="edit"),
+    ViewConf(name = "@moveup",    attr = "moveup",    context = IContainer, permission="edit"),
+    ViewConf(name = "@movedown",  attr = "movedown",  context = IContainer, permission="edit"),
+    ViewConf(name = "@movetop",   attr = "movetop",   context = IContainer, permission="edit"),
+    ViewConf(name = "@movebottom",attr = "movebottom",context = IContainer, permission="edit"),
 ]    
 
 

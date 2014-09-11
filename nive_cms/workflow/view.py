@@ -20,10 +20,10 @@ configuration = ViewModuleConf(
 )
 
 configuration.views = [
-    ViewConf(name = "wfWidget", attr = "widget",   renderer = "nive_cms.workflow:templates/widget.pt"),
-    ViewConf(name = "workflow", attr = "workflow", renderer = "nive_cms.workflow:templates/editorpage.pt"),
-    ViewConf(name = "action",   attr = "action"),
-    ViewConf(name = "pubr",     attr = "publishRecursive", permission = "edit")
+    ViewConf(name = "@wfWidget", attr = "widget",   renderer = "nive_cms.workflow:templates/widget.pt"),
+    ViewConf(name = "@workflow", attr = "workflow", renderer = "nive_cms.workflow:templates/editorpage.pt"),
+    ViewConf(name = "@action",   attr = "action"),
+    ViewConf(name = "@pubr",     attr = "publishRecursive", permission = "edit")
 ]
 
 configuration.widgets = [

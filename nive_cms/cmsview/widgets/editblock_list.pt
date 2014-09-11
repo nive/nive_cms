@@ -6,11 +6,11 @@
       i18n:domain="nive_cms">
   <!-- add edit -->
   <div tal:condition="obj.GetTypeID()==u'page'" class="block">
-    <a href="${objUrl}edit" class="nivecms" rel="niveOverlay" 
+    <a href="${objUrl}@edit" class="nivecms" rel="niveOverlay"
  	   ><img tal:attributes="src static+'editor.png'" title="Edit" align="top" i18n:attributes="title"> </a>
   </div>
   <div tal:condition="obj.GetTypeID()!=u'page'" class="block">
-    <a href="${objUrl}edit" class="nivecms" rel="niveOverlay"
+    <a href="${objUrl}@edit" class="nivecms" rel="niveOverlay"
  	   ><img tal:attributes="src static+'editor.png'" title="Edit" align="top" i18n:attributes="title"> </a>
   </div>
 
@@ -18,27 +18,27 @@
   <div tal:condition="showCCP"
        class="block">
     <a tal:condition="obj.CanCopy()"
-       href="${parentUrl}copy?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${parentUrl}@copy?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}copy.png" title="Copy element" align="top" i18n:attributes="title"> </a>
     <a tal:condition="obj.CanCopy()"
-       href="${parentUrl}cut?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${parentUrl}@cut?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}cut.png" title="Cut element" align="top" i18n:attributes="title"> </a>
     <a tal:condition="elementContainer.CanPaste() and not view.ClipboardEmpty()"
-       href="${containerUrl}paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${containerUrl}@paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}paste.png" title="Paste here" align="top" i18n:attributes="title"> </a>
   </div>
 
   <!-- sort -->
   <div class="block">
-    <a href="${containerUrl}moveup?id=${obj.GetID()}" class="nivecms" rel="niveAction"
+    <a href="${containerUrl}@moveup?id=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}up.png" title="Move up" align="top" i18n:attributes="title"> </a>
-    <a href="${containerUrl}movedown?id=${obj.GetID()}" class="nivecms" rel="niveAction"
+    <a href="${containerUrl}@movedown?id=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}down.png" title="Move down" align="top" i18n:attributes="title"> </a>
   </div>
 
   <!-- delete -->
   <div class="block_del">
-    <a href="${containerUrl}delete?id=${obj.GetID()}" class="nivecms" rel="niveOverlay"
+    <a href="${containerUrl}@delete?id=${obj.GetID()}" class="nivecms" rel="niveOverlay"
        ><img tal:attributes="src static+'delete.png'" title="Delete" align="top" i18n:attributes="title"> </a>
   </div>
 </span>

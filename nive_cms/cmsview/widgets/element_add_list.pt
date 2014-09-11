@@ -4,7 +4,7 @@
      i18n:domain="nive_cms">
   <h4 onClick="$.editblocks().toggleBlock('add${obj.GetID()}',event)" i18n:translate="">Add a new page element?</h4>
   <a tal:repeat="element elementContainer.AllowedPageElements('')" class="nivecms" rel="niveOverlay"
-     tal:attributes="href containerUrl+'add?'+view.FmtURLParam(pool_type=element['id'], pepos=obj.GetID())"
+     tal:attributes="href containerUrl+'@add?'+view.FmtURLParam(pool_type=element['id'], pepos=obj.GetID())"
      ><img tal:condition="element.get('icon')" 
            tal:attributes="src view.StaticUrl(element.get('icon')); title element['name']" 
            align="top" i18n:attributes="title">

@@ -101,49 +101,49 @@ configuration.views = [
     
 
     # root
-    ViewConf(id="view",   name="view",  attr="view",  context=IRoot,   renderer=t+"view.pt", containment=IApplication),
-    ViewConf(name="edit", attr="edit", context=IRoot, renderer=t+"edit.pt", permission="edit"),
-    ViewConf(name="meta", attr="meta", context=IRoot, renderer=t+"meta.pt"),
+    ViewConf(name="@view", attr="view", context=IRoot, renderer=t+"view.pt", containment=IApplication),
+    ViewConf(name="@edit", attr="edit", context=IRoot, renderer=t+"edit.pt", permission="edit"),
+    ViewConf(name="@meta", attr="meta", context=IRoot, renderer=t+"meta.pt"),
 
     # object
-    ViewConf(id="view",   name="view",  attr="view", context=IObject, renderer=t+"view.pt", containment=IApplication),
-    ViewConf(name="edit", attr="edit", renderer=t+"edit.pt", permission="edit"),
-    ViewConf(name="meta", attr="meta", renderer=t+"meta.pt"),
-    ViewConf(name="delfile", attr="delfile", permission="delete"),
+    ViewConf(name="@view", attr="view", context=IObject, renderer=t+"view.pt", containment=IApplication),
+    ViewConf(name="@edit", attr="edit", renderer=t+"edit.pt", permission="edit"),
+    ViewConf(name="@meta", attr="meta", renderer=t+"meta.pt"),
+    ViewConf(name="@delfile", attr="delfile", permission="delete"),
                 
     # widgets
-    ViewConf(name = "elementListWidget", attr = "elementListWidget", context = IContainer, permission="edit"),
-    ViewConf(name = "elementAddWidget",  attr = "elementAddWidget",  context = IObject, permission = "add"),
-    ViewConf(name = "elementAddWidget",  attr = "elementAddWidget",  context = IRoot, permission = "add"),
-    ViewConf(name = "editblock",         attr = "editBlockElement",  context = IObject, permission = "edit"),
+    ViewConf(name="@elementListWidget", attr="elementListWidget", context = IContainer, permission="edit"),
+    ViewConf(name="@elementAddWidget",  attr="elementAddWidget",  context = IObject, permission = "add"),
+    ViewConf(name="@elementAddWidget",  attr="elementAddWidget",  context = IRoot, permission = "add"),
+    ViewConf(name="@editblock",         attr="editBlockElement",  context = IObject, permission = "edit"),
     
     # container
-    ViewConf(name = "add",       attr = "add",    context = IContainer, renderer = t+"add.pt", permission="add"),
-    ViewConf(name = "delete",    attr = "delete", context = IContainer, renderer = t+"delete.pt", permission = "delete"),
+    ViewConf(name="@add",       attr="add",    context = IContainer, renderer = t+"add.pt", permission="add"),
+    ViewConf(name="@delete",    attr="delete", context = IContainer, renderer = t+"delete.pt", permission = "delete"),
     
     # widgets
-    ViewConf(name = "addpageWidget",  attr = "tmpl", renderer = t+"widgets/widget_addpage.pt",    context = IContainer, permission="add"),
-    ViewConf(name = "editpageWidget", attr = "tmpl", renderer = t+"widgets/widget_editpage.pt",   context = IContainer, permission="edit"),
-    ViewConf(name = "editrootWidget", attr = "tmpl", renderer = t+"widgets/widget_editroot.pt",   context = IContainer, permission="edit"),
-    ViewConf(name = "subpagesWidget", attr = "tmpl", renderer = t+"widgets/widget_subpages.pt",   context = IContainer),
-    ViewConf(name = "settingsWidget", attr = "tmpl", renderer = t+"widgets/widget_settings.pt",   context = IContainer)
+    ViewConf(name="@addpageWidget",  attr="tmpl", renderer = t+"widgets/widget_addpage.pt",    context = IContainer, permission="add"),
+    ViewConf(name="@editpageWidget", attr="tmpl", renderer = t+"widgets/widget_editpage.pt",   context = IContainer, permission="edit"),
+    ViewConf(name="@editrootWidget", attr="tmpl", renderer = t+"widgets/widget_editroot.pt",   context = IContainer, permission="edit"),
+    ViewConf(name="@subpagesWidget", attr="tmpl", renderer = t+"widgets/widget_subpages.pt",   context = IContainer),
+    ViewConf(name="@settingsWidget", attr="tmpl", renderer = t+"widgets/widget_settings.pt",   context = IContainer)
 ] + sort.views + cutcopy.views
 
 
 # toolbox and editor widgets ----------------------------------------------------------------------------------
 configuration.widgets = [
-    WidgetConf(name=_(u"Add new page"),         widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="addpageWidget", id="cms.addpage", sort=100),
-    WidgetConf(name=_(u"Edit page"),            widgetType=IToolboxWidgetConf, apply=(IPage,), viewmapper="editpageWidget", id="cms.editpage", sort=200),
-    WidgetConf(name=_(u"Edit root"),            widgetType=IToolboxWidgetConf, apply=(IRoot,),      viewmapper="editrootWidget", id="cms.editroot", sort=200),
-    WidgetConf(name=_(u"Sub pages and parent"), widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="subpagesWidget", id="cms.subpages", sort=300),
-    WidgetConf(name=_(u"Settings"),             widgetType=IToolboxWidgetConf, apply=(IApplication,IContainer), viewmapper="settingsWidget", id="cms.settings", sort=400),
+    WidgetConf(name=_(u"Add new page"),         widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="@addpageWidget",  id="cms.addpage", sort=100),
+    WidgetConf(name=_(u"Edit page"),            widgetType=IToolboxWidgetConf, apply=(IPage,),      viewmapper="@editpageWidget", id="cms.editpage", sort=200),
+    WidgetConf(name=_(u"Edit root"),            widgetType=IToolboxWidgetConf, apply=(IRoot,),      viewmapper="@editrootWidget", id="cms.editroot", sort=200),
+    WidgetConf(name=_(u"Sub pages and parent"), widgetType=IToolboxWidgetConf, apply=(IContainer,), viewmapper="@subpagesWidget", id="cms.subpages", sort=300),
+    WidgetConf(name=_(u"Settings"),             widgetType=IToolboxWidgetConf, apply=(IApplication,IContainer), viewmapper="@settingsWidget", id="cms.settings", sort=400),
     
-    WidgetConf(name=_(u"Contents"),      widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="view",   id="editor.view", sort=0),
-    WidgetConf(name=_(u"Edit"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="edit",  id="editor.edit", sort=100),
-    WidgetConf(name=_(u"Add"),           widgetType=IEditorWidgetConf, apply=(IContainer,), viewmapper="add",    id="editor.add",  sort=200),
-    WidgetConf(name=_(u"Sort sub pages"),widgetType=IEditorWidgetConf, apply=(IPage,IRoot), viewmapper="sortpages", id="editor.sortpages", sort=300),
-    WidgetConf(name=_(u"Sort elements"), widgetType=IEditorWidgetConf, apply=(IPageElementContainer,), viewmapper="sortelements", id="editor.sortelements", sort=300),
-    WidgetConf(name=_(u"Meta"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="meta",   id="editor.meta", sort=400)
+    WidgetConf(name=_(u"Contents"),      widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="@view",      id="editor.view", sort=0),
+    WidgetConf(name=_(u"Edit"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="@edit",      id="editor.edit", sort=100),
+    WidgetConf(name=_(u"Add"),           widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="@add",       id="editor.add",  sort=200),
+    WidgetConf(name=_(u"Sort sub pages"),widgetType=IEditorWidgetConf, apply=(IPage,IRoot),  viewmapper="@sortpages", id="editor.sortpages", sort=300),
+    WidgetConf(name=_(u"Sort elements"), widgetType=IEditorWidgetConf, apply=(IPageElementContainer,), viewmapper="@sortelements", id="editor.sortelements", sort=300),
+    WidgetConf(name=_(u"Meta"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="@meta",      id="editor.meta", sort=400)
 ]
 
 
@@ -382,7 +382,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         return render("widgets/element_add_list.pt", {u"obj":obj, u"view":self}, request=self.request)
 
 
-    def elementListWidget(self, obj=None, elements=None, addResponse=True, showCCP=True, defaultview=u"edit"):
+    def elementListWidget(self, obj=None, elements=None, addResponse=True, showCCP=True, defaultview=u"@edit"):
         """
         Widget with existing elements list and edit options
         call with obj = current object / page
@@ -472,7 +472,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         for p in pages:
             wf = u""
             if useworkflow and not p.meta.pool_state:
-                wf = u"""<a href="%(url)sworkflow" class="right" rel="niveOverlay"><img src="%(static)s" title="%(name)s"></a>""" % {
+                wf = u"""<a href="%(url)s@workflow" class="right" rel="niveOverlay"><img src="%(static)s" title="%(name)s"></a>""" % {
                                     u"static": static, 
                                     u"url": self.FolderUrl(p), 
                                     u"name": localizer(_(u"This page is not public."))
@@ -550,7 +550,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
     def selectType(self):
         user = self.User()
         lt = self.context.GetAllowedTypes(user)
-        tmpl = u"""<a href="add?pool_type=%s" rel="niveOverlay" class="nivecms addlink">%s</a> """
+        tmpl = u"""<a href="@add?pool_type=%s" rel="niveOverlay" class="nivecms addlink">%s</a> """
         html = StringIO()
         html.write(u"""<div class="addElements">""")
         #opt
@@ -562,7 +562,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
     def selectPageElement(self):
         user = self.User()
         lt = self.context.GetAllowedTypes(user)
-        tmpl = u"""<a href="add?pool_type=%s" rel="niveOverlay" class="nivecms addlink">%s</a> """
+        tmpl = u"""<a href="@add?pool_type=%s" rel="niveOverlay" class="nivecms addlink">%s</a> """
         html = StringIO()
         html.write(u"""<div class="addElements">""")
         #opt

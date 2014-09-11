@@ -13,14 +13,14 @@
   ${obj.GetTypeName()}
   </div>
   <div class="options_block">
-    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}elementAddWidget', '#add${obj.GetID()}',event);return false;"
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}@elementAddWidget', '#add${obj.GetID()}',event);return false;"
        class="nivecms"><img src="${static+'images/element_add.png'}" 
              title="Add a new page element" align="top" i18n:attributes="title"> </a>
   </div>
   
   <div tal:attributes="id string:add${obj.GetID()}" class="addElements"></div>
   <div class="options_block">
-    <a href="${objUrl}edit" class="nivecms" rel="niveOverlay" name="Edit" 
+    <a href="${objUrl}@edit" class="nivecms" rel="niveOverlay" name="Edit"
  	   ><img src="${static+'images/editor.png'}" 
  	         title="Edit" align="top" i18n:attributes="title"> </a>
   </div>
@@ -28,17 +28,17 @@
   <!-- cut copy paste -->
   <div class="options_block">
     <a tal:condition="obj.CanCopy()"
-       href="${parentUrl}copy?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${parentUrl}@copy?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/copy.png'}" 
              title="Copy element" align="top" i18n:attributes="title"> </a>
     
     <a tal:condition="obj.CanCopy()"
-       href="${parentUrl}cut?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${parentUrl}@cut?ids=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/cut.png'}" 
              title="Cut element" align="top" i18n:attributes="title"> </a>
     
     <a tal:condition="elementContainer.CanPaste() and not view.ClipboardEmpty()"
-       href="${view.FolderUrl(elementContainer)}paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${view.FolderUrl(elementContainer)}@paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/paste.png'}" 
              title="Paste here" align="top" i18n:attributes="title"> </a>
   </div>
@@ -46,21 +46,21 @@
   <!-- sort -->
   <div class="options_block">
     <a tal:condition="obj.IsContainer()" 
-       href="${objUrl}sortelements" class="nivecms" rel="niveOverlay"
+       href="${objUrl}@sortelements" class="nivecms" rel="niveOverlay"
    	   ><img src="${static+'images/sort.png'}" 
    	         title="Sort elements" align="top" i18n:attributes="title"> </a>
-    <a href="${parentUrl}moveup?id=${obj.GetID()}" class="nivecms" rel="niveAction"
+    <a href="${parentUrl}@moveup?id=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/up.png'}" 
              title="Move up" align="top" i18n:attributes="title"> </a>
     
-    <a href="${parentUrl}movedown?id=${obj.GetID()}" class="nivecms" rel="niveAction"
+    <a href="${parentUrl}@movedown?id=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/down.png'}" 
              title="Move down" align="top" i18n:attributes="title"> </a>
   </div>
 
   <!-- delete -->
   <div class="options_block_del">
-    <a href="${parentUrl}delete?id=${obj.GetID()}" class="nivecms" rel="niveOverlay" name="Delete"
+    <a href="${parentUrl}@delete?id=${obj.GetID()}" class="nivecms" rel="niveOverlay" name="Delete"
  	   ><img tal:attributes="src static+'images/delete.png'" 
  	         title="Delete" align="top" i18n:attributes="title"> </a>
   </div>

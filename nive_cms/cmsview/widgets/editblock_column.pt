@@ -16,34 +16,34 @@
 </tal:block>
 <tal:block tal:condition="column and column.IsLocal(page)">
   <div class="options_block">
-    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${columnUrl}elementAddWidget', '#add${column.GetID()}',event); return false;"
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${columnUrl}@elementAddWidget', '#add${column.GetID()}',event); return false;"
        class="nivecms"><img src="${static}element_add.png" title="Add a new page element" align="top" i18n:attributes="title"></a>
   </div>
   <div tal:attributes="id string:add${column.GetID()}" class="addElements"></div>
   <div class="options_block">
-    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${columnUrl}elementListWidget', '#elements${column.GetID()}',event); return false;"
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${columnUrl}@elementListWidget', '#elements${column.GetID()}',event); return false;"
        class="nivecms"><img src="${static}element.png" title="List existing page elements" align="top" i18n:attributes="title"></a>
   </div>
   <div tal:attributes="id string:elements${column.GetID()}" class="listElements"></div>
   <div class="options_block">
-    <a href="${columnUrl}edit" class="nivecms" rel="niveOverlay"
+    <a href="${columnUrl}@edit" class="nivecms" rel="niveOverlay"
    	   ><img tal:attributes="src static+'editor.png'" title="Edit column settings" align="top" i18n:attributes="title"> </a>
   </div>
   <!-- sort -->
   <div class="options_block">
-    <a href="${columnUrl}sortelements" class="nivecms" rel="niveOverlay"
+    <a href="${columnUrl}@sortelements" class="nivecms" rel="niveOverlay"
    	   ><img tal:attributes="src static+'sort.png'" title="Sort elements" align="top" i18n:attributes="title"> </a>
   </div>
   <!-- cut copy paste -->
   <div class="options_block">
     <a tal:condition="column.CanPaste() and not view.ClipboardEmpty()"
-       href="${columnUrl}paste?pepos=${column.GetID()}" class="nivecms" rel="niveAction"
+       href="${columnUrl}@paste?pepos=${column.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static}paste.png" title="Paste here" align="top" i18n:attributes="title"> </a>
   </div>
   <div class="options_label"><span i18n:translate="">Column:</span> ${name}</div>
   <!-- delete -->
   <div class="options_block_del">
-    <a href="${view.FolderUrl(column.page)}delete?id=${column.GetID()}" class="nivecms" rel="niveOverlay"
+    <a href="${view.FolderUrl(column.page)}@delete?id=${column.GetID()}" class="nivecms" rel="niveOverlay"
  	   ><img tal:attributes="src static+'delete.png'" title="Delete" align="top" i18n:attributes="title"> </a>
   </div>
 </tal:block>

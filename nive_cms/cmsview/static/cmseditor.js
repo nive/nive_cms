@@ -13,7 +13,7 @@ Uses cookies to store settings between page relods.
         useCookies: true,
         editblockPrefix: "#nive-editblock",
         elementPrefix: "#nive-element",
-        editblockViewUrl: "editblock"
+        editblockViewUrl: "@editblock"
     }
 
     $(document).ready(function(){

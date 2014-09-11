@@ -10,27 +10,27 @@
 
   <!-- add edit -->
   <div class="options_block">
-    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}elementAddWidget', '#add${obj.GetID()}',event); return false;"
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}@elementAddWidget', '#add${obj.GetID()}',event); return false;"
        class="nivecms"><img src="${static+'images/element_add.png'}" 
              title="Add a new page element" align="top" i18n:attributes="title"></a>
   </div>
   <div tal:attributes="id string:add${obj.GetID()}" class="addElements"></div>
   <div class="options_block">
-    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}elementListWidget', '#elements${obj.GetID()}',event); return false;"
+    <a href="#" onClick="$.fn.editblocks().loadToggleBlock('${objUrl}@elementListWidget', '#elements${obj.GetID()}',event); return false;"
        class="nivecms"><img src="${static+'images/element.png'}" 
              title="List existing page elements" align="top" i18n:attributes="title"></a>
   </div>
   <div tal:attributes="id string:elements${obj.GetID()}" class="listElements"></div>
   <!-- sort -->
   <div class="options_block">
-    <a href="${pageUrl}sortelements" class="nivecms" rel="niveOverlay"
+    <a href="${pageUrl}@sortelements" class="nivecms" rel="niveOverlay"
    	   ><img tal:attributes="src static+'images/sort.png'" 
    	         title="Sort elements" align="top" i18n:attributes="title"> </a>
   </div>
   <!-- cut copy paste -->
   <div class="options_block">
     <a tal:condition="elementContainer.CanPaste() and not view.ClipboardEmpty()"
-       href="${pageUrl}paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
+       href="${pageUrl}@paste?pepos=${obj.GetID()}" class="nivecms" rel="niveAction"
        ><img src="${static+'images/paste.png'}" 
              title="Paste here" align="top" i18n:attributes="title"> </a>
   </div>

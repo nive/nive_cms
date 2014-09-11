@@ -8,36 +8,36 @@
  <!-- current page edit, delete and options -->
   <div class="widget_head" i18n:translate="">Edit page</div>
   <div class="widget_content">
-    <a href="${pageUrl}edit" class="nivecms" rel="niveOverlay"
+    <a href="${pageUrl}@edit" class="nivecms" rel="niveOverlay"
    	       ><img tal:attributes="src static+'images/editor.png'" 
    	             title="Edit page settings" align="top" i18n:attributes="title"> 
    	             <span i18n:translate="">Edit page settings</span></a>
 
-    <a href="${pageUrl}sortpages" class="nivecms" rel="niveOverlay"
+    <a href="${pageUrl}@sortpages" class="nivecms" rel="niveOverlay"
      	   ><img tal:attributes="src static+'images/sort.png'" 
      	         title="Sort sub pages" align="top" i18n:attributes="title"> 
      	         <span i18n:translate="">Sort sub pages</span></a>
 
     <tal:block tal:condition="context.CanCopy()">
-    <a href="${containerUrl}copy?ids=${context.GetID()}" class="nivecms"  rel="niveAction"
+    <a href="${containerUrl}@copy?ids=${context.GetID()}" class="nivecms"  rel="niveAction"
            ><img src="${static+'images/copy.png'}" 
                  title="Copy page" align="top" i18n:attributes="title"> 
                  <span i18n:translate="">Copy page</span></a>
 
-    <a href="${containerUrl}cut?ids=${context.GetID()}" class="nivecms" rel="niveAction"
+    <a href="${containerUrl}@cut?ids=${context.GetID()}" class="nivecms" rel="niveAction"
            ><img src="${static+'images/cut.png'}" 
                  title="Cut page" align="top" i18n:attributes="title"> 
                  <span i18n:translate="">Cut page</span></a>
     </tal:block>
 
     <a tal:condition="page.CanPaste() and not view.ClipboardEmpty()" 
-       href="${view.FolderUrl(page)}paste?pepos=${context.GetID()}" class="nivecms" rel="niveAction"
+       href="${view.FolderUrl(page)}@paste?pepos=${context.GetID()}" class="nivecms" rel="niveAction"
            ><img src="${static+'images/paste.png'}" 
                  title="Paste here" align="top" i18n:attributes="title"> 
                  <span i18n:translate="">Paste here</span></a>
 
     <a tal:condition="context.GetID()>0"
-       href="${pageUrl}../delete?id=${context.GetID()}" rel="niveOverlay" class="nivecms pagedelete"
+       href="${pageUrl}../@delete?id=${context.GetID()}" rel="niveOverlay" class="nivecms pagedelete"
            ><img tal:attributes="src static+'images/delete.png'" 
                  title="Delete current page and sub pages" align="top" i18n:attributes="title"> 
                  <span i18n:translate="">Delete current page and sub pages</span></a>

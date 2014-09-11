@@ -16,7 +16,7 @@
    <p tal:condition="context.meta.pool_state==1" class="alert" i18n:translate="">The page is public.</p>
 
    <a tal:repeat="transition wf['transitions']" class="btn"
-      href="${view.FolderUrl()}action?${view.FmtURLParam(t=transition.id, redirect_url=request.url)}"><img 
+      href="${view.FolderUrl()}@action?${view.FmtURLParam(t=transition.id, redirect_url=request.url)}"><img
             src="${staticUrl+transition.id}.png" 
             title="${transition.name}" align="top"> ${transition.name}</a>
    </div>
@@ -30,7 +30,7 @@
    <h4>${subpage.GetTitle()}</h4> 
    <p class="alert">
    <a tal:repeat="transition wf['transitions']" class="btn"
-      href="${view.FolderUrl(subpage)}action?${view.FmtURLParam(t=transition.id, redirect_url=request.url)}"><img 
+      href="${view.FolderUrl(subpage)}@action?${view.FmtURLParam(t=transition.id, redirect_url=request.url)}"><img
             src="${staticUrl+transition.id}.png" 
             title="${transition.name}" align="top"> ${transition.name}</a>
    <span tal:condition="subpage.meta.pool_state==0"><img src="${staticUrl}exclamation.png" 
@@ -42,7 +42,7 @@
 
    <h3 i18n:translate="">Publish all sub pages recursive</h3>
    <a class="btn"
-      href="${view.FolderUrl()}pubr?redirect_url=${request.url}"><img 
+      href="${view.FolderUrl()}@pubr?redirect_url=${request.url}"><img
             src="${staticUrl}publish.png"
             title="" align="top"> <span i18n:translate="">Publish all contained sub pages</span></a>
 

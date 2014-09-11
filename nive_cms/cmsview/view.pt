@@ -15,7 +15,7 @@
 <div class="listElements">
     <h4>Pages</h4>
     <div tal:condition="not context.IsRoot()" class="element">
-    <a tal:attributes="href view.FolderUrl(context.parent)+'view'"
+    <a tal:attributes="href view.FolderUrl(context.parent)+'@view'"
        class="nivecms"><img tal:attributes="src static+'images/parent.png'"
              title="Open parent page" i18n:attributes="title"> <span i18n:translate="">Open parent page</span></a>
     </div>
