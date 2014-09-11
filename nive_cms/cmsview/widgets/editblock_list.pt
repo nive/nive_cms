@@ -4,6 +4,14 @@
                   objUrl view.FolderUrl(obj)"
       onclick="$.fn.editblocks().stopEvent(event)"
       i18n:domain="nive_cms">
+
+  <!-- workflow -->
+  <div tal:condition="showWF"
+       class="block">
+    <a href="${objUrl}@workflow" class="nivecms" rel="niveOverlay"
+       ><img src="${static}node.png" title="Open workflow page" align="top" i18n:attributes="title"> </a>
+  </div>
+
   <!-- add edit -->
   <div tal:condition="obj.GetTypeID()==u'page'" class="block">
     <a href="${objUrl}@edit" class="nivecms" rel="niveOverlay"

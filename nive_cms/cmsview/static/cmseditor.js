@@ -331,18 +331,22 @@ Example: ::
     $.fn.callaction = function () {
         var href = jQuery(this).attr('href');
         $.ajax(href)
-            .done(function(data, message, jqXHR)    {
-                if(data.refresh) {
-                    if(data.location)   location.href=data.location;
-                    else                location.href=location.href;
-                } else {
-                    // json expected if it is not open in modal window
-                    if (jqXHR.getResponseHeader("Content-Type").indexOf("application/json") == -1) {
-                        $(this).modal({content:data, src:''}).open();
-                    }
-                }
-            })
+            .done($nive_actiondelegation)
             .fail(function(jqXHR, message, error)   { console.log(message); });
+    }
+    $.fn.nive_actiondelegation = function (data, message, jdXHR) {
+        var loc = data.location || jdXHR.getResponseHeader('X-Relocate');
+        if(data.refresh) {
+            if(loc)
+                location.href=loc;
+            else
+                location.href=location.href;
+        } else {
+            // json expected if it is not open in modal window
+            if (jqXHR.getResponseHeader("Content-Type").indexOf("application/json") == -1) {
+                $(this).modal({content:data, src:''}).open();
+            }
+        }
     }
 })(jQuery);
 

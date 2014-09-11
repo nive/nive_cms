@@ -7,19 +7,19 @@
 
 <div tal:condition="context.IsContainer()" class="span6">
 <div class="listElements">
-    <span tal:replace="structure view.elementListWidget(context, addResponse=False, showCCP=True, defaultview=u'edit')"/>
+    <span tal:replace="structure view.elementListWidget(context, addResponse=False, showCCP=True, defaultview=u'@edit')"/>
 </div>
 </div>
 
 <div tal:condition="context.IsPage()" class="span6">
 <div class="listElements">
-    <h4>Pages</h4>
+    <h4 i18n:translate="">Sub pages</h4>
     <div tal:condition="not context.IsRoot()" class="element">
     <a tal:attributes="href view.FolderUrl(context.parent)+'@view'"
        class="nivecms"><img tal:attributes="src static+'images/parent.png'"
              title="Open parent page" i18n:attributes="title"> <span i18n:translate="">Open parent page</span></a>
     </div>
-    <span tal:replace="structure view.pageListWidget(page=context, showCCP=True, defaultview=u'view')"/>
+    <span tal:replace="structure view.pageListWidget(page=context, showCCP=True, defaultview=u'@view')"/>
 </div>
 </div>
 

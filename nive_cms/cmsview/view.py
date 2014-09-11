@@ -60,7 +60,7 @@ configuration = ViewModuleConf(
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
         ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
-        #('cmseditor.js', 'nive_cms.cmsview:static/cmseditor.js'),            # nive js
+        ('cmsview.js', 'nive_cms.cmsview:static/cmsview.js'),            # nive js
     ],
     # editorAssets list the requirements to include the editor in the websites' design.
     editorAssets = [
@@ -353,7 +353,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
                       request=self.request)
 
     
-    def editBlockList(self, obj=None, page=None, showCCP=False):
+    def editBlockList(self, obj=None, page=None, showCCP=False, showWF=False):
         """
         Edit bar used in lists
         call with obj = current object / page
@@ -366,7 +366,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         else:
             elementContainer = page
         return render("widgets/editblock_list.pt", 
-                      {u"obj":obj, u"page": page, u"elementContainer": elementContainer, u"view":self, u"showCCP":showCCP}, 
+                      {u"obj":obj, u"page": page, u"elementContainer": elementContainer, u"view":self, u"showCCP":showCCP, u"showWF":showWF},
                       request=self.request)
 
     
@@ -457,7 +457,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         html = u"""<div class="subpages"> %(blocks)s </div>"""
         
         pHtml = u"""<div class="element">
-  <div class="el_title">%(workflow)s<a href="%(url)s" title="%(aTitle)s">%(title)s </a> </div>
+  <div class="el_title">%(workflow)s <a href="%(url)s" title="%(aTitle)s">%(title)s </a> </div>
   <div class="el_options">%(options)s</div>
   <br style="clear:both">
 </div>"""
@@ -473,13 +473,13 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
             wf = u""
             if useworkflow and not p.meta.pool_state:
                 wf = u"""<a href="%(url)s@workflow" class="right" rel="niveOverlay"><img src="%(static)s" title="%(name)s"></a>""" % {
-                                    u"static": static, 
-                                    u"url": self.FolderUrl(p), 
+                                    u"static": static,
+                                    u"url": self.FolderUrl(p),
                                     u"name": localizer(_(u"This page is not public."))
                                 }
             title = p.meta.get(u"title")
             linkTitle = u"ID: %d, %s" % (p.id, title)
-            options = self.editBlockList(obj=p, page=page, showCCP=showCCP)
+            options = self.editBlockList(obj=p, page=page, showCCP=showCCP, showWF=False)
             blocks.write(pHtml % {u"url": self.FolderUrl(p)+defaultview, u"aTitle": linkTitle, u"title": title, u"options": options, u"workflow": wf})
         if not len(pages):
             blocks.write(u"""<div class="element">""")

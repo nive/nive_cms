@@ -74,6 +74,13 @@
   border-bottom: 1px solid #cdcdcd;
   padding: 4px 0px 3px 6px;
 }
+#nive-toolbox .toolbox_widget .widget_content a.small {
+  font-size:1em;
+  line-height: 1.3em;
+  display: inline;
+  border-bottom: none;
+  padding: 0px;
+}
 #nive-toolbox .toolbox_widget .widget_content a.right {
   float:right;
   display:inline;
