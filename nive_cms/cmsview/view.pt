@@ -5,13 +5,7 @@
      metal:fill-slot="editmain">
 <div class="row">
 
-<div tal:condition="context.IsContainer()" class="span6">
-<div class="listElements">
-    <span tal:replace="structure view.elementListWidget(context, addResponse=False, showCCP=True, defaultview=u'@edit')"/>
-</div>
-</div>
-
-<div tal:condition="context.IsPage()" class="span6">
+<div tal:condition="context.IsPage()" class="span12">
 <div class="listElements">
     <h4 i18n:translate="">Sub pages</h4>
     <div tal:condition="not context.IsRoot()" class="element">
@@ -20,6 +14,12 @@
              title="Open parent page" i18n:attributes="title"> <span i18n:translate="">Open parent page</span></a>
     </div>
     <span tal:replace="structure view.pageListWidget(page=context, showCCP=True, defaultview=u'@view')"/>
+</div>
+</div>
+
+<div tal:condition="context.IsContainer()" class="span12">
+<div class="listElements">
+    <span tal:replace="structure view.elementListWidget(context, addResponse=False, showCCP=True, defaultview=u'@edit')"/>
 </div>
 </div>
 

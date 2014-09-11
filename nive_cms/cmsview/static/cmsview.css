@@ -150,8 +150,9 @@ a.button {
 }
 .listElements a {
   margin: 0px;
-  display: block;
   padding: 0px;
+  display:block;
+  width:auto;
   font-family: Verdana, Arial, sans-serif;
   color: black;
 }
@@ -180,6 +181,14 @@ a.button {
   display: inline;
   font-weight: normal;
   text-transform: none;
+}
+.listElements .el_title a {
+  float:left;
+}
+.listElements .el_title a.right {
+  display:block;
+  float:right;
+  margin-left:10px;
 }
 .listElements .el_options {
   float:right;

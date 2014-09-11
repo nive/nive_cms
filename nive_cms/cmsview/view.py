@@ -25,7 +25,7 @@ from pyramid.renderers import get_renderer, render, render_to_response
 
     
 from nive.definitions import ViewModuleConf, ViewConf, WidgetConf, FieldConf, Conf
-from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot, IPageElementContainer
+from nive.definitions import IContainer, IApplication, IPortal, IPage, IObject, IRoot, IPageElementContainer, IFile
 from nive.definitions import IToolboxWidgetConf, IEditorWidgetConf, IViewModuleConf, ICMSRoot, IColumn
 from nive.utils.utils import SortConfigurationList
 from nive.helper import ResolveName
@@ -59,13 +59,13 @@ configuration = ViewModuleConf(
         ('cmsview.css', 'nive_cms.cmsview:static/cmsview.css'),              # nive css
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
-        ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
+        #?unused ('bootstrap.js', 'nive_cms.cmsview:static/mods/bootstrap/js/bootstrap.min.js'),
         ('cmsview.js', 'nive_cms.cmsview:static/cmsview.js'),            # nive js
     ],
     # editorAssets list the requirements to include the editor in the websites' design.
     editorAssets = [
         ('toolbox.css', 'nive_cms.cmsview:static/toolbox/toolbox.css'),
-        ('jquery-ui.css', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/css/ui-lightness/jquery-ui-1.10.3.custom.min.css'),
+        #('jquery-ui.css', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/css/ui-lightness/jquery-ui-1.10.3.custom.min.css'),
         ('cmseditor.css', 'nive_cms.cmsview:static/cmseditor.css'),
         ('jquery.js', 'nive_cms.cmsview:static/mods/jquery-1.10.2.min.js'),
         ('jquery-ui.js', 'nive_cms.cmsview:static/mods/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.min.js'),
@@ -98,7 +98,10 @@ configuration.views = [
     ViewConf(name="editor",     attr="editor",  context=IContainer,   permission="read", containment=IApplication),
     ViewConf(name="exiteditor", attr="exit",    context=IContainer,   permission="view", containment=IApplication),
     ViewConf(name="exiteditor", attr="exitapp", context=IApplication, permission="view", containment=IPortal),
-    
+
+    #ViewConf(id="objfile", name="file",  attr="file",  context=IFile),
+    #ViewConf(name="",      attr="view", context=IRoot, renderer=t+"view.pt", containment=IApplication),
+    #ViewConf(name="",      attr="view", context=IObject, renderer=t+"view.pt", containment=IApplication),
 
     # root
     ViewConf(name="@view", attr="view", context=IRoot, renderer=t+"view.pt", containment=IApplication),
@@ -139,11 +142,11 @@ configuration.widgets = [
     WidgetConf(name=_(u"Settings"),             widgetType=IToolboxWidgetConf, apply=(IApplication,IContainer), viewmapper="@settingsWidget", id="cms.settings", sort=400),
     
     WidgetConf(name=_(u"Contents"),      widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="@view",      id="editor.view", sort=0),
-    WidgetConf(name=_(u"Edit"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="@edit",      id="editor.edit", sort=100),
-    WidgetConf(name=_(u"Add"),           widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="@add",       id="editor.add",  sort=200),
+    WidgetConf(name=_(u"Add"),           widgetType=IEditorWidgetConf, apply=(IContainer,),  viewmapper="@add",       id="editor.add",  sort=100),
+    WidgetConf(name=_(u"Edit"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="@edit",      id="editor.edit", sort=200),
     WidgetConf(name=_(u"Sort sub pages"),widgetType=IEditorWidgetConf, apply=(IPage,IRoot),  viewmapper="@sortpages", id="editor.sortpages", sort=300),
     WidgetConf(name=_(u"Sort elements"), widgetType=IEditorWidgetConf, apply=(IPageElementContainer,), viewmapper="@sortelements", id="editor.sortelements", sort=300),
-    WidgetConf(name=_(u"Meta"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="@meta",      id="editor.meta", sort=400)
+    WidgetConf(name=_(u"Meta"),          widgetType=IEditorWidgetConf, apply=(IObject,IRoot),viewmapper="@meta",      id="editor.meta", sort=900)
 ]
 
 

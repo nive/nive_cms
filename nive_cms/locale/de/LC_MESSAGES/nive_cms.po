@@ -16,6 +16,10 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: nive_cms/image.py:53
+msgid "Contents"
+msgstr "Inhalte"
+
+#: nive_cms/image.py:53
 msgid "Image"
 msgstr "Bild"
 

@@ -14,7 +14,7 @@
 <a name="top"></a>
 
 <header id="topnav">
-<div class="container" style="display:none">
+<div class="container" style="udisplay:none">
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container-fluid">
@@ -23,14 +23,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="${view.FolderUrl(context.root())}view">&nbsp;</a>
+        <a class="brand" href="${view.FolderUrl(context.root())}@view">&nbsp;</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li tal:repeat="tab view.GetEditorWidgets(context)"
-                tal:attributes="class 'active' if tab.id.endswith(request.view_name) else ''">
-              <a tal:content="structure tab.name"
-                 tal:attributes="href tab.viewmapper"></a>
-            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -47,6 +42,17 @@
 
     <div id="main">
 <div id="nive_edit">
+
+        <div class="tabbable">
+          <ul class="nav nav-tabs">
+            <li tal:repeat="tab view.GetEditorWidgets(context)"
+                tal:attributes="class 'active' if tab.viewmapper==request.view_name else ''">
+              <a tal:content="structure tab.name"
+                 tal:attributes="href tab.viewmapper"></a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
 
   <div tal:condition="request.session.peek_flash()" class="alert alert-sucess">
     <ul><li tal:repeat="msg request.session.pop_flash()"
