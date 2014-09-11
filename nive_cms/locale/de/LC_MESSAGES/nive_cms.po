@@ -843,7 +843,7 @@ msgstr "Unterseiten sortieren"
 
 #: nive_cms/cmsview/view.py:120
 msgid "Meta"
-msgstr "Meta Informationen"
+msgstr "Meta"
 
 #: nive_cms/cmsview/view.py:588
 msgid "Nothing to delete"

@@ -27,8 +27,8 @@ configuration.views = [
 ]
 
 configuration.widgets = [
-    WidgetConf(name=_("Workflow"), widgetType=IToolboxWidgetConf, apply=(IPage,), viewmapper="wfWidget", id="cms.wf",    sort=250),
-    WidgetConf(name=_("Workflow"), widgetType=IEditorWidgetConf,  apply=(IPage,), viewmapper="workflow", id="editor.wf", sort=250)
+    WidgetConf(name=_("Workflow"), widgetType=IToolboxWidgetConf, apply=(IPage,), viewmapper="@wfWidget", id="cms.wf",    sort=250),
+    WidgetConf(name=_("Workflow"), widgetType=IEditorWidgetConf,  apply=(IPage,), viewmapper="@workflow", id="editor.wf", sort=250)
 ]
 
 
