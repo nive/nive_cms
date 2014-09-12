@@ -35,7 +35,7 @@ Example: ::
     $.fn.nive_actiondelegation = function (data, message, jdXHR) {
         var loc = data.location || jdXHR.getResponseHeader('X-Relocate');
         if (data.refresh || data.refresh==undefined) {
-            if(window!=window.top) window.parent.close(loc);
+            if(window!=window.top) return window.parent.close(loc);
             if (loc) {
                 // avoid unnamed view redirects
                 if (loc.indexOf("@") == -1) {
@@ -56,3 +56,11 @@ $(document).ready(function(){
   $.niveAction();
 });
 
+
+(function ($) {
+    $.fn.editblocks = function( ) {
+        // reusing editblock widgets. ignore stop event.
+        this.stopEvent = function(event) {};
+        return this;
+    }
+})(jQuery);

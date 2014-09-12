@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <tal:block metal:define-macro="main">
-<html xmlns="http://www.w3.org/1999/xhtml" i18n:domain="nive_cms">
-<head>
-<title tal:content="view.HtmlTitle()"></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="generator" content="Nive cms">
-<tal:block tal:replace="structure view.Assets()"></tal:block>
-<tal:block metal:define-slot="head"></tal:block>
-<tal:block tal:condition="head|None" tal:replace="structure head" tal:on-error="nothing"></tal:block>
-</head>
+    <html xmlns="http://www.w3.org/1999/xhtml" i18n:domain="nive_cms">
+    <head>
+        <title tal:content="view.HtmlTitle()"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="generator" content="Nive cms">
+        <tal:block tal:replace="structure view.Assets()"></tal:block>
+        <tal:block metal:define-slot="head"></tal:block>
+        <tal:block tal:condition="head|None" tal:replace="structure head" tal:on-error="nothing"></tal:block>
+    </head>
 
-<body>
-<a name="top"></a>
+    <body>
+    <a name="top"></a>
 
-<header id="topnav">
-<div class="container" style="udisplay:none">
-  <div class="navbar">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="${view.FolderUrl(context.root())}@view">&nbsp;</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
+    <header id="topnav">
+        <div class="container" tal:replace="string:"><!--disabled-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <a class="brand" href="${view.FolderUrl(context.root())}@view">&nbsp;</a>
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <ul class="breadcrumb">
+            <span tal:replace="structure view.breadcrumbs(addHome=1,link=False)"/>
+        </ul>
+
+        <div id="main">
+            <div id="nive_edit">
+
+                <div class="tabbable"  tal:replace="string:"><!--disabled-->
+                    <ul class="nav nav-tabs">
+                        <li tal:repeat="tab view.GetEditorWidgets(context)"
+                                tal:attributes="class 'active' if tab.viewmapper==request.view_name else ''">
+                            <a tal:content="structure tab.name"
+                                    tal:attributes="href tab.viewmapper"></a>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+
+
+                <div tal:condition="request.session.peek_flash()" class="alert alert-sucess">
+                    <ul><li tal:repeat="msg request.session.pop_flash()"
+                            tal:content="msg"></li></ul>
+                </div>
+
+                <tal:block metal:define-slot="editmain"></tal:block>
+            </div>
+        </div>
+
     </div>
-  </div>
-  </div>
-</header>
 
-
-<div class="container">
-<ul class="breadcrumb">
-  <span tal:replace="structure view.breadcrumbs(addHome=1,link=True)"/>
-</ul>
-
-    <div id="main">
-<div id="nive_edit">
-
-        <div class="tabbable">
-          <ul class="nav nav-tabs">
-            <li tal:repeat="tab view.GetEditorWidgets(context)"
-                tal:attributes="class 'active' if tab.viewmapper==request.view_name else ''">
-              <a tal:content="structure tab.name"
-                 tal:attributes="href tab.viewmapper"></a>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-
-
-  <div tal:condition="request.session.peek_flash()" class="alert alert-sucess">
-    <ul><li tal:repeat="msg request.session.pop_flash()"
-            tal:content="msg"></li></ul>
-  </div>
-
-  <tal:block metal:define-slot="editmain"></tal:block>
-</div>
-</div>
- 
-</div>
-
-</body>
-</html>
+    </body>
+    </html>
 </tal:block>
