@@ -69,6 +69,21 @@ userdb = AppConf("nive_userdb.app",
     id = "userdb",
     userAdmin = (u"{{adminemail}}", u"Admin"),
     admin = {"name": "{{adminuser}}", "password": base64.decodestring("{{adminpass}}"), "email": ""},
+
+    # default settings
+    loginByEmail = True,
+    settings = Conf(
+        groups=(),
+        activate=1,
+        generatePW=0,
+        notify=False
+    ),
+
+    # mails
+    #mailSignup=Mail(_(u"Signup confirmed"), "nive_userdb:userview/signupmail.pt"),
+    #mailNotify=Mail(_(u"Signup notification"), "nive_userdb:userview/notifymail.pt"),
+    #mailResetPass=Mail(_(u"Your new password"), "nive_userdb:userview/resetpassmail.pt"),
+    #mailSendPass=Mail(_(u"Your password"), "nive_userdb:userview/mailpassmail.pt"),
 )
 dbConfiguration = DatabaseConf(
     fileRoot="{{root}}/filesuserdb",
