@@ -19,7 +19,7 @@ from nive.components.baseobjects import (
 )
 from nive.definitions import implements
 from nive.definitions import IPage, IPageContainer, IPageElement, IFile, IPageElementContainer, IFolder
-
+from nive.helper import DecorateViewClassWithViewModuleConf
 
 # page elements for subclassing --------------------------------------------
 
@@ -132,11 +132,11 @@ class DesignBase(BaseView):
     
     def __init__(self, context, request):
         super(DesignBase, self).__init__(context, request)
-        # the viewModule is used for template/template directory lookup 
-        self.viewModuleID = "design"
+        # the viewModule is used for template/template directory lookup
+        #self.viewModuleID = "design"
         if not self.viewModule:
             raise ConfigurationError, "'design' view module configuration not found"
-        
+
     @property
     def editorview(self):
         """
@@ -154,7 +154,7 @@ class DesignBase(BaseView):
         module = self.context.app.QueryConfByName(IViewModuleConf, "editor")
         if not module:
             return None
-        cls =  ResolveName(module.view)
+        cls =  DecorateViewClassWithViewModuleConf(module, module.view)
         editor = cls(self.context, self.request)
         self._c_editor = editor
         return editor

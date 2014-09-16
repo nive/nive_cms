@@ -48,7 +48,7 @@ configuration = ViewModuleConf(
     name = u"CMS Editor",
     static = "nive_cms.cmsview:static",
     templates = "nive_cms.cmsview:",
-    mainTemplate = "index.pt",
+    template = "index.pt",
     permission = "read",
     context = IObject,
     containment = ICMSRoot,  
@@ -159,8 +159,8 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
 
     def __init__(self, context, request):
         super(Editor, self).__init__(context, request)
-        # the viewModule is used for template/template directory lookup 
-        self.viewModuleID = "editor"
+        # the viewModule is used for template/template directory lookup
+        #self.viewModuleID = "editor"
         request.editmode = "editmode"
         
     def IsEditmode(self):
@@ -191,7 +191,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
     # macros ------------------------------------------------------------------------ 
 
     def cmsIndex_tmpl(self):
-        tmpl = self._LookupTemplate(self.viewModule.mainTemplate)
+        tmpl = self._LookupTemplate(self.viewModule.template)
         i = get_renderer(tmpl).implementation()
         return i
     

@@ -16,7 +16,7 @@ from nive.adminview.view import AdminBasics, ConfigurationForm
 # view module definition ------------------------------------------------------------------
 
 #@nive_module
-configuration = ViewModuleConf(
+configuration = ViewModuleConf("nive.adminview.view",
     id = "cms_admin",
     name = _(u"CMS Administration"),
     context = IApplication,
