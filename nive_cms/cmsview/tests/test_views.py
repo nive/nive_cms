@@ -50,7 +50,7 @@ class tCMS(__local.DefaultTestCase):
 
     def test_views1(self):
         view = Editor(self.page, self.request)
-        view.configuration = lambda: Conf(template="index.pt",templates="",assets=[])
+        view.__configuration__ = lambda: Conf(template="index.pt",templates="",assets=[])
         user = User(u"test")
         user.groups.append("group:editor")
 
@@ -132,7 +132,7 @@ class tCMS(__local.DefaultTestCase):
         
     def test_templates(self):
         view = Editor(self.page, self.request)
-        view.configuration = lambda: Conf(template="index.pt",templates="",assets=[])
+        view.__configuration__ = lambda: Conf(template="index.pt",templates="",assets=[])
         user = User(u"test")
         user.groups.append("group:editor")
         vrender = {"context":self.page, "view":view, "request": self.request}
@@ -197,7 +197,7 @@ class tCMS(__local.DefaultTestCase):
 
     def test_assets(self):
         view = Editor(self.page, self.request)
-        view.configuration = lambda: Conf(assets=[('cmsview.js', 'http://nive.co/cmsview.js'), ('cmsview.css', 'http://nive.co/cmsview.css')])
+        view.__configuration__ = lambda: Conf(assets=[('cmsview.js', 'http://nive.co/cmsview.js'), ('cmsview.css', 'http://nive.co/cmsview.css')])
         user = User(u"test")
         html = view.Assets()
         self.assert_(html)

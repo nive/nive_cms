@@ -62,7 +62,7 @@ class tWf(__local.DefaultTestCase):
         user = User(u"test")
         user.groups.append("group:editor")
         view = WorkflowEdit(self.page, self.request)
-        view.configuration = lambda: Conf(template="index.pt",templates="",assets=[])
+        view.__configuration__ = lambda: Conf(template="index.pt",templates="",assets=[])
         vrender = {"context":self.page, "view":view, "request": self.request, "cmsview":view}
         values = view.widget()
         values.update(vrender)
