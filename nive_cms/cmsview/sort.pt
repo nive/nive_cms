@@ -4,13 +4,13 @@
 <tal:block metal:fill-slot="head">
 <script>
 	$(function() {
-		$("#sortable").sortable({ items: 'li' });
-		$("#sortable").disableSelection();
+		var sort= $("#sortable");
+        sort.sortable({ items: 'li' });
+		sort.disableSelection();
 	});
 	function store() {
 	  var l = $('#sortable').sortable('toArray');
 	  document.location.href=unescape("?sort=1&amp;ids="+l.toString());
-	  return;
 	}
 </script>
 </tal:block>
