@@ -41,12 +41,11 @@ h4     { font-size: 100%; line-height: 1.3em; }
 .block { width: 48%; margin: 1%; float:left; }
 
 /*form styling --------------------------------------------------*/
-form.form .control-label { width: 150px; }
-form.form .controls      { width:520px; margin-left:20px; float:left; }
-form.form .controls input, textarea, select { width:500px; }
+form.form .control-label { font-weight: bold; }
+form.form .controls input, textarea, select { width:100%; }
 form.form .controls input[type="radio"] { width:auto; margin-bottom: 2px; display:block; }
 form.form .controls input[type="checkbox"] { width:auto; margin-bottom: 2px; display:block; }
-form.form .help-block    { width:220px; margin-left:20px; display:block; float:left; }
+form.form .form-actions { padding-left: 0px; }
 form label.required:after  { content: "*"; }
 form input.password        { display:block; }
 

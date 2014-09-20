@@ -1,7 +1,7 @@
 
 import base64
 
-from nive.definitions import DatabaseConf, AppConf, ToolConf, ViewModuleConf
+from nive.definitions import DatabaseConf, AppConf, ToolConf, ViewModuleConf, Conf
 from nive.portal import Portal
 
 
