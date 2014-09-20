@@ -105,7 +105,7 @@ configuration.views = [
 
     # root
     ViewConf(name="@view", attr="view", context=IRoot, renderer=t+"view.pt", containment=IApplication),
-    ViewConf(name="@edit", attr="edit", context=IRoot, renderer=t+"edit.pt", permission="edit"),
+    ViewConf(name="@edit", attr="editroot", context=IRoot, renderer=t+"edit.pt", permission="edit"),
     ViewConf(name="@meta", attr="meta", context=IRoot, renderer=t+"meta.pt"),
 
     # object
@@ -622,6 +622,26 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         form.use_ajax = True
         form.Setup(subset="edit")
         result, data, action = form.Process(redirectSuccess="page_url")
+        return {u"content": data, u"result": result, u"cmsview":self, u"head": form.HTMLHead()}
+
+
+    def editroot(self):
+        self.ResetFlashMessages()
+        defaultroot = self.context.app.root()
+        form = HTMLForm(view=self, context=defaultroot, loadFromType=self.context.configuration)
+        form.use_ajax = True
+        form.Setup(subset="edit")
+
+        def updateRoot(data):
+            # map pool_filename to deault root
+            defaultroot.Update(data, user=self.User())
+            if "pool_filename" in data:
+                del data["pool_filename"]
+            self.context.Update(data, user=self.User())
+        form.ListenEvent("success", updateRoot)
+        
+        default = form.LoadObjData(defaultroot)
+        result, data, action = form.Process(redirectSuccess="page_url", defaultData=default)
         return {u"content": data, u"result": result, u"cmsview":self, u"head": form.HTMLHead()}
 
 
