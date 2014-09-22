@@ -19,6 +19,7 @@ from nive.components.baseobjects import (
 )
 from nive.definitions import implements
 from nive.definitions import IPage, IPageContainer, IPageElement, IFile, IPageElementContainer, IFolder
+from nive.definitions import ConfigurationError
 from nive.helper import DecorateViewClassWithViewModuleConf
 
 # page elements for subclassing --------------------------------------------
@@ -120,7 +121,7 @@ class FolderBase(ContainerCopy, PageElement, ObjectContainerBase):
 
 from nive.views import BaseView
 from nive.helper import ResolveName
-from nive.definitions import ICMSRoot, IViewModuleConf
+from nive.definitions import ICMSRoot, IViewModuleConf, IPage
 
 class DesignBase(BaseView):
     """
@@ -133,9 +134,15 @@ class DesignBase(BaseView):
     def __init__(self, context, request):
         super(DesignBase, self).__init__(context, request)
         # the viewModule is used for template/template directory lookup
-        #self.viewModuleID = "design"
-        if not self.viewModule:
-            raise ConfigurationError, "'design' view module configuration not found"
+        #if not self.viewModule:
+        #    raise ConfigurationError, "'design' view module configuration not found"
+
+    def view(self):
+        # redirect if page is linked
+        if IPage.providedBy(self) and self.context.IsLinked():
+            return self.Redirect(self.context.data["pagelink"])
+        values = {u"cmsview": self.editorview, u"context": self.context, u"view": self}
+        return self.DefaultTemplateRenderer(values)
 
     @property
     def editorview(self):

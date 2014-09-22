@@ -1,3 +1,3 @@
-include *.txt *.ini *.cfg
+include *.txt *.ini *.cfg *.md
 recursive-include nive_cms *
 global-exclude *.pyc 

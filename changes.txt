@@ -3,6 +3,10 @@
 0.9.13b
 ------
 Update from 0.9.12 requires manual changes! Sorry.
+
+- the file `nive_cms.code.py` has been renamed to `nive_cms.codeblock.py`. Module
+  registrations have to changed: `nive_cms.code` to `nive_cms.codeblock`
+
 - extracted `nive_cms.design` and moved to separated package `nive_cms_design_bs2`
   Please replace all imports of `nive_cms.design` to `nive_cms_design_bs2`. And 
   do not forget to install the package first.
