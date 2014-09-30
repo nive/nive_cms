@@ -9,7 +9,7 @@ from nive.definitions import ViewModuleConf, ViewConf, WidgetConf
 from nive_cms.cmsview.view import Editor
 
 
-configuration = ViewModuleConf(
+configuration = ViewModuleConf("nive_cms.cmsview.view.configuration",
     id = "wfview",
     name = _(u"CMS workflow extension"),
     static = "nive_cms.workflow:static",
