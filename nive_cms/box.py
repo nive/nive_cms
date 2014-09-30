@@ -18,7 +18,7 @@ class box(PageElementContainerBase):
 
     @property
     def page(self):
-        return self.parent
+        return self.parent.GetPage()
 
     def IsContainer(self):
         #
@@ -30,7 +30,7 @@ class box(PageElementContainerBase):
     
     def GetPage(self):
         # return the current element container
-        return self.parent
+        return self.parent.GetPage()
 
     def GetElementContainer(self):
         # return the current element container
