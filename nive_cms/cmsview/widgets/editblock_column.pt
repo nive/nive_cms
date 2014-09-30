@@ -8,7 +8,7 @@
 <!-- add edit -->
 <tal:block tal:condition="not column or not column.IsLocal(page)">
   <div class="options_block">
-    <a tal:attributes="href view.FolderUrl(page)+'add?'+view.FmtURLParam(pool_type='column', title=name)" class="nivecms" rel="niveOverlay"
+    <a tal:attributes="href view.FolderUrl(page)+'@add?'+view.FmtURLParam(pool_type='column', title=name)" class="nivecms" rel="niveOverlay"
        ><img tal:attributes="src static+'types/column_add.png'" 
              title="Add a local column to this page" align="top" i18n:attributes="title"> </a>
   </div>
