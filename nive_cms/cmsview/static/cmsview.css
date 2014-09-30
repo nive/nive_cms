@@ -73,8 +73,6 @@ nav .btn-group {margin-top:5px;}
 
 
 /* error handling, messages */
-.alert-error { border: 1px solid #999999; background-color: #ffcaca; width: auto; padding: 10px; }
-.alert-info { border: 1px solid #999999; background-color: #ecffc6; width: auto; padding: 0px; }
 .alert ul { margin:0px; padding:0px; }
 .alert li { margin:0px; padding:0px;list-style: none; }
 .poolform .req { color: red; }
