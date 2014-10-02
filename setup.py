@@ -47,6 +47,7 @@ setupkw = dict(
         [pyramid.scaffold]
         defaultSqlite=nive_cms.scaffolds:DefaultSqliteTemplate
         defaultMysql=nive_cms.scaffolds:DefaultMysqlTemplate
+        defaultPostgreSQL=nive_cms.scaffolds:DefaultPostgreSQLTemplate
       """
 )
 
