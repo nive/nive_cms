@@ -3,7 +3,7 @@
 import time
 import unittest
 
-from pyramid import testing 
+from pyramid import testing
 from pyramid.httpexceptions import HTTPFound
 from pyramid.renderers import render
 
