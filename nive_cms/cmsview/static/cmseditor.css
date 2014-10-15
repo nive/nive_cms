@@ -41,11 +41,11 @@
   margin-bottom:20px;
 }
 .pageeditorEditblock a {
-  background: none;
+  background: none !important;
   float: none;
-  display: inline;
+  display: inline !important;
   margin: 0px;
-  padding: 0px;
+  padding: 0px !important;
   font-size:9pt;
   line-height:1.3em;
   font-family: Verdana, Arial, sans-serif;
