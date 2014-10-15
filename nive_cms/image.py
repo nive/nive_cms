@@ -16,14 +16,8 @@ activated by adding `nive_cms.extensions.images.ImageProcessor` to configuration
     ProfileImage = Conf(source="imagefull", dest="image", format="JPEG", 
                         quality="85", width=360, height=0, extension="jpg", 
                         condition=CheckDeafult)
-    ProfileTeaser = Conf(source="imagefull", dest="image", format="JPEG", 
-                         quality="85", width=260, height=0, extension="jpg", 
-                         condition=CheckTeaser)
-    ProfileTeaserSmall = Conf(source="imagefull", dest="image", format="JPEG", 
-                              quality="90", width=160, height=0, extension="jpg", 
-                              condition=CheckTeaserSmall)
-    
-    configuration.imageProfiles = [ProfileImage, ProfileTeaser, ProfileTeaserSmall]
+
+    configuration.imageProfiles = [ProfileImage]
 
 The default image settings for conversions. 
 """

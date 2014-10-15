@@ -159,8 +159,6 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
 
     def __init__(self, context, request):
         super(Editor, self).__init__(context, request)
-        # the viewModule is used for template/template directory lookup
-        #self.viewModuleID = "editor"
         request.editmode = "editmode"
         
     def IsEditmode(self):
