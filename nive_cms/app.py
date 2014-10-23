@@ -51,7 +51,7 @@ import copy
 from nive_cms.i18n import _
 from nive.definitions import implements, IWebsite
 from nive.definitions import AppConf, FieldConf, GroupConf
-from nive.definitions import AllMetaFlds
+
 from nive.security import ALL_PERMISSIONS, Allow, Everyone, Deny
 from nive.components.objects.base import ApplicationBase
 from nive_cms.extensions.path import AlternateAppPath

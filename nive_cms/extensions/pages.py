@@ -6,14 +6,10 @@ __doc__ = """
 Extensions for easier Page, Column and Page element handling.
 """
 
-import string
 from datetime import datetime
-from pyramid.security import has_permission
 
-from nive.utils.utils import ConvertToList
 from nive.definitions import StagPage, StagPageElement
 from nive.definitions import IColumn, IPage, IRoot
-from nive.security import Allow, Deny, Authenticated, Everyone
 
 
 class PageContainer:

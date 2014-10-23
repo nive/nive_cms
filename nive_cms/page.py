@@ -17,9 +17,8 @@ Optionally pages can
 
 from nive_cms.i18n import _
 
-from nive.definitions import StagPage, StagPageElement, ObjectConf, FieldConf
+from nive.definitions import StagPage, ObjectConf, FieldConf
 from nive_cms.baseobjects import PageBase
-from nive.security import Allow, Deny, Authenticated, Everyone
 
 
 class page(PageBase):

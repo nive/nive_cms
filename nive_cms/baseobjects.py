@@ -19,7 +19,6 @@ from nive.components.baseobjects import (
 )
 from nive.definitions import implements
 from nive.definitions import IPage, IPageContainer, IPageElement, IFile, IPageElementContainer, IFolder
-from nive.definitions import ConfigurationError
 from nive.helper import DecorateViewClassWithViewModuleConf
 
 # page elements for subclassing --------------------------------------------

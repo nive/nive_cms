@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import time
 import unittest
 
 from pyramid import testing
 from pyramid.httpexceptions import HTTPFound
 from pyramid.renderers import render
 
-from nive_cms.tests.db_app import *
-
+from nive.security import User
 from nive_cms.cmsview.view import *
 from nive_cms.workflow.view import WorkflowEdit
 from nive_cms.workflow import wf
 
 from nive_cms.tests import __local 
+from nive_cms.tests.db_app import *
 
 
 class tWf(__local.DefaultTestCase):

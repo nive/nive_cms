@@ -17,8 +17,6 @@ from nive.definitions import IWebsiteRoot, implements
 from nive.definitions import RootConf
 
 
-from nive_cms.extensions.path import PersistentRootPath
-
 class root(PageRootBase):
 
     implements(IWebsiteRoot)

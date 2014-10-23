@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import time
 import unittest
 
 from nive.utils.path import DvPath
 from nive.definitions import AppConf, DatabaseConf
-from nive.security import User
 from nive.portal import Portal
 from nive_cms.app import WebsitePublisher
 from nive import File

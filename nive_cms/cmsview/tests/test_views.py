@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import time
 import unittest
-
-from nive.definitions import Conf
-
-from nive_cms.tests.db_app import *
-from nive_cms.cmsview.view import *
 
 from pyramid import testing
 from pyramid.httpexceptions import HTTPFound
 from pyramid.renderers import render
 
+from nive.security import User
+
+from nive_cms.cmsview.view import *
+
+from nive_cms.tests.db_app import *
 from nive_cms.tests import __local
 
 

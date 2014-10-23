@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import time
 import unittest
 
 from nive.helper import FormatConfTestFailure

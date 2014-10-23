@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import time
 import unittest
 
 from nive.workflow import WorkflowNotAllowed
-from nive.security import Allow, Deny, Authenticated, Everyone
-from nive.definitions import DatabaseConf
+from nive.security import Allow, Deny, Authenticated, Everyone, User
 
 from nive_cms.tests.db_app import *
 from nive_cms.tests import __local
