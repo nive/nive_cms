@@ -52,12 +52,13 @@ configuration = RootConf(
 )
 
 configuration.data = [
-    FieldConf(id=u"pool_filename",   datatype="string", size=30,   required=1, name=_(u"Root url name"),
+    FieldConf(id=u"pool_filename",   datatype="string",      size=30,   required=1,  name=_(u"Root url name"),
               settings={"validator": RootnameValidator}, default=u""),
-    FieldConf(id=u"title",           datatype="string", size=255,  required=0, name=_(u"Root title"), default=configuration.name),
-    FieldConf(id=u"description",     datatype="text",   size=5000, required=0, name=_(u"Root description")),
-    FieldConf(id=u"pool_groups",      datatype="mcheckboxes", size=250, default="", name=_(u"Permission"),
-              description=_(u"Only displayed to users in the selected group"))
+    FieldConf(id=u"title",           datatype="string",      size=255,  required=0,  name=_(u"Root title"),
+              default=configuration.name),
+    FieldConf(id=u"description",     datatype="text",        size=5000, required=0,  name=_(u"Root description")),
+    FieldConf(id=u"pool_groups",     datatype="mcheckboxes", size=250,  required=0,  name=_(u"Permission"),
+              default=u"", description=_(u"Only displayed to users in the selected group"))
 ]
 
 

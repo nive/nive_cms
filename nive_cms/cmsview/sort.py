@@ -62,6 +62,7 @@ class Sort:
             # check if listed objects are objects or ids
             if not IObject.providedBy(oi):
                 ids.append(int(oi))
+        objs2 = []
         if ids:
             # load remaining objects by id
             objs2 = self.GetObjsBatch(ids)

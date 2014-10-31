@@ -31,16 +31,10 @@ See PIL documentation for possible format and quality values.
  
 """
 
-from nive.definitions import Conf
 from nive.utils.path import DvPath
 from nive import File
 from nive.helper import ResolveName
 from nive_cms.i18n import _
-
-import sys
-from time import time
-
-from StringIO import StringIO
 
 PILloaded = 1
 try:     from PIL import Image

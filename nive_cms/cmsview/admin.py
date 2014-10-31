@@ -34,7 +34,7 @@ configuration.views = [
 configuration.widgets = [
     WidgetConf(name=_(u"Design"), viewmapper="design", id="admin.design", sort=1500,   apply=(IApplication,), widgetType=IAdminWidgetConf,
                description=u""),
-    WidgetConf(name=_(u"Help"),                 viewmapper="help",   id="admin.help",   sort=50000,  apply=(IApplication,), widgetType=IAdminWidgetConf,
+    WidgetConf(name=_(u"Help"),   viewmapper="help",   id="admin.help",   sort=50000,  apply=(IApplication,), widgetType=IAdminWidgetConf,
                description=_(u"Help and documentation.")),
 ]
 
