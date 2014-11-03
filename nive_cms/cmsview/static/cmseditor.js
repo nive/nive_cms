@@ -14,7 +14,7 @@ Uses cookies to store settings between page relods.
         editblockPrefix: "#nive-editblock",
         elementPrefix: "#nive-element",
         editblockViewUrl: "@editblock"
-    }
+    };
 
     $(document).ready(function(){
         // automatically add named anchors to each page element
@@ -25,7 +25,7 @@ Uses cookies to store settings between page relods.
         // load current setting from cookie
         if(_settings.useCookies) {
             var v=$.cookie("peEnabled");
-            if(v!=null) _settings.enabled=v=="true"?true:false;
+            if(v!=null) _settings.enabled=v=="true";
         }
         $.fn.editblocks().enable(true);
         // patch pagelement links to handle overlaying clicks.
@@ -65,45 +65,45 @@ Uses cookies to store settings between page relods.
           $('.pageeditorEditblock').each( function(index) {
             _settings.enabled ? $(this).show() : $(this).hide();
           });
-        }
+        };
         
         this.showBlock = function(blockid) {
           $(blockid).show('slow');
-        }
+        };
         
         this.hideBlock = function(blockid) {
           $(blockid).hide('slow');
-        }
+        };
         
         this.loadToggleBlock = function(url, blockid) {
           ref = $(blockid);
           if(ref.html()=="") { ref.load(url, function(){ ref.toggle('fast'); $.niveOverlay(blockid); $.niveAction(blockid);}); return; }
           ref.toggle('fast');
-        }
+        };
         
         this.toggleBlock = function(blockid) {
           $('.pageeditorEditblockElement').each( function(index) {
             if("#"+$(this).attr("id")!=blockid) $(this).hide('fast');
           });
           $(blockid).toggle('fast');
-        }
+        };
         
         this.hideAll = function() {
           $('.pageeditorEditblockElement').each( function(index) {
             $(this).hide('fast');
           });
-        }
+        };
         
         this.toggleMenu = function(blockid, event, hideBlockid) {
           $(hideBlockid).hide('fast');
           $(blockid).toggle('fast');
-        }
+        };
         
         this.stopEvent = function(event) {
           if(!_settings.enabled) return false;
           if( event.stopPropagation ) { event.stopPropagation(); } 
           else { event.cancelBubble = true; } // IE
-        }
+        };
         
         /* page element functions */
         
@@ -122,19 +122,19 @@ Uses cookies to store settings between page relods.
                      }).error(function(jqXHR, textStatus, errorThrown) { /*alert("?"); errorThrown*/ });
           }
           else this.toggleBlock(eid);
-        }
+        };
         
         this.clickElement = function(id, event) {
           if(!_settings.enabled) return false;
           this.stopEvent(event);
           this.toggleBlock(_settings.editblockPrefix+id);
-        }
+        };
         
         this.dblClickElement = function(id, event) {
           if(!_settings.enabled) return false;
           this.stopEvent(event);
           this.toggleBlock(_settings.editblockPrefix+id);
-        }
+        };
         return this;
     };
 })(jQuery);
@@ -166,7 +166,7 @@ Example: ::
         forceReload: false,          // adds a random number to the url if true
         fadeInSpeed: 300,
         fadeOutSpeed: 300
-    }
+    };
 
     /**********************************
     * DO NOT CUSTOMIZE BELOW THIS LINE
@@ -174,19 +174,19 @@ Example: ::
     $.niveOverlay = function (id) {
         if(id) $(id+" a[rel^='niveOverlay']").attr("onClick", "$(this).modal().open(); return false;");
         else   $("a[rel^='niveOverlay']").attr("onClick", "$(this).modal().open(); return false;");
-    }
+    };
     $.modal = function (options) {
         return _modal(this, options);
-    }
+    };
     $.modal.open = function () {
         _modal.open();
-    }
+    };
     $.modal.close = function () {
         _modal.close();
-    }
+    };
     $.fn.modal = function (options) {
         return _modal(this, options);
-    }
+    };
     _modal = function (sender, params) {
         this.options = {
             parent: null,
@@ -200,7 +200,7 @@ Example: ::
             src: function (sender) {
                 return jQuery(sender).attr('href');
             }
-        }
+        };
         this.options = $.extend({}, options, _settings);
         this.options = $.extend({}, options, params);
         if(!$(this.options.parent).length) this.options.parent='body'; // fallback if container undefined
@@ -222,11 +222,11 @@ Example: ::
                         location.href=url; 
                       } 
                    });
-        }
+        };
         this.cancel = function () {
             jQuery('.' + options.modalClassName + ', .' + options.overlayClassName).fadeOut(options.fadeOutSpeed, function () {
                       jQuery(this).unbind().remove(); });
-        }
+        };
         this.open = function () {
             if (typeof options.src == 'function') {
                 options.src = options.src(sender);
@@ -274,9 +274,9 @@ Example: ::
                 if(options.closeOnClickOutside)
                     $overlay.click(function () { if(!confirm("Close window?")) return; jQuery.modal().cancel(); });
             }
-        }
+        };
         return this;
-    }
+    };
     _isIE6 = function () {
         if (document.all && document.getElementById) {
             if (document.compatMode && !window.XMLHttpRequest) {
@@ -284,7 +284,7 @@ Example: ::
             }
         }
         return false;
-    }
+    };
     _getOpacity = function (sender) {
         $sender = jQuery(sender);
         opacity = $sender.css('opacity');
@@ -318,22 +318,22 @@ Example: ::
         id: 'callaction',
         src: function (sender) {
             return jQuery(sender).attr('href');
-        },
-    }
+        }
+    };
 
     $.niveAction= function (id) {
         if (id) $(id + " a[rel^='niveAction']").attr("onClick", "$(this).callaction(); return false;");
         else    $("a[rel^='niveAction']").attr("onClick", "$(this).callaction(); return false;");
-    }
+    };
     $.callaction = function () {
         return "";
-    }
+    };
     $.fn.callaction = function () {
         var href = jQuery(this).attr('href');
         $.ajax(href)
-            .done($nive_actiondelegation)
+            .done($.fn.nive_actiondelegation)
             .fail(function(jqXHR, message, error)   { console.log(message); });
-    }
+    };
     $.fn.nive_actiondelegation = function (data, message, jdXHR) {
         var loc = data.location || jdXHR.getResponseHeader('X-Relocate');
         if(data.refresh) {
