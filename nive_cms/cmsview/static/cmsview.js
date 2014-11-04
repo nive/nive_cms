@@ -16,22 +16,22 @@ Example: ::
         id: 'callaction',
         src: function (sender) {
             return jQuery(sender).attr('href');
-        },
-    }
+        }
+    };
 
     $.niveAction= function (id) {
         if (id) $(id + " a[rel^='niveAction']").attr("onClick", "$(this).callaction(); return false;");
         else    $("a[rel^='niveAction']").attr("onClick", "$(this).callaction(); return false;");
-    }
+    };
     $.callaction = function () {
         return "";
-    }
+    };
     $.fn.callaction = function () {
         var href = jQuery(this).attr('href');
         $.ajax(href)
             .done($(this).nive_actiondelegation)
             .fail(function(jqXHR, message, error)   { console.log(message); });
-    }
+    };
     $.fn.nive_actiondelegation = function (data, message, jdXHR) {
         var loc = data.location || jdXHR.getResponseHeader('X-Relocate');
         if (data.refresh || data.refresh==undefined) {
