@@ -66,7 +66,7 @@ configuration = AppConf(
     translations="nive_cms:locale/"
 )
 
-configuration.meta.append(FieldConf(id="pool_groups", datatype="mcheckboxes", size=250, default="", 
+configuration.meta.append(FieldConf(id="pool_groups", datatype="checkbox", size=250, default="",
                                     name=_(u"Permission"), 
                                     description=_(u"Only displayed to users in the selected group")))
 

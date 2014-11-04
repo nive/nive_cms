@@ -68,7 +68,7 @@ configuration.data = [
               name=_(u"Highlight box contents"), description=_(u"This option will add a colored background to highlight the box and its contents.")),
     FieldConf(id="gallery", datatype="bool", size=2, default=False,  
               name=_(u"Use as image gallery"), description=_(u"Use this setting if you want to add floating image teasers to this box.")),
-    FieldConf(id="responsive", datatype="mcheckboxes", size=20, default=u"", listItems=(), 
+    FieldConf(id="responsive", datatype="checkbox", size=20, default=u"", listItems=(),
               name=_(u"Enable responsive layout"), description=_(u"Show and hide the box and it contents. The setting takes effect based on viewport or browser window sizes. It does not check the hardware device. Please note: The responsive setting is ignored in edit mode.")),
 ]
 
