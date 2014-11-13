@@ -45,9 +45,9 @@ setupkw = dict(
       test_suite="nive_cms",
       entry_points = """\
         [pyramid.scaffold]
-        defaultSqlite=nive_cms.scaffolds:DefaultSqliteTemplate
-        defaultMysql=nive_cms.scaffolds:DefaultMysqlTemplate
-        defaultPostgreSQL=nive_cms.scaffolds:DefaultPostgreSQLTemplate
+        cms-sqlite=nive_cms.scaffolds:DefaultSqliteTemplate
+        cms-pysql=nive_cms.scaffolds:DefaultMysqlTemplate
+        cms-postgres=nive_cms.scaffolds:DefaultPostgreSQLTemplate
       """
 )
 
