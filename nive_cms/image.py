@@ -31,7 +31,14 @@ from nive_cms.extensions.images import PILloaded
 class image(PageElementFileBase):
     """
     """
-    
+    # bw 0.9.11
+    def Span(self):
+        # css class span for the css selection
+        if self.data.cssClass=="teaserl":
+            return u"span4"
+        elif self.data.cssClass=="teasers":
+            return u"span2"
+        return u"span3"    
 
 
 # image type definition ------------------------------------------------------------------

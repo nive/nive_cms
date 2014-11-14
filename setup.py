@@ -34,7 +34,7 @@ setupkw = dict(
       ],
       author='Arndt Droullier, Nive GmbH',
       author_email='info@nive.co',
-      url='http://cms.nive.co',
+      url='http://www.nive.co/website/en/open_source.html',
       keywords='cms website publisher pyramid',
       license='GPL 3',
       packages=find_packages(),
