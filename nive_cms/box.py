@@ -51,6 +51,7 @@ configuration =  ObjectConf(
     context = "nive_cms.box.box",
     template = "box.pt",
     selectTag = StagPageElement,
+    subtypes = ("nive.definitions.INonContainer",),
     container = True,
     icon = "nive_cms.cmsview:static/images/types/box.png",
     description = _(u"A box is a container to group elements on a page. It can be used as an" 

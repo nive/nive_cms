@@ -167,7 +167,7 @@ class PageElementContainer:
         """
         elements = []
         for t in self.app.GetAllObjectConfs():
-            if t["selectTag"] == StagPageElement and not t.get("hidden"):
+            if t["selectTag"] == StagPageElement and not t.get("hidden") and self.IsTypeAllowed(t, user):
                 elements.append(t)
         return elements
 
