@@ -271,8 +271,13 @@ Example: ::
                 $modal.fadeIn(options.fadeInSpeed);
       
                 $close.click(function () { jQuery.modal().close(); });
-                if(options.closeOnClickOutside)
-                    $overlay.click(function () { if(!confirm("Close window?")) return; jQuery.modal().cancel(); });
+                if(options.closeOnClickOutside) {
+                    $overlay.click(function () {
+                        event = arguments[0];
+                        if (!event.ctrlKey && !confirm("Close window?")) return;
+                        jQuery.modal().cancel();
+                    });
+                }
             }
         };
         return this;
