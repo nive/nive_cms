@@ -20,7 +20,7 @@ class note(PageElementBase):
     def Init(self):
         self.ListenEvent("commit", "TextToTitle")
 
-    def TextToTitle(self):
+    def TextToTitle(self, **kw):
         text = ConvertHTMLToText(self.data.get("textblock"), removeReST=True)
         self.meta["title"] = CutText(text, self.titleLen, postfix=u"")
         return True

@@ -32,7 +32,7 @@ class PageFulltext(object):
 
     # Fulltext ------------------------------------------
 
-    def UpdateFulltext(self):
+    def UpdateFulltext(self, **kw):
         """
         Update fulltext for entry. Text is generated automatically.
         """

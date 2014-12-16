@@ -174,7 +174,7 @@ class ImageProcessor(object):
         if PILloaded:
             self.ListenEvent("commit", "ProcessImages")
 
-    def ProcessImages(self):
+    def ProcessImages(self, **kw):
         images = []
         keys = self.files.keys()
         for p in self.configuration.imageProfiles:

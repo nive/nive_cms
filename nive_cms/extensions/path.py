@@ -178,7 +178,7 @@ class PersistentRootPath(object):
         self.ListenEvent("dataloaded", "UpdateRouting")
         self.UpdateRouting()
 
-    def UpdateRouting(self):
+    def UpdateRouting(self, **kw):
         # check url name of root
         if self.meta.get("pool_filename"):
             name = self.meta.get("pool_filename")
