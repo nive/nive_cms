@@ -39,6 +39,9 @@ class CMSLocalGroups(object):
             acl.append((Deny, Everyone, permission))
             self.__acl__ = tuple(acl)
 
+    @property
+    def securityID(self):
+        return self._secid
 
     def GetLocalGroups(self, username, user=None):
         """
@@ -61,7 +64,7 @@ class CMSLocalGroups(object):
         [username, group, id]. This function does not include parent level
         settings.
         """
-        return self.db.GetGroups(self._secid)
+        return self.db.GetGroups(self.securityID)
 
 
     def AddOwner(self, user, **kw):
@@ -83,7 +86,7 @@ class CMSLocalGroups(object):
         if username==None:
             return
         self._AddLocalGroupsCache(username, group)
-        self.db.AddGroup(self._secid, userid=username, group=group)
+        self.db.AddGroup(self.securityID, userid=username, group=group)
 
         
     def RemoveLocalGroups(self, username, group=None):
@@ -92,21 +95,21 @@ class CMSLocalGroups(object):
         will be removed.
         """
         self._DelLocalGroupsCache(username, group)
-        self.db.RemoveGroups(self._secid, userid=username, group=group)
+        self.db.RemoveGroups(self.securityID, userid=username, group=group)
 
 
     def RemoveGroups(self, **kw):
         """
         Remove all group assignments before deleting the object. 
         """
-        self.db.RemoveGroups(self._secid)
+        self.db.RemoveGroups(self.securityID)
         self._localRoles = {}
         
 
     def _LocalGroups(self, username):
         if username in self._localRoles:
             return list(self._localRoles[username])
-        g = [r[1] for r in self.db.GetGroups(self._secid, userid=username)]
+        g = [r[1] for r in self.db.GetGroups(self.securityID, userid=username)]
         self._localRoles[username] = tuple(g)
         return g
     
