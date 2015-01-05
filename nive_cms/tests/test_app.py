@@ -105,7 +105,6 @@ class ObjectTest_db(object):
         self.assert_(p.IsPage())
         p.meta["pool_groups"] = ["sys:authenticated","another"]
         p.Signal("init")
-        self.assert_((Allow, Authenticated, "view") in p.__acl__)
 
         r = p
         b0 = create_menublock(r, user=user)
