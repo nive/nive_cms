@@ -99,7 +99,7 @@ sendMail = ToolConf("nive.tools.sendMail",
         "sender":"",
         "user":"",
         "pass_":"",
-        "sendername":"My Website",
+        "fromName":"",
         "fromMail":""
     }
 )
