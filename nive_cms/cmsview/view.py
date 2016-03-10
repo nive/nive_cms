@@ -647,11 +647,9 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         self.ResetFlashMessages()
         class DeleteForm(HTMLForm):
             def Delete(self, action, **kw):
-                redirectSuccess = kw.get("redirectSuccess")
                 msgs = []
                 result,data,errors = self.Validate(self.request)
                 if result:
-                    obj=self.context
                     user = kw.get("user") or self.view.User()
                     obj = self.context.obj(data.get("id"))
                     if not obj:
@@ -664,7 +662,7 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
         form = DeleteForm(view=self)
         form.actions = [
             Conf(id="default",    method="StartRequestGET", name=u"Initialize",     hidden=True),
-            Conf(id="delete",     method="Delete",    name=_(u"Delete all"),  hidden=False),
+            Conf(id="delete",     method="Delete",    name=_(u"Delete"),  hidden=False),
         ]
         form.fields = [
             FieldConf(id="id",     name=u"ids",   datatype="number", hidden=True, required=True),

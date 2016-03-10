@@ -17,7 +17,7 @@
     <div class="alert alert-warning">
       <b tal:content="objToDelete.GetTitle()"/> (<span tal:content="objToDelete.GetTypeName()" i18n:translate="" />)
       <p>
-      <i tal:condition="not objToDelete.IsPage()" i18n:translate="">Warning: This will delete the element and all it's contents!</i>
+      <i tal:condition="not objToDelete.IsPage() and objToDelete.IsContainer()" i18n:translate="">Warning: This will delete the element and all it's contents!</i>
       <i tal:condition="objToDelete.IsPage()" i18n:translate="">Warning: This will delete the page and all sub pages!</i>
       </p>
     </div>
