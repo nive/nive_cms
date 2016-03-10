@@ -163,7 +163,7 @@ Example: ::
         overlayOpacity: 50,          // Use this value if not set in CSS or HTML
         reloadOnClose: true,         // reload the parent on close
         closeOnClickOutside: true,   // ask and close if clicked outside overlay
-        forceReload: false,          // adds a random number to the url if true
+        forceReload: true,          // adds a random number to the url if true
         fadeInSpeed: 300,
         fadeOutSpeed: 300
     };
