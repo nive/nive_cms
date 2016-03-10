@@ -40,7 +40,7 @@
   margin-top:4px;
   margin-bottom:20px;
 }
-.pageeditorEditblock a {
+.pageeditorEditblock a, .pageeditorEditblock a:hover {
   background: none !important;
   float: none;
   display: inline !important;
@@ -62,7 +62,7 @@
   font-size:9pt;
   line-height:1.2em;
 }
-.peMenu .menuHeader a {
+.peMenu .menuHeader a, .peMenu .menuHeader a:hover {
   margin-right: 10px;
   cursor: pointer;
   font-size:9pt;
@@ -127,7 +127,7 @@
   text-transform: none;
   color: black;
 }
-.addElements a {
+.addElements a, .addElements a:hover {
   margin: 0px;
   display: block;
   padding: 5px;
@@ -140,10 +140,6 @@
 }
 .addElements a img {
   padding-right: 10px;
-}
-.addElements a:hover {
-  background-color: #eaeaff;
-  text-decoration:none;
 }
 .addElements .pagedelete {
   clear:both;
@@ -177,7 +173,7 @@
   text-transform: none;
   color: black;
 }
-.listElements a {
+.listElements a, .listElements a:hover {
   margin: 0px;
   display: block;
   padding: 0px;
@@ -185,10 +181,6 @@
   line-height:1.2em;
   font-family: Verdana, Arial, sans-serif;
   color: black;
-}
-.listElements a:hover {
-  background-color: #eaeaff;
-  text-decoration:none;
 }
 .listElements .element {
   border-top: 1px solid #cdcdcd;
@@ -221,7 +213,7 @@
   width: 190px;
   padding-right: 6px;
 }
-.listElements .el_options a {
+.listElements .el_options a, .listElements .el_options a:hover {
   margin: 0px;
   width: auto;
   display: inline;
