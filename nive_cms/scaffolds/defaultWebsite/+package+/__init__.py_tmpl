@@ -18,7 +18,8 @@ for all configuration options.
 """
 website = AppConf("nive_cms.app",
     title=u"My website", 
-    id="website"
+    id="website",
+    timezone=None
 )
 dbConfiguration = DatabaseConf(
     fileRoot="{{root}}/files",
