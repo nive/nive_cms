@@ -1,4 +1,8 @@
 
+1.0rc3
+------
+- disabled root url name in settings form. use python based configuration instead.
+
 1.0rc1
 ------
 - maintenance and bugfixes
