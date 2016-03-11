@@ -626,16 +626,14 @@ class Editor(BaseView, cutcopy.CopyView, sort.SortView):
     def editroot(self):
         self.ResetFlashMessages()
         defaultroot = self.context.app.root()
-        form = HTMLForm(view=self, context=defaultroot, loadFromType=self.context.configuration)
+        form = HTMLForm(view=self, context=defaultroot, loadFromType=defaultroot.configuration)
         form.use_ajax = True
         form.Setup(subset="edit")
 
         def updateRoot(data):
             # map pool_filename to deault root
             defaultroot.Update(data, user=self.User())
-            if "pool_filename" in data:
-                del data["pool_filename"]
-            self.context.Update(data, user=self.User())
+            #self.context.app.CloseRoot(ref)
         form.ListenEvent("success", updateRoot)
         
         default = form.LoadObjData(defaultroot)
