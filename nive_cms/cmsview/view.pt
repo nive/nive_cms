@@ -7,6 +7,20 @@
 
 <div tal:condition="context.IsPage()" class="span12">
 <div class="listElements">
+    <h4 i18n:translate="">Options</h4>
+    <div class="element">
+        <a tal:attributes="href view.FolderUrl(context.parent)+'@sortpages'"
+           class="nivecms"><img tal:attributes="src static+'images/sort.png'"
+                 title="Sort sub pages" i18n:attributes="title"> <span i18n:translate="">Sort sub pages</span></a>
+        <a tal:attributes="href view.FolderUrl(context.parent)+'@add'"
+           class="nivecms"><img tal:attributes="src static+'images/create.png'"
+                 title="Add" i18n:attributes="title"> <span i18n:translate="">Add</span></a>
+    </div>
+</div>
+</div>
+
+<div tal:condition="context.IsPage()" class="span12">
+<div class="listElements">
     <h4 i18n:translate="">Sub pages</h4>
     <div tal:condition="not context.IsRoot()" class="element">
     <a tal:attributes="href view.FolderUrl(context.parent)+'@view'"
